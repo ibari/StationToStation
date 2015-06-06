@@ -11,6 +11,15 @@
 		9C40DA4E1B21563A001AEBBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA4D1B21563A001AEBBF /* AppDelegate.swift */; };
 		9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C40DA541B21563A001AEBBF /* Images.xcassets */; };
 		9C40DA641B21563A001AEBBF /* StationToStationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA631B21563A001AEBBF /* StationToStationTests.swift */; };
+		AB34F2601B23A75300E14AB1 /* DataStoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */; };
+		AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F25F1B23A75300E14AB1 /* Utils.swift */; };
+		AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AB34F2651B23AFDF00E14AB1 /* Podfile */; };
+		AB34F2691B23AFDF00E14AB1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AB34F2661B23AFDF00E14AB1 /* LICENSE */; };
+		AB34F26A1B23AFDF00E14AB1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AB34F2671B23AFDF00E14AB1 /* README.md */; };
+		AB34F26C1B23B12000E14AB1 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB34F26B1B23B12000E14AB1 /* Test.storyboard */; };
+		AB34F26E1B23B2F900E14AB1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */; };
+		ABC4ED941B23A61E00CF5981 /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABC4ED931B23A61E00CF5981 /* secrets.plist */; };
+		ABC4ED961B23A62E00CF5981 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC4ED951B23A62E00CF5981 /* Vote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +40,16 @@
 		9C40DA5D1B21563A001AEBBF /* StationToStationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StationToStationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C40DA621B21563A001AEBBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C40DA631B21563A001AEBBF /* StationToStationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationToStationTests.swift; sourceTree = "<group>"; };
+		AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreClient.swift; sourceTree = "<group>"; };
+		AB34F25F1B23A75300E14AB1 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		AB34F2621B23A83800E14AB1 /* StationToStation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StationToStation-Bridging-Header.h"; sourceTree = "<group>"; };
+		AB34F2651B23AFDF00E14AB1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		AB34F2661B23AFDF00E14AB1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		AB34F2671B23AFDF00E14AB1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AB34F26B1B23B12000E14AB1 /* Test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
+		AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		ABC4ED931B23A61E00CF5981 /* secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = secrets.plist; sourceTree = "<group>"; };
+		ABC4ED951B23A62E00CF5981 /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		D0EA335739001B6549F49F64 /* libPods-StationToStation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StationToStation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC08714F9B3C6A5BE6446DD /* Pods-StationToStation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StationToStation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StationToStation/Pods-StationToStation.debug.xcconfig"; sourceTree = "<group>"; };
 		EE15B70B16D103D74AC34388 /* Pods-StationToStation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StationToStation.release.xcconfig"; path = "Pods/Target Support Files/Pods-StationToStation/Pods-StationToStation.release.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +77,8 @@
 		9C2850E71B23A3B60051D05A /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */,
+				AB34F25F1B23A75300E14AB1 /* Utils.swift */,
 				9C40DA6E1B215645001AEBBF /* Controllers */,
 				9C40DA6F1B215653001AEBBF /* Models */,
 				9C40DA6D1B215640001AEBBF /* Views */,
@@ -78,6 +99,9 @@
 		9C40DA3F1B21563A001AEBBF = {
 			isa = PBXGroup;
 			children = (
+				AB34F2651B23AFDF00E14AB1 /* Podfile */,
+				AB34F2661B23AFDF00E14AB1 /* LICENSE */,
+				AB34F2671B23AFDF00E14AB1 /* README.md */,
 				9C40DA4A1B21563A001AEBBF /* StationToStation */,
 				9C40DA601B21563A001AEBBF /* StationToStationTests */,
 				9C40DA491B21563A001AEBBF /* Products */,
@@ -100,6 +124,7 @@
 			children = (
 				9C2850E71B23A3B60051D05A /* Application */,
 				9C2850E81B23A3C70051D05A /* Configuration */,
+				AB34F26B1B23B12000E14AB1 /* Test.storyboard */,
 			);
 			path = StationToStation;
 			sourceTree = "<group>";
@@ -107,6 +132,8 @@
 		9C40DA4B1B21563A001AEBBF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AB34F2621B23A83800E14AB1 /* StationToStation-Bridging-Header.h */,
+				ABC4ED931B23A61E00CF5981 /* secrets.plist */,
 				9C40DA4C1B21563A001AEBBF /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -139,6 +166,7 @@
 		9C40DA6E1B215645001AEBBF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -146,6 +174,7 @@
 		9C40DA6F1B215653001AEBBF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ABC4ED951B23A62E00CF5981 /* Vote.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -249,7 +278,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */,
+				ABC4ED941B23A61E00CF5981 /* secrets.plist in Resources */,
+				AB34F2691B23AFDF00E14AB1 /* LICENSE in Resources */,
 				9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */,
+				AB34F26C1B23B12000E14AB1 /* Test.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +334,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C40DA4E1B21563A001AEBBF /* AppDelegate.swift in Sources */,
+				AB34F2601B23A75300E14AB1 /* DataStoreClient.swift in Sources */,
+				AB34F26A1B23AFDF00E14AB1 /* README.md in Sources */,
+				ABC4ED961B23A62E00CF5981 /* Vote.swift in Sources */,
+				AB34F26E1B23B2F900E14AB1 /* TestViewController.swift in Sources */,
+				AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,9 +447,12 @@
 			baseConfigurationReference = ECC08714F9B3C6A5BE6446DD /* Pods-StationToStation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StationToStation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StationToStation/StationToStation-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -420,9 +461,11 @@
 			baseConfigurationReference = EE15B70B16D103D74AC34388 /* Pods-StationToStation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = StationToStation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StationToStation/StationToStation-Bridging-Header.h";
 			};
 			name = Release;
 		};
