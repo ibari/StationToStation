@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E35104A3E7EB1F47C179D4D /* libPods-StationToStation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EA335739001B6549F49F64 /* libPods-StationToStation.a */; };
+		4AFB84C703669EADE82E1EA7 /* libPods-StationToStation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F9A742435132C8C84A1AA3 /* libPods-StationToStation.a */; };
+		9C2850EE1B23C3B80051D05A /* RdioClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2850ED1B23C3B80051D05A /* RdioClient.swift */; };
+		9C2850F21B23CDBA0051D05A /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C2850F11B23CDBA0051D05A /* Authentication.storyboard */; };
+		9C2850F61B24029E0051D05A /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2850F51B24029E0051D05A /* AuthenticationViewController.swift */; };
+		9C3204551B24145E00BCD3B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3204541B24145D00BCD3B2 /* User.swift */; };
+		9C3204571B2435EE00BCD3B2 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C3204561B2435EE00BCD3B2 /* Rdio.framework */; };
 		9C40DA4E1B21563A001AEBBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA4D1B21563A001AEBBF /* AppDelegate.swift */; };
 		9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C40DA541B21563A001AEBBF /* Images.xcassets */; };
 		9C40DA641B21563A001AEBBF /* StationToStationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA631B21563A001AEBBF /* StationToStationTests.swift */; };
@@ -18,7 +23,6 @@
 		AB34F26A1B23AFDF00E14AB1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AB34F2671B23AFDF00E14AB1 /* README.md */; };
 		AB34F26C1B23B12000E14AB1 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB34F26B1B23B12000E14AB1 /* Test.storyboard */; };
 		AB34F26E1B23B2F900E14AB1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */; };
-		ABC4ED941B23A61E00CF5981 /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABC4ED931B23A61E00CF5981 /* secrets.plist */; };
 		ABC4ED961B23A62E00CF5981 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC4ED951B23A62E00CF5981 /* Vote.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C2850ED1B23C3B80051D05A /* RdioClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdioClient.swift; sourceTree = "<group>"; };
+		9C2850F11B23CDBA0051D05A /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		9C2850F51B24029E0051D05A /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		9C3204541B24145D00BCD3B2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9C3204561B2435EE00BCD3B2 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = "../../../Downloads/rdio-ios-3.0.2/Rdio.framework"; sourceTree = "<group>"; };
 		9C40DA481B21563A001AEBBF /* StationToStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StationToStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C40DA4C1B21563A001AEBBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C40DA4D1B21563A001AEBBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,16 +52,15 @@
 		AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreClient.swift; sourceTree = "<group>"; };
 		AB34F25F1B23A75300E14AB1 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		AB34F2621B23A83800E14AB1 /* StationToStation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StationToStation-Bridging-Header.h"; sourceTree = "<group>"; };
-		AB34F2651B23AFDF00E14AB1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		AB34F2651B23AFDF00E14AB1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AB34F2661B23AFDF00E14AB1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AB34F2671B23AFDF00E14AB1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AB34F26B1B23B12000E14AB1 /* Test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		ABC4ED931B23A61E00CF5981 /* secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = secrets.plist; sourceTree = "<group>"; };
 		ABC4ED951B23A62E00CF5981 /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
-		D0EA335739001B6549F49F64 /* libPods-StationToStation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StationToStation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC08714F9B3C6A5BE6446DD /* Pods-StationToStation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StationToStation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StationToStation/Pods-StationToStation.debug.xcconfig"; sourceTree = "<group>"; };
 		EE15B70B16D103D74AC34388 /* Pods-StationToStation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StationToStation.release.xcconfig"; path = "Pods/Target Support Files/Pods-StationToStation/Pods-StationToStation.release.xcconfig"; sourceTree = "<group>"; };
+		F8F9A742435132C8C84A1AA3 /* libPods-StationToStation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StationToStation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E35104A3E7EB1F47C179D4D /* libPods-StationToStation.a in Frameworks */,
+				9C3204571B2435EE00BCD3B2 /* Rdio.framework in Frameworks */,
+				4AFB84C703669EADE82E1EA7 /* libPods-StationToStation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */,
+				9C2850F01B23C6840051D05A /* RestAPI */,
 				AB34F25F1B23A75300E14AB1 /* Utils.swift */,
 				9C40DA6E1B215645001AEBBF /* Controllers */,
 				9C40DA6F1B215653001AEBBF /* Models */,
@@ -94,6 +104,23 @@
 				9C40DA4B1B21563A001AEBBF /* Supporting Files */,
 			);
 			name = Configuration;
+			sourceTree = "<group>";
+		};
+		9C2850EC1B23C2A00051D05A /* Authentictation */ = {
+			isa = PBXGroup;
+			children = (
+				9C2850F11B23CDBA0051D05A /* Authentication.storyboard */,
+				9C2850F51B24029E0051D05A /* AuthenticationViewController.swift */,
+			);
+			name = Authentictation;
+			sourceTree = "<group>";
+		};
+		9C2850F01B23C6840051D05A /* RestAPI */ = {
+			isa = PBXGroup;
+			children = (
+				9C2850ED1B23C3B80051D05A /* RdioClient.swift */,
+			);
+			name = RestAPI;
 			sourceTree = "<group>";
 		};
 		9C40DA3F1B21563A001AEBBF = {
@@ -133,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				AB34F2621B23A83800E14AB1 /* StationToStation-Bridging-Header.h */,
-				ABC4ED931B23A61E00CF5981 /* secrets.plist */,
 				9C40DA4C1B21563A001AEBBF /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -166,6 +192,7 @@
 		9C40DA6E1B215645001AEBBF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9C2850EC1B23C2A00051D05A /* Authentictation */,
 				AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */,
 			);
 			name = Controllers;
@@ -175,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				ABC4ED951B23A62E00CF5981 /* Vote.swift */,
+				9C3204541B24145D00BCD3B2 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -182,7 +210,8 @@
 		DB82D6CE073313544B0BF872 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D0EA335739001B6549F49F64 /* libPods-StationToStation.a */,
+				9C3204561B2435EE00BCD3B2 /* Rdio.framework */,
+				F8F9A742435132C8C84A1AA3 /* libPods-StationToStation.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -278,8 +307,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C2850F21B23CDBA0051D05A /* Authentication.storyboard in Resources */,
 				AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */,
-				ABC4ED941B23A61E00CF5981 /* secrets.plist in Resources */,
 				AB34F2691B23AFDF00E14AB1 /* LICENSE in Resources */,
 				9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */,
 				AB34F26C1B23B12000E14AB1 /* Test.storyboard in Resources */,
@@ -337,6 +366,9 @@
 				AB34F2601B23A75300E14AB1 /* DataStoreClient.swift in Sources */,
 				AB34F26A1B23AFDF00E14AB1 /* README.md in Sources */,
 				ABC4ED961B23A62E00CF5981 /* Vote.swift in Sources */,
+				9C2850F61B24029E0051D05A /* AuthenticationViewController.swift in Sources */,
+				9C3204551B24145E00BCD3B2 /* User.swift in Sources */,
+				9C2850EE1B23C3B80051D05A /* RdioClient.swift in Sources */,
 				AB34F26E1B23B2F900E14AB1 /* TestViewController.swift in Sources */,
 				AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */,
 			);
@@ -448,6 +480,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/ianbari/Downloads/rdio-ios-3.0.2",
+				);
 				INFOPLIST_FILE = StationToStation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -462,6 +498,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/ianbari/Downloads/rdio-ios-3.0.2",
+				);
 				INFOPLIST_FILE = StationToStation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

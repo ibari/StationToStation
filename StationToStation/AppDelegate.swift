@@ -13,6 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    lazy internal var rdioInstance: Rdio = {
+        return Rdio(clientId: "n3ocpk7xsfghvlcr7y2wsdcnyq", andSecret: "Ffp9FHMGaruatoY6I9ljLg", delegate:nil);
+    }()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -20,10 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DataStoreClient.sharedInstance.onApplicationLaunch()
         
         // Bring up the test storyboard
-        var mainView: UIStoryboard!
+        /*var mainView: UIStoryboard!
         mainView = UIStoryboard(name: "Test", bundle: nil)
         let viewcontroller = mainView.instantiateInitialViewController() as! UIViewController
-        self.window!.rootViewController = viewcontroller
+        self.window!.rootViewController = viewcontroller*/
+        
+        /*if User.currentUser != nil {
+            println("Current user: \(User.currentUser!.username!)")
+        }*/
                 
         return true
     }

@@ -10,6 +10,10 @@
 	<string>StationToStation</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>10B73D0B7CE5B1CD363428FDF4A01A2A9E2F0357</key>
+		<string>https://github.com/p2/SwiftKeychain.git</string>
+		<key>2045D86BC5D391C299DCC498309E722E037BFF4E</key>
+		<string>https://github.com/p2/OAuth2.git</string>
 		<key>2F10793370510AC7AC65457A700202774FF18FF4</key>
 		<string>ssh://github.com/ibari/StationToStation.git</string>
 	</dict>
@@ -17,6 +21,10 @@
 	<string>StationToStation.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>10B73D0B7CE5B1CD363428FDF4A01A2A9E2F0357</key>
+		<string>../OAuth2/SwiftKeychain</string>
+		<key>2045D86BC5D391C299DCC498309E722E037BFF4E</key>
+		<string>../OAuth2</string>
 		<key>2F10793370510AC7AC65457A700202774FF18FF4</key>
 		<string>..</string>
 	</dict>
@@ -32,9 +40,25 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2045D86BC5D391C299DCC498309E722E037BFF4E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OAuth2</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>2F10793370510AC7AC65457A700202774FF18FF4</string>
 			<key>IDESourceControlWCCName</key>
 			<string>StationToStation</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>10B73D0B7CE5B1CD363428FDF4A01A2A9E2F0357</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SwiftKeychain</string>
 		</dict>
 	</array>
 </dict>
