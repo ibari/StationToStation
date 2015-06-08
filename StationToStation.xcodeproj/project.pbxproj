@@ -15,6 +15,7 @@
 		9C40DA4E1B21563A001AEBBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA4D1B21563A001AEBBF /* AppDelegate.swift */; };
 		9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C40DA541B21563A001AEBBF /* Images.xcassets */; };
 		9C40DA641B21563A001AEBBF /* StationToStationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA631B21563A001AEBBF /* StationToStationTests.swift */; };
+		9C5F2FDF1B2555A400F9C7F1 /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C5F2FDE1B2555A400F9C7F1 /* secrets.plist */; };
 		AB34F2601B23A75300E14AB1 /* DataStoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */; };
 		AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F25F1B23A75300E14AB1 /* Utils.swift */; };
 		AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AB34F2651B23AFDF00E14AB1 /* Podfile */; };
@@ -23,7 +24,6 @@
 		AB34F26C1B23B12000E14AB1 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB34F26B1B23B12000E14AB1 /* Test.storyboard */; };
 		AB34F26E1B23B2F900E14AB1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */; };
 		AB700E5D1B24FFD5008FE3CB /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E5C1B24FFD5008FE3CB /* Rdio.framework */; };
-		AB700E5F1B2500B2008FE3CB /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB700E5E1B2500B2008FE3CB /* secrets.plist */; };
 		AB700E611B250644008FE3CB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E601B250644008FE3CB /* AudioToolbox.framework */; };
 		AB700E631B250649008FE3CB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E621B250649008FE3CB /* CFNetwork.framework */; };
 		AB700E651B25064F008FE3CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E641B25064F008FE3CB /* CoreGraphics.framework */; };
@@ -58,6 +58,7 @@
 		9C40DA5D1B21563A001AEBBF /* StationToStationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StationToStationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C40DA621B21563A001AEBBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C40DA631B21563A001AEBBF /* StationToStationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationToStationTests.swift; sourceTree = "<group>"; };
+		9C5F2FDE1B2555A400F9C7F1 /* secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = secrets.plist; path = ../../../../Desktop/secrets.plist; sourceTree = "<group>"; };
 		AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreClient.swift; sourceTree = "<group>"; };
 		AB34F25F1B23A75300E14AB1 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		AB34F2621B23A83800E14AB1 /* StationToStation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StationToStation-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		AB34F26B1B23B12000E14AB1 /* Test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		AB700E5C1B24FFD5008FE3CB /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Rdio.framework; sourceTree = "<group>"; };
-		AB700E5E1B2500B2008FE3CB /* secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = secrets.plist; sourceTree = "<group>"; };
 		AB700E601B250644008FE3CB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AB700E621B250649008FE3CB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AB700E641B25064F008FE3CB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,7 +185,7 @@
 		9C40DA4B1B21563A001AEBBF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AB700E5E1B2500B2008FE3CB /* secrets.plist */,
+				9C5F2FDE1B2555A400F9C7F1 /* secrets.plist */,
 				AB34F2621B23A83800E14AB1 /* StationToStation-Bridging-Header.h */,
 				9C40DA4C1B21563A001AEBBF /* Info.plist */,
 			);
@@ -344,8 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C2850F21B23CDBA0051D05A /* Authentication.storyboard in Resources */,
+				9C5F2FDF1B2555A400F9C7F1 /* secrets.plist in Resources */,
 				AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */,
-				AB700E5F1B2500B2008FE3CB /* secrets.plist in Resources */,
 				AB34F2691B23AFDF00E14AB1 /* LICENSE in Resources */,
 				9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */,
 				AB34F26C1B23B12000E14AB1 /* Test.storyboard in Resources */,
