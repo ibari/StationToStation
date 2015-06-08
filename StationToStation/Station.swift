@@ -42,5 +42,4 @@ class Station {
     class func loadAll(completion: (stations: [Station]?, error: NSError?) -> Void) {
         DataStoreClient.sharedInstance.getStations(completion)
     }
-    
 }

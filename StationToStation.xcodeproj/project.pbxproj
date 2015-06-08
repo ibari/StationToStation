@@ -16,13 +16,14 @@
 		9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C40DA541B21563A001AEBBF /* Images.xcassets */; };
 		9C40DA641B21563A001AEBBF /* StationToStationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA631B21563A001AEBBF /* StationToStationTests.swift */; };
 		9C5F2FDF1B2555A400F9C7F1 /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C5F2FDE1B2555A400F9C7F1 /* secrets.plist */; };
+		9C5F2FE41B26230400F9C7F1 /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5F2FE21B26230400F9C7F1 /* StationsViewController.swift */; };
 		AB34F2601B23A75300E14AB1 /* DataStoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */; };
 		AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F25F1B23A75300E14AB1 /* Utils.swift */; };
 		AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AB34F2651B23AFDF00E14AB1 /* Podfile */; };
 		AB34F2691B23AFDF00E14AB1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AB34F2661B23AFDF00E14AB1 /* LICENSE */; };
-		AB34F26A1B23AFDF00E14AB1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AB34F2671B23AFDF00E14AB1 /* README.md */; };
-		AB34F26C1B23B12000E14AB1 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB34F26B1B23B12000E14AB1 /* Test.storyboard */; };
-		AB34F26E1B23B2F900E14AB1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */; };
+		AB34F26A1B23AFDF00E14AB1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AB34F2671B23AFDF00E14AB1 /* README.md */; };
+		AB34F26C1B23B12000E14AB1 /* Vote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB34F26B1B23B12000E14AB1 /* Vote.storyboard */; };
+		AB34F26E1B23B2F900E14AB1 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F26D1B23B2F900E14AB1 /* VoteViewController.swift */; };
 		AB700E5D1B24FFD5008FE3CB /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E5C1B24FFD5008FE3CB /* Rdio.framework */; };
 		AB700E611B250644008FE3CB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E601B250644008FE3CB /* AudioToolbox.framework */; };
 		AB700E631B250649008FE3CB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E621B250649008FE3CB /* CFNetwork.framework */; };
@@ -59,14 +60,15 @@
 		9C40DA621B21563A001AEBBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C40DA631B21563A001AEBBF /* StationToStationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationToStationTests.swift; sourceTree = "<group>"; };
 		9C5F2FDE1B2555A400F9C7F1 /* secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = secrets.plist; path = ../../../../Desktop/secrets.plist; sourceTree = "<group>"; };
+		9C5F2FE21B26230400F9C7F1 /* StationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
 		AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreClient.swift; sourceTree = "<group>"; };
 		AB34F25F1B23A75300E14AB1 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		AB34F2621B23A83800E14AB1 /* StationToStation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StationToStation-Bridging-Header.h"; sourceTree = "<group>"; };
 		AB34F2651B23AFDF00E14AB1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AB34F2661B23AFDF00E14AB1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AB34F2671B23AFDF00E14AB1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		AB34F26B1B23B12000E14AB1 /* Test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
-		AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		AB34F26B1B23B12000E14AB1 /* Vote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Vote.storyboard; sourceTree = "<group>"; };
+		AB34F26D1B23B2F900E14AB1 /* VoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		AB700E5C1B24FFD5008FE3CB /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Rdio.framework; sourceTree = "<group>"; };
 		AB700E601B250644008FE3CB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AB700E621B250649008FE3CB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -112,7 +114,6 @@
 		9C2850E71B23A3B60051D05A /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */,
 				9C2850F01B23C6840051D05A /* RestAPI */,
 				AB34F25F1B23A75300E14AB1 /* Utils.swift */,
 				9C40DA6E1B215645001AEBBF /* Controllers */,
@@ -144,6 +145,7 @@
 		9C2850F01B23C6840051D05A /* RestAPI */ = {
 			isa = PBXGroup;
 			children = (
+				AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */,
 				9C2850ED1B23C3B80051D05A /* RdioClient.swift */,
 			);
 			name = RestAPI;
@@ -152,14 +154,14 @@
 		9C40DA3F1B21563A001AEBBF = {
 			isa = PBXGroup;
 			children = (
-				AB34F2651B23AFDF00E14AB1 /* Podfile */,
 				AB34F2661B23AFDF00E14AB1 /* LICENSE */,
+				AB34F2651B23AFDF00E14AB1 /* Podfile */,
 				AB34F2671B23AFDF00E14AB1 /* README.md */,
+				DB82D6CE073313544B0BF872 /* Frameworks */,
+				F21CE7C0F622B59BD3CACBE5 /* Pods */,
+				9C40DA491B21563A001AEBBF /* Products */,
 				9C40DA4A1B21563A001AEBBF /* StationToStation */,
 				9C40DA601B21563A001AEBBF /* StationToStationTests */,
-				9C40DA491B21563A001AEBBF /* Products */,
-				F21CE7C0F622B59BD3CACBE5 /* Pods */,
-				DB82D6CE073313544B0BF872 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,7 +179,6 @@
 			children = (
 				9C2850E71B23A3B60051D05A /* Application */,
 				9C2850E81B23A3C70051D05A /* Configuration */,
-				AB34F26B1B23B12000E14AB1 /* Test.storyboard */,
 			);
 			path = StationToStation;
 			sourceTree = "<group>";
@@ -219,8 +220,9 @@
 		9C40DA6E1B215645001AEBBF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9C5F2FE11B2622D500F9C7F1 /* Stations */,
 				9C2850EC1B23C2A00051D05A /* Authentictation */,
-				AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */,
+				9C5F2FE01B2559D400F9C7F1 /* Vote */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -228,13 +230,30 @@
 		9C40DA6F1B215653001AEBBF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				ABC4ED951B23A62E00CF5981 /* Vote.swift */,
-				9C3204541B24145D00BCD3B2 /* User.swift */,
-				ABEB416A1B25277D0088C812 /* Station.swift */,
 				ABEB416C1B252B250088C812 /* Playlist.swift */,
+				ABEB416A1B25277D0088C812 /* Station.swift */,
 				ABEB416E1B252BD40088C812 /* Track.swift */,
+				9C3204541B24145D00BCD3B2 /* User.swift */,
+				ABC4ED951B23A62E00CF5981 /* Vote.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		9C5F2FE01B2559D400F9C7F1 /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				AB34F26B1B23B12000E14AB1 /* Vote.storyboard */,
+				AB34F26D1B23B2F900E14AB1 /* VoteViewController.swift */,
+			);
+			name = Vote;
+			sourceTree = "<group>";
+		};
+		9C5F2FE11B2622D500F9C7F1 /* Stations */ = {
+			isa = PBXGroup;
+			children = (
+				9C5F2FE21B26230400F9C7F1 /* StationsViewController.swift */,
+			);
+			name = Stations;
 			sourceTree = "<group>";
 		};
 		DB82D6CE073313544B0BF872 /* Frameworks */ = {
@@ -344,11 +363,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C2850F21B23CDBA0051D05A /* Authentication.storyboard in Resources */,
-				9C5F2FDF1B2555A400F9C7F1 /* secrets.plist in Resources */,
-				AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */,
-				AB34F2691B23AFDF00E14AB1 /* LICENSE in Resources */,
 				9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */,
-				AB34F26C1B23B12000E14AB1 /* Test.storyboard in Resources */,
+				AB34F2691B23AFDF00E14AB1 /* LICENSE in Resources */,
+				AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */,
+				AB34F26A1B23AFDF00E14AB1 /* README.md in Resources */,
+				9C5F2FDF1B2555A400F9C7F1 /* secrets.plist in Resources */,
+				AB34F26C1B23B12000E14AB1 /* Vote.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,13 +421,13 @@
 			files = (
 				9C40DA4E1B21563A001AEBBF /* AppDelegate.swift in Sources */,
 				AB34F2601B23A75300E14AB1 /* DataStoreClient.swift in Sources */,
-				AB34F26A1B23AFDF00E14AB1 /* README.md in Sources */,
 				ABC4ED961B23A62E00CF5981 /* Vote.swift in Sources */,
 				9C2850F61B24029E0051D05A /* AuthenticationViewController.swift in Sources */,
 				9C3204551B24145E00BCD3B2 /* User.swift in Sources */,
 				9C2850EE1B23C3B80051D05A /* RdioClient.swift in Sources */,
 				ABEB416B1B25277D0088C812 /* Station.swift in Sources */,
-				AB34F26E1B23B2F900E14AB1 /* TestViewController.swift in Sources */,
+				9C5F2FE41B26230400F9C7F1 /* StationsViewController.swift in Sources */,
+				AB34F26E1B23B2F900E14AB1 /* VoteViewController.swift in Sources */,
 				ABEB416F1B252BD40088C812 /* Track.swift in Sources */,
 				AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */,
 				ABEB416D1B252B250088C812 /* Playlist.swift in Sources */,

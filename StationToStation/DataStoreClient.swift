@@ -17,7 +17,7 @@ class DataStoreClient {
         Parse.setApplicationId(applicationId, clientKey: clientKey)
     }
     
-    // VOTE
+    // MARK: - VOTE
     
     private static let vote_ClassName = "Vote"
     private static let vote_UserKey = "user_key"
@@ -65,7 +65,7 @@ class DataStoreClient {
         return obj
     }
     
-    // STATION
+    // MARK: - STATION
     
     private static let station_ClassName = "Station"
     private static let station_UserKey = "user_key"

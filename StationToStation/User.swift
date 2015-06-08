@@ -15,13 +15,17 @@ let userDidLogoutNotification = "userDidLogoutNotification"
 
 class User: NSObject {
     var key: Int?
-    var username: String?
+    var firstName: String?
+    var lastName: String?
+    var icon: NSURL?
     var dictionary: NSDictionary?
     
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
         key = dictionary["key"] as? Int
-        username = dictionary["username"] as? String
+        firstName = dictionary["firstName"] as? String
+        lastName = dictionary["lastName"] as? String
+        icon = dictionary["icon"] as? NSURL
     }
     
     func logout() {
@@ -33,13 +37,13 @@ class User: NSObject {
     
     class var currentUser: User? {
         get {
-        if _currentUser == nil {
-        var data = NSUserDefaults.standardUserDefaults().objectForKey(currentUserKey) as? NSData
-        
-        if data != nil {
-        var dictionary = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as! NSDictionary
-        _currentUser = User(dictionary: dictionary)
-        }
+            if _currentUser == nil {
+                var data = NSUserDefaults.standardUserDefaults().objectForKey(currentUserKey) as? NSData
+                
+                if data != nil {
+                var dictionary = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as! NSDictionary
+                _currentUser = User(dictionary: dictionary)
+            }
         }
         
         return _currentUser

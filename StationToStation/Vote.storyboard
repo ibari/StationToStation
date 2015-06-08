@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Test View Controller-->
+        <!--Vote View Controller-->
         <scene sceneID="fSP-pF-als">
             <objects>
-                <viewController id="BNw-lZ-FK8" customClass="TestViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BNw-lZ-FK8" customClass="VoteViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kXL-Am-DGW"/>
                         <viewControllerLayoutGuide type="bottom" id="wmu-EB-mXn"/>
