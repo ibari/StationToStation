@@ -12,7 +12,6 @@
 		9C2850F21B23CDBA0051D05A /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C2850F11B23CDBA0051D05A /* Authentication.storyboard */; };
 		9C2850F61B24029E0051D05A /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2850F51B24029E0051D05A /* AuthenticationViewController.swift */; };
 		9C3204551B24145E00BCD3B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3204541B24145D00BCD3B2 /* User.swift */; };
-		9C3204571B2435EE00BCD3B2 /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C3204561B2435EE00BCD3B2 /* Rdio.framework */; };
 		9C40DA4E1B21563A001AEBBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA4D1B21563A001AEBBF /* AppDelegate.swift */; };
 		9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C40DA541B21563A001AEBBF /* Images.xcassets */; };
 		9C40DA641B21563A001AEBBF /* StationToStationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA631B21563A001AEBBF /* StationToStationTests.swift */; };
@@ -23,7 +22,18 @@
 		AB34F26A1B23AFDF00E14AB1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AB34F2671B23AFDF00E14AB1 /* README.md */; };
 		AB34F26C1B23B12000E14AB1 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB34F26B1B23B12000E14AB1 /* Test.storyboard */; };
 		AB34F26E1B23B2F900E14AB1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */; };
+		AB700E5D1B24FFD5008FE3CB /* Rdio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E5C1B24FFD5008FE3CB /* Rdio.framework */; };
+		AB700E5F1B2500B2008FE3CB /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB700E5E1B2500B2008FE3CB /* secrets.plist */; };
+		AB700E611B250644008FE3CB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E601B250644008FE3CB /* AudioToolbox.framework */; };
+		AB700E631B250649008FE3CB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E621B250649008FE3CB /* CFNetwork.framework */; };
+		AB700E651B25064F008FE3CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E641B25064F008FE3CB /* CoreGraphics.framework */; };
+		AB700E671B250655008FE3CB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E661B250655008FE3CB /* CoreMedia.framework */; };
+		AB700E691B25065B008FE3CB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E681B25065B008FE3CB /* Security.framework */; };
+		AB700E6B1B250660008FE3CB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E6A1B250660008FE3CB /* SystemConfiguration.framework */; };
 		ABC4ED961B23A62E00CF5981 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC4ED951B23A62E00CF5981 /* Vote.swift */; };
+		ABEB416B1B25277D0088C812 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEB416A1B25277D0088C812 /* Station.swift */; };
+		ABEB416D1B252B250088C812 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEB416C1B252B250088C812 /* Playlist.swift */; };
+		ABEB416F1B252BD40088C812 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEB416E1B252BD40088C812 /* Track.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +51,6 @@
 		9C2850F11B23CDBA0051D05A /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		9C2850F51B24029E0051D05A /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		9C3204541B24145D00BCD3B2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		9C3204561B2435EE00BCD3B2 /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rdio.framework; path = "../../../Downloads/rdio-ios-3.0.2/Rdio.framework"; sourceTree = "<group>"; };
 		9C40DA481B21563A001AEBBF /* StationToStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StationToStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C40DA4C1B21563A001AEBBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C40DA4D1B21563A001AEBBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +66,18 @@
 		AB34F2671B23AFDF00E14AB1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AB34F26B1B23B12000E14AB1 /* Test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		AB34F26D1B23B2F900E14AB1 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		AB700E5C1B24FFD5008FE3CB /* Rdio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Rdio.framework; sourceTree = "<group>"; };
+		AB700E5E1B2500B2008FE3CB /* secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = secrets.plist; sourceTree = "<group>"; };
+		AB700E601B250644008FE3CB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AB700E621B250649008FE3CB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		AB700E641B25064F008FE3CB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AB700E661B250655008FE3CB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		AB700E681B25065B008FE3CB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AB700E6A1B250660008FE3CB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ABC4ED951B23A62E00CF5981 /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
+		ABEB416A1B25277D0088C812 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		ABEB416C1B252B250088C812 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		ABEB416E1B252BD40088C812 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		ECC08714F9B3C6A5BE6446DD /* Pods-StationToStation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StationToStation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StationToStation/Pods-StationToStation.debug.xcconfig"; sourceTree = "<group>"; };
 		EE15B70B16D103D74AC34388 /* Pods-StationToStation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StationToStation.release.xcconfig"; path = "Pods/Target Support Files/Pods-StationToStation/Pods-StationToStation.release.xcconfig"; sourceTree = "<group>"; };
 		F8F9A742435132C8C84A1AA3 /* libPods-StationToStation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StationToStation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,7 +88,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C3204571B2435EE00BCD3B2 /* Rdio.framework in Frameworks */,
+				AB700E6B1B250660008FE3CB /* SystemConfiguration.framework in Frameworks */,
+				AB700E691B25065B008FE3CB /* Security.framework in Frameworks */,
+				AB700E671B250655008FE3CB /* CoreMedia.framework in Frameworks */,
+				AB700E651B25064F008FE3CB /* CoreGraphics.framework in Frameworks */,
+				AB700E631B250649008FE3CB /* CFNetwork.framework in Frameworks */,
+				AB700E611B250644008FE3CB /* AudioToolbox.framework in Frameworks */,
+				AB700E5D1B24FFD5008FE3CB /* Rdio.framework in Frameworks */,
 				4AFB84C703669EADE82E1EA7 /* libPods-StationToStation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +185,7 @@
 		9C40DA4B1B21563A001AEBBF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AB700E5E1B2500B2008FE3CB /* secrets.plist */,
 				AB34F2621B23A83800E14AB1 /* StationToStation-Bridging-Header.h */,
 				9C40DA4C1B21563A001AEBBF /* Info.plist */,
 			);
@@ -203,6 +230,9 @@
 			children = (
 				ABC4ED951B23A62E00CF5981 /* Vote.swift */,
 				9C3204541B24145D00BCD3B2 /* User.swift */,
+				ABEB416A1B25277D0088C812 /* Station.swift */,
+				ABEB416C1B252B250088C812 /* Playlist.swift */,
+				ABEB416E1B252BD40088C812 /* Track.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -210,7 +240,13 @@
 		DB82D6CE073313544B0BF872 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9C3204561B2435EE00BCD3B2 /* Rdio.framework */,
+				AB700E6A1B250660008FE3CB /* SystemConfiguration.framework */,
+				AB700E681B25065B008FE3CB /* Security.framework */,
+				AB700E661B250655008FE3CB /* CoreMedia.framework */,
+				AB700E641B25064F008FE3CB /* CoreGraphics.framework */,
+				AB700E621B250649008FE3CB /* CFNetwork.framework */,
+				AB700E601B250644008FE3CB /* AudioToolbox.framework */,
+				AB700E5C1B24FFD5008FE3CB /* Rdio.framework */,
 				F8F9A742435132C8C84A1AA3 /* libPods-StationToStation.a */,
 			);
 			name = Frameworks;
@@ -309,6 +345,7 @@
 			files = (
 				9C2850F21B23CDBA0051D05A /* Authentication.storyboard in Resources */,
 				AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */,
+				AB700E5F1B2500B2008FE3CB /* secrets.plist in Resources */,
 				AB34F2691B23AFDF00E14AB1 /* LICENSE in Resources */,
 				9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */,
 				AB34F26C1B23B12000E14AB1 /* Test.storyboard in Resources */,
@@ -369,8 +406,11 @@
 				9C2850F61B24029E0051D05A /* AuthenticationViewController.swift in Sources */,
 				9C3204551B24145E00BCD3B2 /* User.swift in Sources */,
 				9C2850EE1B23C3B80051D05A /* RdioClient.swift in Sources */,
+				ABEB416B1B25277D0088C812 /* Station.swift in Sources */,
 				AB34F26E1B23B2F900E14AB1 /* TestViewController.swift in Sources */,
+				ABEB416F1B252BD40088C812 /* Track.swift in Sources */,
 				AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */,
+				ABEB416D1B252B250088C812 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +522,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/ianbari/Downloads/rdio-ios-3.0.2",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = StationToStation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -500,7 +540,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/ianbari/Downloads/rdio-ios-3.0.2",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = StationToStation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
