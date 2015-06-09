@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthenticationViewController: UIViewController, RdioDelegate {
+class AuthenticationViewController: UIViewController {
     @IBOutlet var loginButton: UIButton!
     
     var appDelegate: AppDelegate {
@@ -26,6 +26,7 @@ class AuthenticationViewController: UIViewController, RdioDelegate {
     }
     
     @IBAction func didTapSignIn(sender: AnyObject) {
+        appDelegate.rdioInstance.logout()
         appDelegate.rdioInstance.authorizeFromController(self)
         
         /*RdioClient.sharedInstance.loginWithCompletion() { (user: User?, error: NSError?) in
@@ -38,12 +39,22 @@ class AuthenticationViewController: UIViewController, RdioDelegate {
         }
         }*/
     }
-    
-    // MARK: - RdioDelegate
-    
+}
+
+// MARK: - RdioDelegate
+extension AuthenticationViewController: RdioDelegate {
     func rdioDidAuthorizeUser(user: [NSObject : AnyObject]!, withAccessToken accessToken: String!) {
-        println("logged in: \(user)")
-        //setLoggedIn(true)
+        if user != nil {
+            //setLoggedIn(true)
+            println("Login Successful: \(user)")
+            
+            var storyboard = UIStoryboard(name: "Stations", bundle: nil)
+            var vc = storyboard.instantiateViewControllerWithIdentifier("StationsViewController") as! StationsViewController
+            self.presentViewController(vc, animated: true, completion: nil)
+        } else {
+            //handle error
+            println("Login error")
+        }
     }
     
     func rdioAuthorizationFailed(error: NSError!) {

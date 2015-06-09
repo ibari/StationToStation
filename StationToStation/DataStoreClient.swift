@@ -17,6 +17,13 @@ class DataStoreClient {
         Parse.setApplicationId(applicationId, clientKey: clientKey)
     }
     
+    class var sharedInstance: DataStoreClient {
+        struct Static {
+            static let instance = DataStoreClient()
+        }
+        return Static.instance
+    }
+    
     // MARK: - VOTE
     
     private static let vote_ClassName = "Vote"
@@ -85,10 +92,26 @@ class DataStoreClient {
             
             if let objects = objects as? [PFObject] {
                 var stations = [Station]()
-                for obj in objects {
+                /*for obj in objects {
                     stations.append(self.pfoToStation(obj))
                 }
-                completion(stations: stations, error: nil)
+                completion(stations: stations, error: nil)*/
+                
+                /*(playlist: Playlist(userKey: userKey, playlistKey: playlistKey, tracks: [
+                Track(trackKey: "t1", trackTitle: "Track 1", artistName: "Unknown", albumImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
+                Track(trackKey: "t2", trackTitle: "Track 2", artistName: "Unknown", albumImageUrl: "http://upload.wikime*ia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
+                Track(trackKey: "t3", trackTitle: "Track 3", artistName: "Unknown", albumImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
+                ]),*/
+                
+                // Testing
+                completion(
+                    stations : [
+                        Station(userKey: "s1", playlistKey: "p1", name: "Station1", description: "", imageUrl: "http://rdiodynimages3-a.akamaihd.net/?l=album/browse/rectangle/Top_Stations.jpg"),
+                        Station(userKey: "s2", playlistKey: "p3", name: "Station2", description: "", imageUrl: "http://rdiodynimages3-a.akamaihd.net/?l=album/browse/rectangle/Classics.jpg"),
+                        Station(userKey: "s3", playlistKey: "p3", name: "Station3", description: "", imageUrl: "http://rdiodynimages2-a.akamaihd.net/?l=album/browse/rectangle/Decades.jpg")
+                    ],
+                    error: nil
+                )
             } else {
                 completion(stations: [], error: nil)
                 return
@@ -120,12 +143,5 @@ class DataStoreClient {
         obj[DataStoreClient.station_ImageUrl] = s.imageUrl
         
         return obj
-    }
-    
-    class var sharedInstance: DataStoreClient {
-        struct Static {
-            static let instance = DataStoreClient()
-        }
-        return Static.instance
     }
 }
