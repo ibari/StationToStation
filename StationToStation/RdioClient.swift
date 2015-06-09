@@ -23,7 +23,7 @@ class RdioClient: AFOAuth2Manager {
         return Static.instance
     }
     
-    func loginWithCompletion(controller: UIViewController, completion: (user: User?, error: NSError?) -> ()) {
+    /*func loginWithCompletion(controller: UIViewController, completion: (user: User?, error: NSError?) -> ()) {
         loginCompletion = completion
         
         //RdioClient.sharedInstance.requestSerializer.removeAccessToken()
@@ -36,7 +36,7 @@ class RdioClient: AFOAuth2Manager {
                 println("Failed to get request token")
                 self.loginCompletion?(user: nil, error: error)
         }
-    }
+    }*/
     
     /*func openURL(url: NSURL) {
         fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: BDBOAuth1Credential(queryString: url.query), success: { (accessToken: BDBOAuth1Credential!) -> Void in

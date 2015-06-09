@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4AFB84C703669EADE82E1EA7 /* libPods-StationToStation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F9A742435132C8C84A1AA3 /* libPods-StationToStation.a */; };
+		9C1067ED1B26A36F006F9492 /* People.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C1067EC1B26A36F006F9492 /* People.storyboard */; };
+		9C1067EF1B26A393006F9492 /* PeopleViewCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1067EE1B26A393006F9492 /* PeopleViewCellViewController.swift */; };
+		9C1067F21B26A3D4006F9492 /* Playlist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C1067F11B26A3D4006F9492 /* Playlist.storyboard */; };
+		9C1067F41B26A3E7006F9492 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1067F31B26A3E7006F9492 /* PlaylistViewController.swift */; };
 		9C2850EE1B23C3B80051D05A /* RdioClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2850ED1B23C3B80051D05A /* RdioClient.swift */; };
 		9C2850F21B23CDBA0051D05A /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C2850F11B23CDBA0051D05A /* Authentication.storyboard */; };
 		9C2850F61B24029E0051D05A /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2850F51B24029E0051D05A /* AuthenticationViewController.swift */; };
@@ -50,6 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C1067EC1B26A36F006F9492 /* People.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = People.storyboard; sourceTree = "<group>"; };
+		9C1067EE1B26A393006F9492 /* PeopleViewCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleViewCellViewController.swift; sourceTree = "<group>"; };
+		9C1067F11B26A3D4006F9492 /* Playlist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Playlist.storyboard; sourceTree = "<group>"; };
+		9C1067F31B26A3E7006F9492 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		9C2850ED1B23C3B80051D05A /* RdioClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdioClient.swift; sourceTree = "<group>"; };
 		9C2850F11B23CDBA0051D05A /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		9C2850F51B24029E0051D05A /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
@@ -115,9 +123,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C1067EB1B26A348006F9492 /* People */ = {
+			isa = PBXGroup;
+			children = (
+				9C1067EC1B26A36F006F9492 /* People.storyboard */,
+				9C1067EE1B26A393006F9492 /* PeopleViewCellViewController.swift */,
+			);
+			name = People;
+			sourceTree = "<group>";
+		};
+		9C1067F01B26A3A9006F9492 /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				9C1067F11B26A3D4006F9492 /* Playlist.storyboard */,
+				9C1067F31B26A3E7006F9492 /* PlaylistViewController.swift */,
+			);
+			name = Playlist;
+			sourceTree = "<group>";
+		};
 		9C2850E71B23A3B60051D05A /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				9C1067F01B26A3A9006F9492 /* Playlist */,
 				9C2850F01B23C6840051D05A /* RestAPI */,
 				AB34F25F1B23A75300E14AB1 /* Utils.swift */,
 				9C40DA6E1B215645001AEBBF /* Controllers */,
@@ -225,6 +252,7 @@
 		9C40DA6E1B215645001AEBBF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9C1067EB1B26A348006F9492 /* People */,
 				9C5F2FE11B2622D500F9C7F1 /* Stations */,
 				9C2850EC1B23C2A00051D05A /* Authentictation */,
 				9C5F2FE01B2559D400F9C7F1 /* Vote */,
@@ -368,6 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C1067ED1B26A36F006F9492 /* People.storyboard in Resources */,
 				9C2850F21B23CDBA0051D05A /* Authentication.storyboard in Resources */,
 				9C53791E1B263C7200246ECD /* secrets.plist in Resources */,
 				9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */,
@@ -375,6 +404,7 @@
 				AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */,
 				AB34F26A1B23AFDF00E14AB1 /* README.md in Resources */,
 				AB34F26C1B23B12000E14AB1 /* Vote.storyboard in Resources */,
+				9C1067F21B26A3D4006F9492 /* Playlist.storyboard in Resources */,
 				9C5379201B2655AB00246ECD /* Stations.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +467,9 @@
 				9C33B9861B2663BD0040A4E1 /* StationCell.swift in Sources */,
 				AB34F26E1B23B2F900E14AB1 /* VoteViewController.swift in Sources */,
 				ABEB416F1B252BD40088C812 /* Track.swift in Sources */,
+				9C1067F41B26A3E7006F9492 /* PlaylistViewController.swift in Sources */,
 				AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */,
+				9C1067EF1B26A393006F9492 /* PeopleViewCellViewController.swift in Sources */,
 				ABEB416D1B252B250088C812 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
