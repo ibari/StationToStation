@@ -39,14 +39,14 @@ class Station {
         )
     }
     
-    func inviteCollaborator(collaborator: People, completion: (success: Bool?, error: NSError?) -> Void) {
+    func inviteCollaborator(collaborator: Collaborator, completion: (success: Bool?, error: NSError?) -> Void) {
         completion(success: true, error: nil)
     }
     
-    func getCollaborators(completion: (peoples: [People]?, error: NSError?) -> Void) {
+    func getCollaborators(completion: (collaborators: [Collaborator]?, error: NSError?) -> Void) {
         completion(
-            peoples: [
-                People(key: "p1", username: "User_1", profileImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg")
+            collaborators: [
+                Collaborator(key: "c1", username: "User_1", profileImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg")
             ],
             error: nil
         )

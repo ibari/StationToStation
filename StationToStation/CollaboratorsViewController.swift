@@ -1,5 +1,5 @@
 //
-//  PeopleViewCellViewController.swift
+//  CollaboratorsViewController.swift
 //  StationToStation
 //
 //  Created by Ian on 6/8/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PeopleViewCellViewController: UIViewController {
+class CollaboratorsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

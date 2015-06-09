@@ -97,13 +97,7 @@ class DataStoreClient {
                 }
                 completion(stations: stations, error: nil)*/
                 
-                /*(playlist: Playlist(userKey: userKey, playlistKey: playlistKey, tracks: [
-                Track(trackKey: "t1", trackTitle: "Track 1", artistName: "Unknown", albumImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
-                Track(trackKey: "t2", trackTitle: "Track 2", artistName: "Unknown", albumImageUrl: "http://upload.wikime*ia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
-                Track(trackKey: "t3", trackTitle: "Track 3", artistName: "Unknown", albumImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
-                ]),*/
-                
-                // Testing
+                // Temp
                 completion(
                     stations : [
                         Station(userKey: "s1", playlistKey: "p1", name: "Station1", description: "", imageUrl: "http://rdiodynimages3-a.akamaihd.net/?l=album/browse/rectangle/Top_Stations.jpg"),

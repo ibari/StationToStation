@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--People View Controller-->
+        <!--Collaborators View Controller-->
         <scene sceneID="D7k-qI-jZJ">
             <objects>
-                <viewController id="ESX-wT-NgV" customClass="PeopleViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CollaboratorsViewController" id="ESX-wT-NgV" customClass="CollaboratorsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qjl-xu-mcj"/>
                         <viewControllerLayoutGuide type="bottom" id="bJV-dI-JIU"/>

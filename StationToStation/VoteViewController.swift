@@ -1,5 +1,5 @@
 //
-//  TestViewController.swift
+//  VoteViewController.swift
 //  StationToStation
 //
 //  Created by Benjamin Tsai on 6/6/15.
