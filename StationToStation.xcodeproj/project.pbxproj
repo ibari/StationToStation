@@ -37,6 +37,7 @@
 		AB700E671B250655008FE3CB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E661B250655008FE3CB /* CoreMedia.framework */; };
 		AB700E691B25065B008FE3CB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E681B25065B008FE3CB /* Security.framework */; };
 		AB700E6B1B250660008FE3CB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E6A1B250660008FE3CB /* SystemConfiguration.framework */; };
+		AB89D84D1B26A5E60031FF22 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89D84C1B26A5E60031FF22 /* People.swift */; };
 		ABC4ED961B23A62E00CF5981 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC4ED951B23A62E00CF5981 /* Vote.swift */; };
 		ABEB416B1B25277D0088C812 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEB416A1B25277D0088C812 /* Station.swift */; };
 		ABEB416D1B252B250088C812 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEB416C1B252B250088C812 /* Playlist.swift */; };
@@ -88,6 +89,7 @@
 		AB700E661B250655008FE3CB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		AB700E681B25065B008FE3CB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AB700E6A1B250660008FE3CB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AB89D84C1B26A5E60031FF22 /* People.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		ABC4ED951B23A62E00CF5981 /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		ABEB416A1B25277D0088C812 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		ABEB416C1B252B250088C812 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				ABEB416E1B252BD40088C812 /* Track.swift */,
 				9C3204541B24145D00BCD3B2 /* User.swift */,
 				ABC4ED951B23A62E00CF5981 /* Vote.swift */,
+				AB89D84C1B26A5E60031FF22 /* People.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				AB34F26E1B23B2F900E14AB1 /* VoteViewController.swift in Sources */,
 				ABEB416F1B252BD40088C812 /* Track.swift in Sources */,
 				9C1067F41B26A3E7006F9492 /* PlaylistViewController.swift in Sources */,
+				AB89D84D1B26A5E60031FF22 /* People.swift in Sources */,
 				AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */,
 				9C1067EF1B26A393006F9492 /* PeopleViewCellViewController.swift in Sources */,
 				ABEB416D1B252B250088C812 /* Playlist.swift in Sources */,
