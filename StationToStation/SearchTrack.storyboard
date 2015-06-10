@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Search Track View Controller-->
+        <!--Add Tracks-->
         <scene sceneID="vZO-Rh-inZ">
             <objects>
-                <viewController id="cjE-Um-gHV" customClass="SearchTrackViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchTrackViewController" id="cjE-Um-gHV" customClass="SearchTrackViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ltY-9e-eFu"/>
                         <viewControllerLayoutGuide type="bottom" id="bPy-ch-lgl"/>
@@ -80,7 +80,7 @@
                             <constraint firstAttribute="trailing" secondItem="ViA-F2-fda" secondAttribute="trailing" id="jS0-tY-q3D"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Cf0-8Z-eSz"/>
+                    <navigationItem key="navigationItem" title="Add Tracks" id="Cf0-8Z-eSz"/>
                     <connections>
                         <outlet property="searchBar" destination="JgU-Ta-xuR" id="C0t-gj-uqC"/>
                         <outlet property="tableView" destination="ViA-F2-fda" id="9Hi-wW-1RE"/>
@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="576" y="282"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Add Tracks-->
         <scene sceneID="iWz-25-ZjQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xqh-bp-p0o" sceneMemberID="viewController">
+                <navigationController title="Add Tracks" automaticallyAdjustsScrollViewInsets="NO" id="Xqh-bp-p0o" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X61-0o-IWh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

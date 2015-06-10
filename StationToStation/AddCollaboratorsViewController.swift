@@ -1,21 +1,19 @@
 //
-//  CollaboratorsViewController.swift
+//  AddCollaboratorsViewController.swift
 //  StationToStation
 //
-//  Created by Ian on 6/8/15.
+//  Created by Ian on 6/10/15.
 //  Copyright (c) 2015 Ian Bari. All rights reserved.
 //
 
 import UIKit
 
-class CollaboratorsViewController: UIViewController {
+class AddCollaboratorsViewController: UIViewController {
 
-    override func viewWillAppear(animated: Bool) {
-        self.tabBarController?.navigationItem.title = "Collaborators"
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

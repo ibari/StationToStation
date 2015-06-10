@@ -10,13 +10,13 @@ import UIKit
 
 class StationCell: UICollectionViewCell {
 
-    @IBOutlet weak var stationButton: UIButton!
+    @IBOutlet weak var banerImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var trackCountLabel: UILabel!
     
     var station: Station! {
         didSet {
-            stationButton.setImageForState(UIControlState.Normal, withURL: station.imageUrl!)
+            banerImageView.setImageWithURL(station.imageUrl!)
             nameLabel.text = station!.name
         }
     }

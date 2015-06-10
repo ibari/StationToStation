@@ -16,10 +16,14 @@ class StationsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var stations: [Station]?
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.navigationItem.title = "Stations"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         

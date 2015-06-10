@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="JDS-HQ-X52">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Bd3-dU-4tB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -7,7 +7,7 @@
         <!--Stations-->
         <scene sceneID="Ywu-CC-Zdx">
             <objects>
-                <viewController storyboardIdentifier="StationsViewController" id="Bd3-dU-4tB" customClass="StationsViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StationsViewController" title="Stations" id="Bd3-dU-4tB" customClass="StationsViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hY5-z0-g9B"/>
                         <viewControllerLayoutGuide type="bottom" id="ae7-13-n3q"/>
@@ -39,14 +39,11 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9He-Xw-vBm">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="station-banner" translatesAutoresizingMaskIntoConstraints="NO" id="QQa-iZ-ZVh">
                                                     <rect key="frame" x="0.0" y="0.0" width="170" height="120"/>
-                                                    <state key="normal" title="Staton Button" image="station-banner">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Station" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXg-bz-pFC">
-                                                    <rect key="frame" x="40" y="50" width="90" height="20"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Station" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSP-az-j7H">
+                                                    <rect key="frame" x="40" y="44" width="90" height="22"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -55,9 +52,10 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="nameLabel" destination="PXg-bz-pFC" id="6NY-2z-fBz"/>
-                                            <outlet property="stationButton" destination="9He-Xw-vBm" id="lu3-Cm-qUm"/>
+                                            <outlet property="banerImageView" destination="QQa-iZ-ZVh" id="a7s-jg-Y3K"/>
+                                            <outlet property="nameLabel" destination="VSP-az-j7H" id="sZj-Cu-Syn"/>
                                             <outlet property="trackCountLabel" destination="BDZ-Ct-8pG" id="E4s-JW-mKy"/>
+                                            <segue destination="DfL-PK-BWJ" kind="push" identifier="stationSegue" id="OVK-Jh-pvx"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -83,28 +81,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Wd-Fz-pBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1141" y="-380"/>
+            <point key="canvasLocation" x="1673" y="-380"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="HHL-Kr-29O">
+        <!--Station-->
+        <scene sceneID="IrE-pT-5iN">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JDS-HQ-X52" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qhn-al-izb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="erF-8Y-aPF">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="Bd3-dU-4tB" kind="relationship" relationship="rootViewController" id="Tja-if-SOe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c44-ae-OmP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="StationViewController" title="Station" id="DfL-PK-BWJ" customClass="StationViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zI9-Rb-lh0"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zk8-MT-ntc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vyF-Wn-n8H">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1X-2u-Vta">
+                                <rect key="frame" x="16" y="141" width="77" height="30"/>
+                                <state key="normal" title="Add Tracks">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapAddTracks:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="F81-ua-Rl5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALC-y1-75H">
+                                <rect key="frame" x="184" y="141" width="125" height="30"/>
+                                <state key="normal" title="Add Collaborators">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapAddCollaborators:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="jBk-js-QXS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="16o-0t-ywo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZZ-WF-JQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="627.20000000000005" y="-379.61333333333334"/>
+            <point key="canvasLocation" x="2142" y="-380"/>
         </scene>
     </scenes>
     <resources>

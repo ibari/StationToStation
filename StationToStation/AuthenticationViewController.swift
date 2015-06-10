@@ -26,23 +26,24 @@ class AuthenticationViewController: UIViewController {
     
     @IBAction func didTapSignIn(sender: AnyObject) {
         //appDelegate.rdioInstance.logout()
-        
-        var storyboard = UIStoryboard(name: "Stations", bundle: nil)
-        var viewController = storyboard.instantiateViewControllerWithIdentifier("StationsViewController") as! StationsViewController
-        let navigationController = UINavigationController(rootViewController: viewController)
-        self.presentViewController(navigationController, animated: true, completion: nil)
-        
         //appDelegate.rdioInstance.authorizeFromController(self)
         
         /*RdioClient.sharedInstance.loginWithCompletion() { (user: User?, error: NSError?) in
         if user != nil {
-            //self.performSegueWithIdentifier("loginSegue", sender: self)
-            println("Login Successful!")
+        //self.performSegueWithIdentifier("loginSegue", sender: self)
+        println("Login Successful!")
         } else {
-            //handle error
-            println("Login error: \(error)")
+        //handle error
+        println("Login error: \(error)")
         }
         }*/
+        
+        // Temp: - To get around auth issue
+        
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var viewController = storyboard.instantiateViewControllerWithIdentifier("TabBarViewController") as! TabBarViewController
+        let navigationController = UINavigationController(rootViewController: viewController)
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
 }
 
