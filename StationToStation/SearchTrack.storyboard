@@ -20,15 +20,71 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ViA-F2-fda">
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" rowHeight="88" id="6H3-ys-hf0" customClass="TrackCell" customModule="StationToStation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6H3-ys-hf0" id="mxm-07-HhT">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JnV-6c-1Ei">
+                                                    <rect key="frame" x="8" y="8" width="70" height="70.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="6tJ-Qa-5zv"/>
+                                                        <constraint firstAttribute="height" constant="70" id="UtI-fK-zpU"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of the Song" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8J-h7-bsY">
+                                                    <rect key="frame" x="86" y="8" width="126" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erB-1D-B24">
+                                                    <rect key="frame" x="86" y="33" width="74" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JnV-6c-1Ei" firstAttribute="leading" secondItem="mxm-07-HhT" secondAttribute="leading" constant="8" id="HiX-zX-kWj"/>
+                                                <constraint firstItem="C8J-h7-bsY" firstAttribute="leading" secondItem="JnV-6c-1Ei" secondAttribute="trailing" constant="8" id="JUb-QQ-FeN"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JnV-6c-1Ei" secondAttribute="bottom" constant="8" id="LPy-j4-2tp"/>
+                                                <constraint firstItem="JnV-6c-1Ei" firstAttribute="top" secondItem="C8J-h7-bsY" secondAttribute="top" id="Low-4O-myj"/>
+                                                <constraint firstItem="erB-1D-B24" firstAttribute="top" secondItem="C8J-h7-bsY" secondAttribute="bottom" constant="5" id="Tqk-Q4-dGt"/>
+                                                <constraint firstItem="JnV-6c-1Ei" firstAttribute="top" secondItem="mxm-07-HhT" secondAttribute="top" constant="8" id="YEG-1m-Ila"/>
+                                                <constraint firstItem="C8J-h7-bsY" firstAttribute="leading" secondItem="erB-1D-B24" secondAttribute="leading" id="g90-rw-sol"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="artistLabel" destination="erB-1D-B24" id="CF9-GP-Jsp"/>
+                                            <outlet property="titleLabel" destination="C8J-h7-bsY" id="Dzq-Or-RMV"/>
+                                            <outlet property="trackImageView" destination="JnV-6c-1Ei" id="JJn-mA-rnJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bPy-ch-lgl" firstAttribute="top" secondItem="ViA-F2-fda" secondAttribute="bottom" id="3ch-9O-2Ci"/>
+                            <constraint firstItem="ViA-F2-fda" firstAttribute="top" secondItem="JgU-Ta-xuR" secondAttribute="bottom" id="Hgg-8w-h8c"/>
                             <constraint firstAttribute="trailing" secondItem="JgU-Ta-xuR" secondAttribute="trailing" id="O2i-qg-Ybn"/>
                             <constraint firstItem="JgU-Ta-xuR" firstAttribute="top" secondItem="ltY-9e-eFu" secondAttribute="bottom" id="a1e-uv-lWm"/>
+                            <constraint firstItem="ViA-F2-fda" firstAttribute="leading" secondItem="Jf3-4J-rFX" secondAttribute="leading" id="db5-Ya-Ogv"/>
                             <constraint firstItem="JgU-Ta-xuR" firstAttribute="leading" secondItem="Jf3-4J-rFX" secondAttribute="leading" id="f5a-9U-biq"/>
+                            <constraint firstAttribute="trailing" secondItem="ViA-F2-fda" secondAttribute="trailing" id="jS0-tY-q3D"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cf0-8Z-eSz"/>
+                    <connections>
+                        <outlet property="searchBar" destination="JgU-Ta-xuR" id="C0t-gj-uqC"/>
+                        <outlet property="tableView" destination="ViA-F2-fda" id="9Hi-wW-1RE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ff-5E-onn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
