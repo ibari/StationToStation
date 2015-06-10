@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Bbw-Z0-4AO">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Test View Controller-->
+        <scene sceneID="9dW-IR-bcm">
+            <objects>
+                <viewController id="Bbw-Z0-4AO" customClass="TestViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WqI-57-IFT"/>
+                        <viewControllerLayoutGuide type="bottom" id="gXm-1Z-HBR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IHf-Op-TXJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94n-vU-Ndg">
+                                <rect key="frame" x="129" y="68" width="62" height="30"/>
+                                <state key="normal" title="Do Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLogin:" destination="Bbw-Z0-4AO" eventType="touchUpInside" id="cuY-xi-5Fy"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Menu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbk-iN-grt">
+                                <rect key="frame" x="120" y="28" width="79.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hj-8f-MST">
+                                <rect key="frame" x="114" y="103" width="92" height="30"/>
+                                <state key="normal" title="Show Playlist">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doShowPlaylist:" destination="Bbw-Z0-4AO" eventType="touchUpInside" id="6iK-Td-Q7g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7T-Gf-dnm">
+                                <rect key="frame" x="111" y="138" width="97" height="30"/>
+                                <state key="normal" title="Search Tracks">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doSearchTracks:" destination="Bbw-Z0-4AO" eventType="touchUpInside" id="WBm-en-fT9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.81442336520549918" blue="0.60845479762293253" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="n7T-Gf-dnm" secondAttribute="centerX" id="8vZ-sj-IY1"/>
+                            <constraint firstItem="8Hj-8f-MST" firstAttribute="top" secondItem="94n-vU-Ndg" secondAttribute="bottom" constant="5" id="D7Y-lE-b1u"/>
+                            <constraint firstAttribute="centerX" secondItem="8Hj-8f-MST" secondAttribute="centerX" id="FH3-Vq-aKV"/>
+                            <constraint firstItem="94n-vU-Ndg" firstAttribute="top" secondItem="Tbk-iN-grt" secondAttribute="bottom" constant="20" id="KdI-Xw-en6"/>
+                            <constraint firstItem="Tbk-iN-grt" firstAttribute="top" secondItem="WqI-57-IFT" secondAttribute="bottom" constant="8" id="Ooh-Hj-WPc"/>
+                            <constraint firstAttribute="centerX" secondItem="Tbk-iN-grt" secondAttribute="centerX" id="gMd-v2-twV"/>
+                            <constraint firstItem="n7T-Gf-dnm" firstAttribute="top" secondItem="8Hj-8f-MST" secondAttribute="bottom" constant="5" id="tr6-Rd-xrO"/>
+                            <constraint firstAttribute="centerX" secondItem="94n-vU-Ndg" secondAttribute="centerX" id="vQW-2y-Xy1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rOe-Ug-8Fz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="179.73333333333332" y="362.57333333333332"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

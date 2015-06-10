@@ -30,8 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } 
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
-        let rootController = storyboard.instantiateViewControllerWithIdentifier("AuthenticationViewController") as! UIViewController
+        let storyboard = UIStoryboard(name: "Test", bundle: nil)
+        let rootController = storyboard.instantiateInitialViewController() as! UIViewController
+//        let rootController = storyboard.instantiateViewControllerWithIdentifier("TestViewController") as! UIViewController
         self.window!.rootViewController = rootController
         window?.makeKeyAndVisible()
         
