@@ -25,8 +25,8 @@ class AuthenticationViewController: UIViewController {
     }
     
     @IBAction func didTapSignIn(sender: AnyObject) {
-        appDelegate.rdioInstance.logout()
-        appDelegate.rdioInstance.authorizeFromController(self)
+        //appDelegate.rdioInstance.logout()
+        //appDelegate.rdioInstance.authorizeFromController(self)
         
         /*RdioClient.sharedInstance.loginWithCompletion() { (user: User?, error: NSError?) in
         if user != nil {
@@ -40,10 +40,10 @@ class AuthenticationViewController: UIViewController {
         
         // Temp: - To get around auth issue
         
-        /*var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
         var viewController = storyboard.instantiateViewControllerWithIdentifier("TabBarViewController") as! TabBarViewController
         let navigationController = UINavigationController(rootViewController: viewController)
-        self.presentViewController(navigationController, animated: true, completion: nil)*/
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
 }
 
