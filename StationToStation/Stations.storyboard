@@ -95,8 +95,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1X-2u-Vta">
-                                <rect key="frame" x="16" y="141" width="77" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1X-2u-Vta">
+                                <rect key="frame" x="10" y="141" width="77" height="30"/>
                                 <state key="normal" title="Add Tracks">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -104,8 +104,8 @@
                                     <action selector="didTapAddTracks:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="F81-ua-Rl5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALC-y1-75H">
-                                <rect key="frame" x="184" y="141" width="125" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALC-y1-75H">
+                                <rect key="frame" x="185" y="141" width="125" height="30"/>
                                 <state key="normal" title="Add Collaborators">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -115,6 +115,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ALC-y1-75H" firstAttribute="top" secondItem="zI9-Rb-lh0" secondAttribute="bottom" constant="121" id="1Dw-Yt-Q3Z"/>
+                            <constraint firstItem="u1X-2u-Vta" firstAttribute="leading" secondItem="vyF-Wn-n8H" secondAttribute="leading" constant="10" id="Xvo-LW-3cT"/>
+                            <constraint firstItem="u1X-2u-Vta" firstAttribute="top" secondItem="zI9-Rb-lh0" secondAttribute="bottom" constant="121" id="Z1u-4R-Tgj"/>
+                            <constraint firstAttribute="trailing" secondItem="ALC-y1-75H" secondAttribute="trailing" constant="10" id="sEl-ik-5RX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="16o-0t-ywo"/>
                 </viewController>

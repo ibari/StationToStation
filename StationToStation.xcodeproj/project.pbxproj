@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4AFB84C703669EADE82E1EA7 /* libPods-StationToStation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F9A742435132C8C84A1AA3 /* libPods-StationToStation.a */; };
-		9C1067ED1B26A36F006F9492 /* Collaborators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C1067EC1B26A36F006F9492 /* Collaborators.storyboard */; };
 		9C1067EF1B26A393006F9492 /* CollaboratorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1067EE1B26A393006F9492 /* CollaboratorsViewController.swift */; };
 		9C1067F21B26A3D4006F9492 /* Playlist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C1067F11B26A3D4006F9492 /* Playlist.storyboard */; };
 		9C1067F41B26A3E7006F9492 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1067F31B26A3E7006F9492 /* PlaylistViewController.swift */; };
@@ -21,6 +20,8 @@
 		9C2B56FE1B289C73001AE7AE /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C2B56FD1B289C73001AE7AE /* Profile.storyboard */; };
 		9C2B57001B28AD27001AE7AE /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B56FF1B28AD27001AE7AE /* StationViewController.swift */; };
 		9C2B57021B28B0F3001AE7AE /* AddCollaboratorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B57011B28B0F3001AE7AE /* AddCollaboratorsViewController.swift */; };
+		9C2B57041B28B664001AE7AE /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B57031B28B664001AE7AE /* UserCell.swift */; };
+		9C2B57081B28B82C001AE7AE /* Collaborators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C2B57071B28B82C001AE7AE /* Collaborators.storyboard */; };
 		9C3204551B24145E00BCD3B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3204541B24145D00BCD3B2 /* User.swift */; };
 		9C33B9861B2663BD0040A4E1 /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33B9851B2663BD0040A4E1 /* StationCell.swift */; };
 		9C40DA4E1B21563A001AEBBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA4D1B21563A001AEBBF /* AppDelegate.swift */; };
@@ -64,7 +65,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9C1067EC1B26A36F006F9492 /* Collaborators.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Collaborators.storyboard; sourceTree = "<group>"; };
 		9C1067EE1B26A393006F9492 /* CollaboratorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaboratorsViewController.swift; sourceTree = "<group>"; };
 		9C1067F11B26A3D4006F9492 /* Playlist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Playlist.storyboard; sourceTree = "<group>"; };
 		9C1067F31B26A3E7006F9492 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +77,8 @@
 		9C2B56FD1B289C73001AE7AE /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		9C2B56FF1B28AD27001AE7AE /* StationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 		9C2B57011B28B0F3001AE7AE /* AddCollaboratorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCollaboratorsViewController.swift; sourceTree = "<group>"; };
+		9C2B57031B28B664001AE7AE /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		9C2B57071B28B82C001AE7AE /* Collaborators.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Collaborators.storyboard; sourceTree = "<group>"; };
 		9C3204541B24145D00BCD3B2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C33B9851B2663BD0040A4E1 /* StationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
 		9C40DA481B21563A001AEBBF /* StationToStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StationToStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,7 +148,7 @@
 		9C1067EB1B26A348006F9492 /* Collaborators */ = {
 			isa = PBXGroup;
 			children = (
-				9C1067EC1B26A36F006F9492 /* Collaborators.storyboard */,
+				9C2B57071B28B82C001AE7AE /* Collaborators.storyboard */,
 				9C1067EE1B26A393006F9492 /* CollaboratorsViewController.swift */,
 				9C2B57011B28B0F3001AE7AE /* AddCollaboratorsViewController.swift */,
 			);
@@ -286,6 +288,7 @@
 			children = (
 				9C33B9851B2663BD0040A4E1 /* StationCell.swift */,
 				AB164E2C1B28138B00FCB441 /* TrackCell.swift */,
+				9C2B57031B28B664001AE7AE /* UserCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -442,7 +445,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C1067ED1B26A36F006F9492 /* Collaborators.storyboard in Resources */,
+				9C2B57081B28B82C001AE7AE /* Collaborators.storyboard in Resources */,
 				9C2850F21B23CDBA0051D05A /* Authentication.storyboard in Resources */,
 				9C53791E1B263C7200246ECD /* secrets.plist in Resources */,
 				9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */,
@@ -519,6 +522,7 @@
 				9C33B9861B2663BD0040A4E1 /* StationCell.swift in Sources */,
 				AB164E351B281E8E00FCB441 /* SearchTrackViewController.swift in Sources */,
 				AB34F26E1B23B2F900E14AB1 /* VoteViewController.swift in Sources */,
+				9C2B57041B28B664001AE7AE /* UserCell.swift in Sources */,
 				AB164E2D1B28138B00FCB441 /* TrackCell.swift in Sources */,
 				ABEB416F1B252BD40088C812 /* Track.swift in Sources */,
 				9C1067F41B26A3E7006F9492 /* PlaylistViewController.swift in Sources */,

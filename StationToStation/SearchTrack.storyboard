@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="576" y="282"/>
         </scene>
-        <!--Add Tracks-->
+        <!--Navigation Controller-->
         <scene sceneID="iWz-25-ZjQ">
             <objects>
-                <navigationController title="Add Tracks" automaticallyAdjustsScrollViewInsets="NO" id="Xqh-bp-p0o" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xqh-bp-p0o" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X61-0o-IWh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

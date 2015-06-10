@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="1087" y="424"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Playlist Navigation-->
         <scene sceneID="7aO-Vr-lQt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f9p-N4-pWt" sceneMemberID="viewController">
+                <navigationController title="Playlist Navigation" automaticallyAdjustsScrollViewInsets="NO" id="f9p-N4-pWt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="L2V-1I-JX8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
