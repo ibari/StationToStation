@@ -17,7 +17,6 @@ class AuthenticationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         appDelegate.rdioInstance.delegate = self
     }
     
@@ -42,18 +41,20 @@ class AuthenticationViewController: UIViewController {
 }
 
 // MARK: - RdioDelegate
+
 extension AuthenticationViewController: RdioDelegate {
     func rdioDidAuthorizeUser(user: [NSObject : AnyObject]!, withAccessToken accessToken: String!) {
         if user != nil {
             //setLoggedIn(true)
-            println("Login Successful: \(user)")
+            NSLog("Rdio authorized user")
             
             var storyboard = UIStoryboard(name: "Stations", bundle: nil)
-            var vc = storyboard.instantiateViewControllerWithIdentifier("StationsViewController") as! StationsViewController
-            self.presentViewController(vc, animated: true, completion: nil)
+            var viewController = storyboard.instantiateViewControllerWithIdentifier("StationsViewController") as! StationsViewController
+            let navigationController = UINavigationController(rootViewController: viewController)
+            self.presentViewController(navigationController, animated: true, completion: nil)
         } else {
             //handle error
-            println("Login error")
+            NSLog("Rdio authorizization failed")
         }
     }
     
@@ -63,11 +64,12 @@ extension AuthenticationViewController: RdioDelegate {
     }
     
     func rdioAuthorizationCancelled() {
-        println("rdioAuthorizationCancelled")
+        NSLog("Rdio authorization cancelled")
         //setLoggedIn(false)
     }
     
     func rdioDidLogout() {
+        NSLog("Rdio did logout")
         //setLoggedIn(false)
     }
 }

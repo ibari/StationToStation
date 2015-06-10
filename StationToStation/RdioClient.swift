@@ -8,18 +8,48 @@
 
 import UIKit
 
-let rdioClientID = ""
-let rdioSecret = ""
-let rdioBaseURL = NSURL(string: "https://api.rdio.com")
-
-class RdioClient: AFOAuth2Manager {
-    var loginCompletion: ((user: User?, error: NSError?) -> ())?
+class RdioClient: RdioDelegate {
+    
+    private var rdio: Rdio!
+    
+    private let rdioClientId = Utils.sharedInstance.getSecret("sts_client_id")
+    private let rdioClientSecret = Utils.sharedInstance.getSecret("sts_client_secret")
     
     class var sharedInstance: RdioClient {
         struct Static {
-            static let instance = RdioClient(baseURL: rdioBaseURL, clientID: rdioClientID, secret: rdioSecret)
+            static let instance = RdioClient()
         }
-        
         return Static.instance
+    }
+    
+    init() {
+        rdio = Rdio(clientId: rdioClientId, andSecret: rdioClientSecret, delegate: self)
+    }
+    
+    func login(vc: UIViewController) {
+        NSLog("Rdio did login")
+        rdio.authorizeFromController(vc)
+    }
+    
+    // MARK: - RdioDelegate
+    
+    func rdioDidAuthorizeUser(user: [NSObject : AnyObject]!) {
+        NSLog("Rdio authorized user")
+    }
+    
+    func rdioDidAuthorizeUser(user: [NSObject : AnyObject]!, withAccessToken accessToken: String!) {
+        NSLog("Rdio authorized user with access token")
+    }
+    
+    func rdioAuthorizationCancelled() {
+        NSLog("Rdio authorization cancelled")
+    }
+    
+    func rdioAuthorizationFailed(error: NSError!) {
+        NSLog("Rdio authorization failed")
+    }
+    
+    func rdioDidLogout() {
+        NSLog("Rdio did logout")
     }
 }

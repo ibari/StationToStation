@@ -11,26 +11,30 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
-
-    lazy internal var rdioInstance: Rdio = {
-        return Rdio(clientId: Utils.sharedInstance.getSecret("sts_client_id"), andSecret: Utils.sharedInstance.getSecret("sts_client_secret"), delegate: nil);
-    }()
+    private let rdioClientId = Utils.sharedInstance.getSecret("sts_client_id")
+    private let rdioClientSecret = Utils.sharedInstance.getSecret("sts_client_secret")
     
+    var window: UIWindow?
+    
+    lazy internal var rdioInstance: Rdio = {
+        return Rdio(clientId: self.rdioClientId, andSecret: self.rdioClientSecret, delegate: nil);
+    }()
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        DataStoreClient.sharedInstance.onApplicationLaunch()
+    
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
+        
+        if User.currentUser != nil {
+            NSLog("Current user: \(User.currentUser!.firstName!) \(User.currentUser!.lastName!)")
+        } 
+        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
         let rootController = storyboard.instantiateViewControllerWithIdentifier("AuthenticationViewController") as! UIViewController
-
-        DataStoreClient.sharedInstance.onApplicationLaunch()
-        
-        if User.currentUser != nil {
-            println("Current user: \(User.currentUser!.firstName!) \(User.currentUser!.lastName!)")
-        }
-        
         self.window!.rootViewController = rootController
         window?.makeKeyAndVisible()
-                
+        
         return true
     }
     

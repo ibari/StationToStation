@@ -27,7 +27,7 @@ PODS:
     - Bolts/Tasks (>= 1.1.5)
 
 DEPENDENCIES:
-  - AFNetworking
+  - AFNetworking (~> 2.5)
   - AFOAuth2Manager (~> 2.2)
   - Parse
 
