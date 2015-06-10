@@ -9,17 +9,17 @@
 import UIKit
 
 private let reuseIdentifier = "StationCell"
-private let sectionInsets = UIEdgeInsets(top: 50.0, left: 0.0, bottom: 0.0, right: 0.0)
+private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
 
 class StationsViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     var stations: [Station]?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -64,8 +64,9 @@ extension StationsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
-        cell.backgroundColor = UIColor.blackColor()
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! StationCell
+        
+        cell.station = stations![indexPath.row]
         
         return cell
     }
@@ -75,10 +76,18 @@ extension StationsViewController: UICollectionViewDataSource {
 
 extension StationsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: 185, height: 130)
+        return CGSize(width: 170, height: 140)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return sectionInsets
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacing section: Int) -> CGFloat {
+        return 10.0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 10.0
     }
 }

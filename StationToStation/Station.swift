@@ -10,18 +10,18 @@ import UIKit
 
 class Station {
    
-    let userKey: String
-    let playlistKey: String
-    let name: String
-    let description: String
-    let imageUrl: String
+    let userKey: String?
+    let playlistKey: String?
+    let name: String?
+    let description: String?
+    let imageUrl: NSURL?
     
     init(userKey: String, playlistKey: String, name: String, description: String, imageUrl: String) {
         self.userKey = userKey
         self.playlistKey = playlistKey
         self.name = name
         self.description = description
-        self.imageUrl = imageUrl
+        self.imageUrl = NSURL(string: imageUrl)!
     }
  
     func save(completion: (success: Bool, error: NSError?) -> Void) {
@@ -30,10 +30,10 @@ class Station {
     
     func getPlaylist(completion: (playlist: Playlist?, error: NSError?) -> Void) {
         completion(
-            playlist: Playlist(userKey: userKey, playlistKey: playlistKey, tracks: [
+            playlist: Playlist(userKey: userKey!, playlistKey: playlistKey!, tracks: [
                 Track(key: "t1", trackTitle: "Track 1", artistName: "Unknown", albumImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
                 Track(key: "t2", trackTitle: "Track 2", artistName: "Unknown", albumImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
-                Track(key: "t3", trackTitle: "Track 3", artistName: "Unknown", albumImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
+                Track(key: "t3", trackTitle: "Track 3", artistName: "Unknown", albumImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg")
             ]),
             error: nil
         )

@@ -25,8 +25,14 @@ class AuthenticationViewController: UIViewController {
     }
     
     @IBAction func didTapSignIn(sender: AnyObject) {
-        appDelegate.rdioInstance.logout()
-        appDelegate.rdioInstance.authorizeFromController(self)
+        //appDelegate.rdioInstance.logout()
+        
+        var storyboard = UIStoryboard(name: "Stations", bundle: nil)
+        var viewController = storyboard.instantiateViewControllerWithIdentifier("StationsViewController") as! StationsViewController
+        let navigationController = UINavigationController(rootViewController: viewController)
+        self.presentViewController(navigationController, animated: true, completion: nil)
+        
+        //appDelegate.rdioInstance.authorizeFromController(self)
         
         /*RdioClient.sharedInstance.loginWithCompletion() { (user: User?, error: NSError?) in
         if user != nil {
