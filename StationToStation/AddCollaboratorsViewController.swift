@@ -13,6 +13,7 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    var station: Station?
     var collaborators: [Collaborator]!
     
     override func viewDidLoad() {

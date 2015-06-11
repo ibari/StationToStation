@@ -1,16 +1,18 @@
 //
-//  CollaboratorsViewController.swift
+//  InvitesViewController.swift
 //  StationToStation
 //
-//  Created by Ian on 6/8/15.
+//  Created by Ian on 6/10/15.
 //  Copyright (c) 2015 Ian Bari. All rights reserved.
 //
 
 import UIKit
 
-class CollaboratorsViewController: UIViewController {
+class InvitesViewController: UIViewController {
     
-    var station: Station?
+    override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.navigationItem.title = "Invites"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,6 @@ class CollaboratorsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
 
     /*
     // MARK: - Navigation
@@ -30,5 +31,4 @@ class CollaboratorsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

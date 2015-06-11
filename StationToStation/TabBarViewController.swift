@@ -17,15 +17,15 @@ class TabBarViewController: UITabBarController {
         var stationsStoryboard = UIStoryboard(name: "Stations", bundle: nil)
         var stationsController = stationsStoryboard.instantiateInitialViewController() as! StationsViewController
         
-        // collaborators
-        var collaboratorsStoryboard = UIStoryboard(name: "Collaborators", bundle: nil)
-        var collaboratorsController = collaboratorsStoryboard.instantiateInitialViewController() as! CollaboratorsViewController
+        // invites
+        var invitesStoryboard = UIStoryboard(name: "Invites", bundle: nil)
+        var invitesController = invitesStoryboard.instantiateInitialViewController() as! InvitesViewController
         
         // profile
         var profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         var profileController = profileStoryboard.instantiateInitialViewController() as! ProfileViewController
         
-        let controllers = [stationsController, collaboratorsController, profileController]
+        let controllers = [stationsController, invitesController, profileController]
         self.viewControllers = controllers
         
         self.selectedIndex = 0
