@@ -32,12 +32,11 @@ class AuthenticationViewController: UIViewController {
 // MARK: - RdioDelegate
 
 extension AuthenticationViewController: RdioDelegate {
-    func rdioDidAuthorizeUser(user: [NSObject : AnyObject]!, withAccessToken accessToken: String!) {
+    func rdioDidAuthorizeUser(user: [NSObject : AnyObject]!) {
         if user != nil {
             NSLog("Rdio authorized user")
         
             User.currentUser = User(dictionary: user as NSDictionary)
-            User.currentUser?.accessToken = accessToken
             
             var storyboard = UIStoryboard(name: "Main", bundle: nil)
             var viewController = storyboard.instantiateViewControllerWithIdentifier("TabBarViewController") as! TabBarViewController

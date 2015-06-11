@@ -9,7 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "StationCell"
-private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+private let sectionInsets = UIEdgeInsets(top: 12.0, left: 10.0, bottom: 10.0, right: 12.0)
 
 class StationsViewController: UIViewController {
 
