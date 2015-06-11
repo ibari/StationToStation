@@ -2,4 +2,4 @@
 An iOS app to collaboratively create playlists.
 
 #Storyboard
-![alt tag](https://cloud.githubusercontent.com/assets/1864014/8100547/4f5df644-0fc2-11e5-9e52-5923ff50c898.png)
+![alt tag](https://cloud.githubusercontent.com/assets/1864014/8112903/bab0e976-101f-11e5-8968-bc82fc95aacd.png)
