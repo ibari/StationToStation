@@ -11,13 +11,13 @@ import UIKit
 class AuthenticationViewController: UIViewController {
     @IBOutlet var loginButton: UIButton!
     
-    var appDelegate: AppDelegate {
-        get { return UIApplication.sharedApplication().delegate as! AppDelegate }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        appDelegate.rdioInstance.delegate = self
+        RdioClient.sharedInstance.delegate = self
+        
+        if User.currentUser != nil {
+            NSLog("Current user: \(User.currentUser!.firstName!) \(User.currentUser!.lastName!)")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,25 +25,7 @@ class AuthenticationViewController: UIViewController {
     }
     
     @IBAction func didTapSignIn(sender: AnyObject) {
-        //appDelegate.rdioInstance.logout()
-        //appDelegate.rdioInstance.authorizeFromController(self)
-        
-        /*RdioClient.sharedInstance.loginWithCompletion() { (user: User?, error: NSError?) in
-        if user != nil {
-        //self.performSegueWithIdentifier("loginSegue", sender: self)
-        println("Login Successful!")
-        } else {
-        //handle error
-        println("Login error: \(error)")
-        }
-        }*/
-        
-        // Temp: - To get around auth issue
-        
-        var storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var viewController = storyboard.instantiateViewControllerWithIdentifier("TabBarViewController") as! TabBarViewController
-        let navigationController = UINavigationController(rootViewController: viewController)
-        self.presentViewController(navigationController, animated: true, completion: nil)
+        RdioClient.sharedInstance.authorizeFromController(self)
     }
 }
 
@@ -52,32 +34,31 @@ class AuthenticationViewController: UIViewController {
 extension AuthenticationViewController: RdioDelegate {
     func rdioDidAuthorizeUser(user: [NSObject : AnyObject]!, withAccessToken accessToken: String!) {
         if user != nil {
-            //setLoggedIn(true)
             NSLog("Rdio authorized user")
+        
+            User.currentUser = User(dictionary: user as NSDictionary)
+            User.currentUser?.accessToken = accessToken
             
-            var storyboard = UIStoryboard(name: "Stations", bundle: nil)
-            var viewController = storyboard.instantiateViewControllerWithIdentifier("StationsViewController") as! StationsViewController
+            var storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var viewController = storyboard.instantiateViewControllerWithIdentifier("TabBarViewController") as! TabBarViewController
             let navigationController = UINavigationController(rootViewController: viewController)
             self.presentViewController(navigationController, animated: true, completion: nil)
-        } else {
-            //handle error
-            NSLog("Rdio authorizization failed")
         }
     }
     
     func rdioAuthorizationFailed(error: NSError!) {
-        println("Rdio authorization failed with error: \(error.localizedDescription)")
-        //setLoggedIn(false)
+        NSLog("Rdio authorization failed: \(error.localizedDescription)")
+        User.currentUser?.logout()
     }
     
     func rdioAuthorizationCancelled() {
         NSLog("Rdio authorization cancelled")
-        //setLoggedIn(false)
+        User.currentUser?.logout()
     }
     
     func rdioDidLogout() {
         NSLog("Rdio did logout")
-        //setLoggedIn(false)
+        User.currentUser?.logout()
     }
 }
 

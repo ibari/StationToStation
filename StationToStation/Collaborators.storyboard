@@ -103,6 +103,7 @@
         <!--Add Collaborators Navigation-->
         <scene sceneID="iWz-25-ZjQ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yhH-Ya-GgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="Add Collaborators Navigation" automaticallyAdjustsScrollViewInsets="NO" id="Xqh-bp-p0o" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X61-0o-IWh">
@@ -114,7 +115,6 @@
                         <segue destination="cjE-Um-gHV" kind="relationship" relationship="rootViewController" id="w2D-Nv-5zn"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yhH-Ya-GgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="157" y="282"/>
         </scene>

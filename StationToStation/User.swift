@@ -15,23 +15,22 @@ let userDidLogoutNotification = "userDidLogoutNotification"
 
 class User: NSObject {
     var key: Int?
+    var accessToken: String?
     var firstName: String?
     var lastName: String?
-    var icon: NSURL?
+    var profileImageUrl: NSURL?
     var dictionary: NSDictionary?
     
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
-        key = dictionary["key"] as? Int
-        firstName = dictionary["firstName"] as? String
-        lastName = dictionary["lastName"] as? String
-        icon = dictionary["icon"] as? NSURL
+        self.key = dictionary["key"] as? Int
+        self.firstName = dictionary["firstName"] as? String
+        self.lastName = dictionary["lastName"] as? String
+        self.profileImageUrl = NSURL(string: (dictionary["icon"] as? String)!)
     }
     
     func logout() {
         User.currentUser = nil
-        //RdioClient.sharedInstance.requestSerializer.removeAccessToken()
-        
         NSNotificationCenter.defaultCenter().postNotificationName(userDidLogoutNotification, object: nil)
     }
     

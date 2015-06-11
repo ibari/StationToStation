@@ -23,6 +23,7 @@ class StationsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureToolbar()
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -37,8 +38,14 @@ class StationsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func didTapSignOut(sender: AnyObject) {
-
+    // MARK: - Configuration
+    
+    func configureToolbar() {
+        self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "logout")
+    }
+    
+    func logout() {
+        RdioClient.sharedInstance.logout()
     }
 
     /*
