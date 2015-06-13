@@ -7,7 +7,7 @@
         <!--Add Tracks-->
         <scene sceneID="vZO-Rh-inZ">
             <objects>
-                <viewController storyboardIdentifier="SearchTrackViewController" id="cjE-Um-gHV" customClass="SearchTrackViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTracksViewController" id="cjE-Um-gHV" customClass="AddTracksViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ltY-9e-eFu"/>
                         <viewControllerLayoutGuide type="bottom" id="bPy-ch-lgl"/>
@@ -24,46 +24,55 @@
                                 <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" rowHeight="88" id="6H3-ys-hf0" customClass="TrackCell" customModule="StationToStation" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddTrackCell" rowHeight="88" id="6H3-ys-hf0" customClass="AddTrackCell" customModule="StationToStation" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6H3-ys-hf0" id="mxm-07-HhT">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JnV-6c-1Ei">
-                                                    <rect key="frame" x="8" y="8" width="70" height="70.5"/>
+                                                    <rect key="frame" x="8" y="8" width="50" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="6tJ-Qa-5zv"/>
-                                                        <constraint firstAttribute="height" constant="70" id="UtI-fK-zpU"/>
+                                                        <constraint firstAttribute="width" constant="50" id="7II-6q-VkI"/>
+                                                        <constraint firstAttribute="height" constant="50" id="hNr-EX-1xw"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of the Song" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8J-h7-bsY">
-                                                    <rect key="frame" x="86" y="8" width="126" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8J-h7-bsY">
+                                                    <rect key="frame" x="66" y="8" width="63" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erB-1D-B24">
-                                                    <rect key="frame" x="86" y="33" width="74" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erB-1D-B24">
+                                                    <rect key="frame" x="66" y="25" width="32" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:07" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U0-Sz-3CZ">
+                                                    <rect key="frame" x="66" y="43" width="24.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="JnV-6c-1Ei" firstAttribute="leading" secondItem="mxm-07-HhT" secondAttribute="leading" constant="8" id="HiX-zX-kWj"/>
-                                                <constraint firstItem="C8J-h7-bsY" firstAttribute="leading" secondItem="JnV-6c-1Ei" secondAttribute="trailing" constant="8" id="JUb-QQ-FeN"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JnV-6c-1Ei" secondAttribute="bottom" constant="8" id="LPy-j4-2tp"/>
-                                                <constraint firstItem="JnV-6c-1Ei" firstAttribute="top" secondItem="C8J-h7-bsY" secondAttribute="top" id="Low-4O-myj"/>
-                                                <constraint firstItem="erB-1D-B24" firstAttribute="top" secondItem="C8J-h7-bsY" secondAttribute="bottom" constant="5" id="Tqk-Q4-dGt"/>
-                                                <constraint firstItem="JnV-6c-1Ei" firstAttribute="top" secondItem="mxm-07-HhT" secondAttribute="top" constant="8" id="YEG-1m-Ila"/>
-                                                <constraint firstItem="C8J-h7-bsY" firstAttribute="leading" secondItem="erB-1D-B24" secondAttribute="leading" id="g90-rw-sol"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JnV-6c-1Ei" secondAttribute="bottom" constant="10" id="2Ef-FF-HgB"/>
+                                                <constraint firstItem="7U0-Sz-3CZ" firstAttribute="bottom" secondItem="JnV-6c-1Ei" secondAttribute="bottom" id="2KC-q2-abD"/>
+                                                <constraint firstItem="erB-1D-B24" firstAttribute="top" secondItem="C8J-h7-bsY" secondAttribute="bottom" constant="1" id="82v-hK-U7p"/>
+                                                <constraint firstItem="JnV-6c-1Ei" firstAttribute="leading" secondItem="mxm-07-HhT" secondAttribute="leading" constant="8" id="Bij-7p-zGC"/>
+                                                <constraint firstItem="JnV-6c-1Ei" firstAttribute="top" secondItem="mxm-07-HhT" secondAttribute="top" constant="8" id="GJy-f4-N5O"/>
+                                                <constraint firstItem="C8J-h7-bsY" firstAttribute="leading" secondItem="JnV-6c-1Ei" secondAttribute="trailing" constant="8" id="j96-lt-OII"/>
+                                                <constraint firstItem="erB-1D-B24" firstAttribute="leading" secondItem="JnV-6c-1Ei" secondAttribute="trailing" constant="8" id="nwD-GH-jNd"/>
+                                                <constraint firstItem="C8J-h7-bsY" firstAttribute="top" secondItem="JnV-6c-1Ei" secondAttribute="top" id="pWY-wC-8ti"/>
+                                                <constraint firstItem="7U0-Sz-3CZ" firstAttribute="leading" secondItem="JnV-6c-1Ei" secondAttribute="trailing" constant="8" id="qbZ-V1-0KC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="artistLabel" destination="erB-1D-B24" id="CF9-GP-Jsp"/>
+                                            <outlet property="durationLabel" destination="7U0-Sz-3CZ" id="quS-DL-gY7"/>
+                                            <outlet property="iconImageView" destination="JnV-6c-1Ei" id="MP2-7b-YEb"/>
                                             <outlet property="titleLabel" destination="C8J-h7-bsY" id="Dzq-Or-RMV"/>
-                                            <outlet property="trackImageView" destination="JnV-6c-1Ei" id="JJn-mA-rnJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -10,9 +10,16 @@ import UIKit
 
 class StationViewController: UIViewController {
     
+    @IBOutlet weak var headerView: StationHeaderView!
+    
+    var station: Station?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Station"
+
+        //headerView.image = UIImage(named: "yodawg")
+        //headerView.nameLabel.text = "Testing"
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,8 +27,8 @@ class StationViewController: UIViewController {
     }
     
     @IBAction func didTapAddTracks(sender: AnyObject) {
-        var storyboard = UIStoryboard(name: "SearchTrack", bundle: nil)
-        var viewController = storyboard.instantiateViewControllerWithIdentifier("SearchTrackViewController") as! SearchTrackViewController
+        var storyboard = UIStoryboard(name: "AddTracks", bundle: nil)
+        var viewController = storyboard.instantiateViewControllerWithIdentifier("AddTracksViewController") as! AddTracksViewController
         self.navigationController!.pushViewController(viewController, animated: true)
     }
 
@@ -29,6 +36,22 @@ class StationViewController: UIViewController {
         var storyboard = UIStoryboard(name: "Collaborators", bundle: nil)
         var viewController = storyboard.instantiateViewControllerWithIdentifier("AddCollaboratorsViewController") as! AddCollaboratorsViewController
         self.navigationController!.pushViewController(viewController, animated: true)
+    }
+    
+    // MARK: - Testing
+    
+    @IBAction func didTapPlaylist(sender: AnyObject) {
+        self.station!.getPlaylist() { (playlist, error) in
+            if let error = error {
+                NSLog("Error loading playlist: \(error)")
+                return
+            }
+            
+            var storyboard = UIStoryboard(name: "Playlist", bundle: nil)
+            var playlistViewController = storyboard.instantiateViewControllerWithIdentifier("PlaylistViewController") as! PlaylistViewController
+            playlistViewController.playlist = playlist!
+            self.navigationController!.pushViewController(playlistViewController, animated: true)
+        }
     }
     
     /*

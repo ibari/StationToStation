@@ -31,9 +31,9 @@ class Station {
     func getPlaylist(completion: (playlist: Playlist?, error: NSError?) -> Void) {
         completion(
             playlist: Playlist(userKey: userKey!, playlistKey: playlistKey!, tracks: [
-                Track(key: "t1", trackTitle: "Track 1", artistName: "Unknown", albumImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
-                Track(key: "t2", trackTitle: "Track 2", artistName: "Unknown", albumImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
-                Track(key: "t3", trackTitle: "Track 3", artistName: "Unknown", albumImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg")
+                Track(key: "t1", trackTitle: "No Fun", artistName: "Stooges", albumImageUrl: "http://rdio3img-a.akamaihd.net/album/a/2/3/000000000007232a/square-1200.jpg", duration: "4:07"),
+                Track(key: "t2", trackTitle: "Five Years", artistName: "David Bowie", albumImageUrl: "http://rdio3img-a.akamaihd.net/album/c/e/f/0000000000352fec/2/square-1200.jpg", duration: "3:21"),
+                Track(key: "t3", trackTitle: "Hiding In My Car", artistName: "Sector Zero", albumImageUrl: "http://rdio3img-a.akamaihd.net/album/8/9/d/000000000050ad98/2/square-1200.jpg", duration: "2:18")
             ]),
             error: nil
         )

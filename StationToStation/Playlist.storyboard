@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="f9p-N4-pWt">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Playlist View Controller-->
         <scene sceneID="Mz8-fr-cOE">
             <objects>
-                <viewController id="FYZ-x1-Vtn" customClass="PlaylistViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlaylistViewController" id="FYZ-x1-Vtn" customClass="PlaylistViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ddy-hx-T7q"/>
                         <viewControllerLayoutGuide type="bottom" id="8lB-gH-fuk"/>
@@ -26,40 +27,40 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jyH-ea-hu4" id="vd9-8E-eyH">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VYF-Kh-1Rl">
-                                                    <rect key="frame" x="8" y="8" width="70" height="70.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="X6a-hg-y3t"/>
-                                                        <constraint firstAttribute="height" constant="70" id="cfX-Hi-PSc"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of the Song" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vne-su-hO6">
-                                                    <rect key="frame" x="86" y="8" width="126" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfO-NI-WQz">
+                                                    <rect key="frame" x="14" y="10" width="14" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zys-30-VgW">
-                                                    <rect key="frame" x="86" y="33" width="74" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vne-su-hO6">
+                                                    <rect key="frame" x="38" y="10" width="58.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooo-Ko-tBd">
+                                                    <rect key="frame" x="38" y="24" width="29.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="VYF-Kh-1Rl" firstAttribute="top" secondItem="vd9-8E-eyH" secondAttribute="top" constant="8" id="IJd-DK-LZZ"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VYF-Kh-1Rl" secondAttribute="bottom" constant="8" id="bqx-qT-N18"/>
-                                                <constraint firstItem="Vne-su-hO6" firstAttribute="leading" secondItem="VYF-Kh-1Rl" secondAttribute="trailing" constant="8" id="efJ-13-Bkf"/>
-                                                <constraint firstItem="VYF-Kh-1Rl" firstAttribute="leading" secondItem="vd9-8E-eyH" secondAttribute="leading" constant="8" id="f50-kR-pe7"/>
-                                                <constraint firstItem="Vne-su-hO6" firstAttribute="leading" secondItem="zys-30-VgW" secondAttribute="leading" id="gu2-Wb-6Oh"/>
-                                                <constraint firstItem="VYF-Kh-1Rl" firstAttribute="top" secondItem="Vne-su-hO6" secondAttribute="top" id="qLK-dy-dLt"/>
-                                                <constraint firstItem="zys-30-VgW" firstAttribute="top" secondItem="Vne-su-hO6" secondAttribute="bottom" constant="5" id="zPO-Ss-t91"/>
+                                                <constraint firstItem="ooo-Ko-tBd" firstAttribute="leading" secondItem="Vne-su-hO6" secondAttribute="leading" id="0Il-Ip-a8K"/>
+                                                <constraint firstItem="Vne-su-hO6" firstAttribute="centerY" secondItem="ZfO-NI-WQz" secondAttribute="centerY" id="3Et-8j-QqX"/>
+                                                <constraint firstItem="ZfO-NI-WQz" firstAttribute="leading" secondItem="vd9-8E-eyH" secondAttribute="leading" constant="14" id="9Fi-Vd-TeA"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="ZfO-NI-WQz" secondAttribute="bottom" constant="6" id="FBU-pF-TKb"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ooo-Ko-tBd" secondAttribute="bottom" constant="6" id="RoA-G9-3Aa"/>
+                                                <constraint firstItem="ooo-Ko-tBd" firstAttribute="top" secondItem="Vne-su-hO6" secondAttribute="bottom" id="fjm-ba-cGH"/>
+                                                <constraint firstItem="Vne-su-hO6" firstAttribute="leading" secondItem="ZfO-NI-WQz" secondAttribute="trailing" constant="10" id="nhh-3L-4x3"/>
+                                                <constraint firstItem="ZfO-NI-WQz" firstAttribute="top" secondItem="vd9-8E-eyH" secondAttribute="top" constant="10" id="xlm-NQ-QSb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="artistLabel" destination="zys-30-VgW" id="EyQ-5W-3It"/>
+                                            <outlet property="artistLabel" destination="ooo-Ko-tBd" id="cyo-aa-KbD"/>
+                                            <outlet property="orderLabel" destination="ZfO-NI-WQz" id="m6d-Fg-ft3"/>
                                             <outlet property="titleLabel" destination="Vne-su-hO6" id="Jsw-76-lyS"/>
-                                            <outlet property="trackImageView" destination="VYF-Kh-1Rl" id="yt4-FI-v98"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

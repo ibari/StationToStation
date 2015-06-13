@@ -30,7 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setAppearance() {
-        UINavigationBar.appearance().barTintColor = UIColor(red: 0.0/255.0, green: 142.0/255.0, blue: 212.0/255.0, alpha: 1.0)
+        let primaryColor = UIColor(red: 0.0/255.0, green: 142.0/255.0, blue: 212.0/255.0, alpha: 1.0)
+        
+        UINavigationBar.appearance().barTintColor = primaryColor
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         let navBarFont = UIFont(name: "HelveticaNeue", size:15.0)!
@@ -38,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tabBarFont = UIFont(name: "HelveticaNeue", size:12.0)!
         UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName:tabBarFont,NSForegroundColorAttributeName:UIColor.darkGrayColor()], forState: UIControlState.Normal)
+        
+        UIButton.appearance().setTitleColor(primaryColor, forState: UIControlState.Normal)
     }
     
     func userDidLogout() {

@@ -24,6 +24,9 @@
 		9C2B57081B28B82C001AE7AE /* Collaborators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C2B57071B28B82C001AE7AE /* Collaborators.storyboard */; };
 		9C2B570D1B295173001AE7AE /* InvitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B570C1B295173001AE7AE /* InvitesViewController.swift */; };
 		9C2B570F1B2951AA001AE7AE /* Invites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C2B570E1B2951AA001AE7AE /* Invites.storyboard */; };
+		9C2B57141B2AB8FE001AE7AE /* StationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B57131B2AB8FE001AE7AE /* StationHeaderView.swift */; };
+		9C2B57161B2AB919001AE7AE /* StationHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C2B57151B2AB919001AE7AE /* StationHeaderView.xib */; };
+		9C2B571C1B2BB652001AE7AE /* AddTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B571B1B2BB652001AE7AE /* AddTrackCell.swift */; };
 		9C3204551B24145E00BCD3B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3204541B24145D00BCD3B2 /* User.swift */; };
 		9C33B9861B2663BD0040A4E1 /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33B9851B2663BD0040A4E1 /* StationCell.swift */; };
 		9C40DA4E1B21563A001AEBBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA4D1B21563A001AEBBF /* AppDelegate.swift */; };
@@ -33,8 +36,8 @@
 		9C5379201B2655AB00246ECD /* Stations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C53791F1B2655AB00246ECD /* Stations.storyboard */; };
 		9C5379241B2658EF00246ECD /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5379231B2658EF00246ECD /* StationsViewController.swift */; };
 		AB164E2D1B28138B00FCB441 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB164E2C1B28138B00FCB441 /* TrackCell.swift */; };
-		AB164E331B281E7E00FCB441 /* SearchTrack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB164E321B281E7E00FCB441 /* SearchTrack.storyboard */; };
-		AB164E351B281E8E00FCB441 /* SearchTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB164E341B281E8E00FCB441 /* SearchTrackViewController.swift */; };
+		AB164E331B281E7E00FCB441 /* AddTracks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB164E321B281E7E00FCB441 /* AddTracks.storyboard */; };
+		AB164E351B281E8E00FCB441 /* AddTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB164E341B281E8E00FCB441 /* AddTracksViewController.swift */; };
 		AB34F2601B23A75300E14AB1 /* DataStoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */; };
 		AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F25F1B23A75300E14AB1 /* Utils.swift */; };
 		AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AB34F2651B23AFDF00E14AB1 /* Podfile */; };
@@ -83,6 +86,9 @@
 		9C2B57071B28B82C001AE7AE /* Collaborators.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Collaborators.storyboard; sourceTree = "<group>"; };
 		9C2B570C1B295173001AE7AE /* InvitesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitesViewController.swift; sourceTree = "<group>"; };
 		9C2B570E1B2951AA001AE7AE /* Invites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Invites.storyboard; sourceTree = "<group>"; };
+		9C2B57131B2AB8FE001AE7AE /* StationHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationHeaderView.swift; sourceTree = "<group>"; };
+		9C2B57151B2AB919001AE7AE /* StationHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StationHeaderView.xib; sourceTree = "<group>"; };
+		9C2B571B1B2BB652001AE7AE /* AddTrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrackCell.swift; sourceTree = "<group>"; };
 		9C3204541B24145D00BCD3B2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C33B9851B2663BD0040A4E1 /* StationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
 		9C40DA481B21563A001AEBBF /* StationToStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StationToStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,8 +102,8 @@
 		9C53791F1B2655AB00246ECD /* Stations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stations.storyboard; sourceTree = "<group>"; };
 		9C5379231B2658EF00246ECD /* StationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
 		AB164E2C1B28138B00FCB441 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
-		AB164E321B281E7E00FCB441 /* SearchTrack.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchTrack.storyboard; sourceTree = "<group>"; };
-		AB164E341B281E8E00FCB441 /* SearchTrackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTrackViewController.swift; sourceTree = "<group>"; };
+		AB164E321B281E7E00FCB441 /* AddTracks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTracks.storyboard; sourceTree = "<group>"; };
+		AB164E341B281E8E00FCB441 /* AddTracksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTracksViewController.swift; sourceTree = "<group>"; };
 		AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreClient.swift; sourceTree = "<group>"; };
 		AB34F25F1B23A75300E14AB1 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		AB34F2621B23A83800E14AB1 /* StationToStation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StationToStation-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -164,8 +170,8 @@
 			children = (
 				9C1067F11B26A3D4006F9492 /* Playlist.storyboard */,
 				9C1067F31B26A3E7006F9492 /* PlaylistViewController.swift */,
-				AB164E321B281E7E00FCB441 /* SearchTrack.storyboard */,
-				AB164E341B281E8E00FCB441 /* SearchTrackViewController.swift */,
+				AB164E321B281E7E00FCB441 /* AddTracks.storyboard */,
+				AB164E341B281E8E00FCB441 /* AddTracksViewController.swift */,
 			);
 			name = Playlist;
 			sourceTree = "<group>";
@@ -173,10 +179,10 @@
 		9C2850E71B23A3B60051D05A /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				9C2850F01B23C6840051D05A /* RestAPI */,
-				AB34F25F1B23A75300E14AB1 /* Utils.swift */,
 				9C40DA6E1B215645001AEBBF /* Controllers */,
 				9C40DA6F1B215653001AEBBF /* Models */,
+				9C2850F01B23C6840051D05A /* RestAPI */,
+				AB34F25F1B23A75300E14AB1 /* Utils.swift */,
 				9C40DA6D1B215640001AEBBF /* Views */,
 			);
 			name = Application;
@@ -299,7 +305,10 @@
 		9C40DA6D1B215640001AEBBF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9C2B571B1B2BB652001AE7AE /* AddTrackCell.swift */,
 				9C33B9851B2663BD0040A4E1 /* StationCell.swift */,
+				9C2B57131B2AB8FE001AE7AE /* StationHeaderView.swift */,
+				9C2B57151B2AB919001AE7AE /* StationHeaderView.xib */,
 				AB164E2C1B28138B00FCB441 /* TrackCell.swift */,
 				9C2B57031B28B664001AE7AE /* UserCell.swift */,
 			);
@@ -462,6 +471,7 @@
 				9C2B57081B28B82C001AE7AE /* Collaborators.storyboard in Resources */,
 				9C2850F21B23CDBA0051D05A /* Authentication.storyboard in Resources */,
 				9C53791E1B263C7200246ECD /* secrets.plist in Resources */,
+				9C2B57161B2AB919001AE7AE /* StationHeaderView.xib in Resources */,
 				9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */,
 				AB34F2691B23AFDF00E14AB1 /* LICENSE in Resources */,
 				9C2B570F1B2951AA001AE7AE /* Invites.storyboard in Resources */,
@@ -469,7 +479,7 @@
 				AB34F26A1B23AFDF00E14AB1 /* README.md in Resources */,
 				9C2B56F71B289788001AE7AE /* Main.storyboard in Resources */,
 				AB34F26C1B23B12000E14AB1 /* Vote.storyboard in Resources */,
-				AB164E331B281E7E00FCB441 /* SearchTrack.storyboard in Resources */,
+				AB164E331B281E7E00FCB441 /* AddTracks.storyboard in Resources */,
 				9C1067F21B26A3D4006F9492 /* Playlist.storyboard in Resources */,
 				9C2B56FE1B289C73001AE7AE /* Profile.storyboard in Resources */,
 				9C5379201B2655AB00246ECD /* Stations.storyboard in Resources */,
@@ -534,10 +544,12 @@
 				9C2850EE1B23C3B80051D05A /* RdioClient.swift in Sources */,
 				ABEB416B1B25277D0088C812 /* Station.swift in Sources */,
 				9C2B56F91B2897BB001AE7AE /* TabBarViewController.swift in Sources */,
+				9C2B571C1B2BB652001AE7AE /* AddTrackCell.swift in Sources */,
 				9C5379241B2658EF00246ECD /* StationsViewController.swift in Sources */,
 				9C33B9861B2663BD0040A4E1 /* StationCell.swift in Sources */,
-				AB164E351B281E8E00FCB441 /* SearchTrackViewController.swift in Sources */,
+				AB164E351B281E8E00FCB441 /* AddTracksViewController.swift in Sources */,
 				AB34F26E1B23B2F900E14AB1 /* VoteViewController.swift in Sources */,
+				9C2B57141B2AB8FE001AE7AE /* StationHeaderView.swift in Sources */,
 				9C2B57041B28B664001AE7AE /* UserCell.swift in Sources */,
 				AB164E2D1B28138B00FCB441 /* TrackCell.swift in Sources */,
 				ABEB416F1B252BD40088C812 /* Track.swift in Sources */,

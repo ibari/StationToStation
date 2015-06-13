@@ -16,6 +16,7 @@ class StationsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var stations: [Station]?
+    let stationSegueIdentifier = "stationSegue"
     
     override func viewWillAppear(animated: Bool) {
         self.tabBarController?.navigationItem.title = "Stations"
@@ -48,15 +49,16 @@ class StationsViewController: UIViewController {
         RdioClient.sharedInstance.logout()
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == stationSegueIdentifier {
+            if let indexPath = collectionView.indexPathForCell((sender as? StationCell)!) {
+                let stationViewController = segue.destinationViewController as! StationViewController
+                stationViewController.station = stations![indexPath.row]
+            }
+        }
     }
-    */
 }
 
 // MARK: - UICollectionViewDataSource

@@ -1,5 +1,5 @@
 //
-//  SearchTrackViewController.swift
+//  AddTracksViewController.swift
 //  StationToStation
 //
 //  Created by Benjamin Tsai on 6/10/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchTrackViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
+class AddTracksViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -26,6 +26,11 @@ class SearchTrackViewController: UIViewController, UISearchBarDelegate, UITableV
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+        tableView.reloadData()
+        
+        var sidebarBackgroundView = UIView(frame: CGRectZero)
+        self.tableView.tableFooterView = sidebarBackgroundView
+        self.tableView.backgroundColor = UIColor.clearColor()
     }
     
     func searchBarSearchButtonClicked(sender: UISearchBar) {
@@ -56,7 +61,7 @@ class SearchTrackViewController: UIViewController, UISearchBarDelegate, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let track = tracks[indexPath.item]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("TrackCell", forIndexPath: indexPath) as! TrackCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("AddTrackCell", forIndexPath: indexPath) as! AddTrackCell
         cell.track = track
         return cell
     }

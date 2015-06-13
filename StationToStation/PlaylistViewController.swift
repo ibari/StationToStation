@@ -21,7 +21,12 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.dataSource = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 120
+        tableView.estimatedRowHeight = 60
+        tableView.reloadData()
+        
+        var sidebarBackgroundView = UIView(frame: CGRectZero)
+        self.tableView.tableFooterView = sidebarBackgroundView
+        self.tableView.backgroundColor = UIColor.clearColor()
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -35,6 +40,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TrackCell", forIndexPath: indexPath) as! TrackCell
         cell.track = playlist.tracks[indexPath.item]
+        cell.orderLabel.text = String(indexPath.row + 1)
+        
         return cell
     }
     

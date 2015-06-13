@@ -80,38 +80,56 @@
             <objects>
                 <viewController storyboardIdentifier="StationViewController" title="Station" id="DfL-PK-BWJ" customClass="StationViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zI9-Rb-lh0"/>
-                        <viewControllerLayoutGuide type="bottom" id="Zk8-MT-ntc"/>
+                        <viewControllerLayoutGuide type="top" id="ggn-4L-dsv"/>
+                        <viewControllerLayoutGuide type="bottom" id="JBK-86-nUk"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vyF-Wn-n8H">
+                    <view key="view" contentMode="scaleToFill" id="Gpf-bp-Nbq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1X-2u-Vta">
-                                <rect key="frame" x="10" y="141" width="77" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="431-wn-INk" customClass="StationHeaderView" customModule="StationToStation" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
+                                <color key="backgroundColor" red="0.86279296875" green="0.82745098039999998" blue="0.95736533717105265" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="171" id="a8U-2s-Urc"/>
+                                    <constraint firstAttribute="width" constant="320" id="lNc-DO-FS2"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJY-Z6-8cR">
+                                <rect key="frame" x="11" y="179" width="77" height="30"/>
                                 <state key="normal" title="Add Tracks">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapAddTracks:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="F81-ua-Rl5"/>
+                                    <action selector="didTapAddTracks:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="GCA-Ic-ulC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALC-y1-75H">
-                                <rect key="frame" x="185" y="141" width="125" height="30"/>
-                                <state key="normal" title="Add Collaborators">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnC-vv-T5n">
+                                <rect key="frame" x="230" y="179" width="80" height="30"/>
+                                <state key="normal" title="Add People">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapAddCollaborators:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="jBk-js-QXS"/>
+                                    <action selector="didTapAddCollaborators:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="s86-v3-aEF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2y-W6-ebA">
+                                <rect key="frame" x="135.5" y="271" width="49" height="30"/>
+                                <state key="normal" title="Playlist">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapPlaylist:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="WlC-vl-Y4P"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ALC-y1-75H" firstAttribute="top" secondItem="zI9-Rb-lh0" secondAttribute="bottom" constant="121" id="1Dw-Yt-Q3Z"/>
-                            <constraint firstItem="u1X-2u-Vta" firstAttribute="leading" secondItem="vyF-Wn-n8H" secondAttribute="leading" constant="10" id="Xvo-LW-3cT"/>
-                            <constraint firstItem="u1X-2u-Vta" firstAttribute="top" secondItem="zI9-Rb-lh0" secondAttribute="bottom" constant="121" id="Z1u-4R-Tgj"/>
-                            <constraint firstAttribute="trailing" secondItem="ALC-y1-75H" secondAttribute="trailing" constant="10" id="sEl-ik-5RX"/>
+                            <constraint firstAttribute="trailing" secondItem="431-wn-INk" secondAttribute="trailing" id="Udo-U2-GpG"/>
+                            <constraint firstItem="431-wn-INk" firstAttribute="top" secondItem="Gpf-bp-Nbq" secondAttribute="top" id="Uqz-W4-e8a"/>
+                            <constraint firstItem="X2y-W6-ebA" firstAttribute="top" secondItem="431-wn-INk" secondAttribute="bottom" constant="100" id="k38-AZ-h3e"/>
+                            <constraint firstItem="431-wn-INk" firstAttribute="leading" secondItem="Gpf-bp-Nbq" secondAttribute="leading" id="m0d-r5-38a"/>
+                            <constraint firstAttribute="centerX" secondItem="X2y-W6-ebA" secondAttribute="centerX" id="qlv-GE-RS1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="16o-0t-ywo"/>

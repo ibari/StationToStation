@@ -27,6 +27,11 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+        tableView.reloadData()
+        
+        var sidebarBackgroundView = UIView(frame: CGRectZero)
+        self.tableView.tableFooterView = sidebarBackgroundView
+        self.tableView.backgroundColor = UIColor.clearColor()
     }
     
     func searchBarSearchButtonClicked(sender: UISearchBar) {
