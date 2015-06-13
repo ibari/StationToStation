@@ -16,6 +16,8 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
     var station: Station?
     var collaborators: [Collaborator]!
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +34,11 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
         var sidebarBackgroundView = UIView(frame: CGRectZero)
         self.tableView.tableFooterView = sidebarBackgroundView
         self.tableView.backgroundColor = UIColor.clearColor()
+        
+        // tableView.setEditing(true, animated: true)
+        tableView.allowsMultipleSelection = true
+        
+
     }
     
     func searchBarSearchButtonClicked(sender: UISearchBar) {
@@ -67,9 +74,42 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
         return cell
     }
     
+    /*
+    func updateCount(){
+        if tableView.UserCell.userCheckBox == true {
+            
+        }
+        if let list = tableView.indexPathsForSelectedRows() as? [NSIndexPath] {
+            println(list.count)
+        }
+    }
+    */
+    
+    // should comment out the following code since not needed anymore
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let collaborator = collaborators[indexPath.item]
+        var cell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         
+        
+        
+        switch cell.accessoryType {
+        case .None:
+                cell.accessoryType = .Checkmark
+                println("Inside None")
+
+        default:
+                cell.accessoryType = .None
+                println("Inside Default")
+
+        }
+        
+        tableView.reloadData()
+
+
         NSLog("Should add user \(collaborator.key) to invitees")
     }
+    
+    
+    
+
 }
