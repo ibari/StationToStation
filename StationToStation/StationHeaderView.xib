@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="station-banner" translatesAutoresizingMaskIntoConstraints="NO" id="4ru-79-G14">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="station-header" translatesAutoresizingMaskIntoConstraints="NO" id="4ru-79-G14">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="140" id="yo9-EU-tfb"/>
@@ -91,7 +91,7 @@
         </view>
     </objects>
     <resources>
-        <image name="station-banner" width="170" height="120"/>
+        <image name="station-header" width="400" height="225"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
