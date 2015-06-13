@@ -70,6 +70,6 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let collaborator = collaborators[indexPath.item]
         
-        NSLog("Should add user \(collaborator.key) to collaborators")
+        NSLog("Should add user \(collaborator.key) to invitees")
     }
 }
