@@ -12,7 +12,7 @@ class StationHeaderSubview: UIView {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    
+
     var image: UIImage? {
         get { return imageView.image }
         set { imageView.image = newValue }
@@ -22,5 +22,4 @@ class StationHeaderSubview: UIView {
         get { return nameLabel.text }
         set { nameLabel.text = newValue }
     }
-    
 }

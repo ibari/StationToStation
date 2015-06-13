@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lOi-Hw-FxT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lOi-Hw-FxT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" rowHeight="91" id="jyH-ea-hu4" customClass="TrackCell" customModule="StationToStation" customModuleProvider="target">
@@ -67,14 +67,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lOi-Hw-FxT" firstAttribute="leading" secondItem="MK5-wF-vZi" secondAttribute="leading" id="6UY-HM-Xkm"/>
-                            <constraint firstItem="lOi-Hw-FxT" firstAttribute="leading" secondItem="MK5-wF-vZi" secondAttribute="leading" id="C0H-Wu-zDK"/>
-                            <constraint firstAttribute="trailing" secondItem="lOi-Hw-FxT" secondAttribute="trailing" id="JNM-3o-7Cz"/>
-                            <constraint firstItem="lOi-Hw-FxT" firstAttribute="top" secondItem="MK5-wF-vZi" secondAttribute="top" id="LWY-5L-qUC"/>
-                            <constraint firstItem="8lB-gH-fuk" firstAttribute="top" secondItem="lOi-Hw-FxT" secondAttribute="bottom" id="bi9-qG-iF6"/>
-                            <constraint firstAttribute="bottom" secondItem="lOi-Hw-FxT" secondAttribute="bottom" id="eCY-Dh-U7m"/>
-                            <constraint firstAttribute="trailing" secondItem="lOi-Hw-FxT" secondAttribute="trailing" id="jv2-3j-Ibk"/>
-                            <constraint firstItem="lOi-Hw-FxT" firstAttribute="top" secondItem="MK5-wF-vZi" secondAttribute="top" id="zSz-fK-JsV"/>
+                            <constraint firstAttribute="trailing" secondItem="lOi-Hw-FxT" secondAttribute="trailing" id="6J6-3Z-GgN"/>
+                            <constraint firstItem="8lB-gH-fuk" firstAttribute="top" secondItem="lOi-Hw-FxT" secondAttribute="bottom" id="dle-ej-jXO"/>
+                            <constraint firstItem="lOi-Hw-FxT" firstAttribute="leading" secondItem="MK5-wF-vZi" secondAttribute="leading" id="s58-Gd-yLb"/>
+                            <constraint firstItem="lOi-Hw-FxT" firstAttribute="top" secondItem="MK5-wF-vZi" secondAttribute="top" id="v1g-rx-aQj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MSd-S2-JdL"/>

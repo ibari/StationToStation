@@ -138,10 +138,10 @@
                             <constraint firstAttribute="trailing" secondItem="N5b-6e-MCd" secondAttribute="trailing" id="e2i-Cn-lTW"/>
                             <constraint firstItem="N5b-6e-MCd" firstAttribute="leading" secondItem="Gpf-bp-Nbq" secondAttribute="leading" id="ecf-X4-teF"/>
                             <constraint firstItem="xJY-Z6-8cR" firstAttribute="top" secondItem="431-wn-INk" secondAttribute="bottom" constant="8" id="ioy-kx-poG"/>
+                            <constraint firstItem="N5b-6e-MCd" firstAttribute="top" secondItem="X2y-W6-ebA" secondAttribute="bottom" id="l3t-Rk-NlV"/>
                             <constraint firstItem="JBK-86-nUk" firstAttribute="top" secondItem="N5b-6e-MCd" secondAttribute="bottom" id="lC5-NO-LuV"/>
                             <constraint firstItem="431-wn-INk" firstAttribute="leading" secondItem="Gpf-bp-Nbq" secondAttribute="leading" id="m0d-r5-38a"/>
                             <constraint firstAttribute="centerX" secondItem="X2y-W6-ebA" secondAttribute="centerX" id="qlv-GE-RS1"/>
-                            <constraint firstItem="N5b-6e-MCd" firstAttribute="top" secondItem="X2y-W6-ebA" secondAttribute="bottom" id="rVC-Nc-HMH"/>
                             <constraint firstItem="X2y-W6-ebA" firstAttribute="top" secondItem="431-wn-INk" secondAttribute="bottom" constant="8" id="sDx-hq-iN9"/>
                             <constraint firstAttribute="centerX" secondItem="X2y-W6-ebA" secondAttribute="centerX" id="t5H-Jy-qK9"/>
                             <constraint firstItem="DnC-vv-T5n" firstAttribute="top" secondItem="431-wn-INk" secondAttribute="bottom" constant="8" id="tk1-NU-C0M"/>

@@ -16,7 +16,7 @@ class UserCell: UITableViewCell {
     
     var collaborator: Collaborator! {
         didSet {
-        profileImageView.setImageWithURL(NSURL(string: collaborator.profileImageUrl))
+            profileImageView.setImageWithURL(NSURL(string: collaborator.profileImageUrl))
             usernameLabel.text = collaborator.username
         }
     }
