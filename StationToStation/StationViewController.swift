@@ -12,6 +12,8 @@ class StationViewController: UIViewController {
     
     @IBOutlet weak var headerView: StationHeaderView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var addTracksButton: UIButton!
+    @IBOutlet weak var addPeopleButton: UIButton!
     
     var station: Station?
     
@@ -19,10 +21,9 @@ class StationViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Station"
 
-        //headerView.image = UIImage(named: "yodawg")
-        //headerView.nameLabel.text = "Testing"
+        headerView.contentView.imageView.setImageWithURL(station!.imageUrl)
+        headerView.contentView.name = station!.name
         
-        // add playlist subview
         configurePlaylist()
     }
     

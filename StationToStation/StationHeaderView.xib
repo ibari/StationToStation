@@ -16,7 +16,7 @@
                         <constraint firstAttribute="height" constant="140" id="yo9-EU-tfb"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWb-eU-hlK" customClass="VerticalRuleView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWb-eU-hlK">
                     <rect key="frame" x="106" y="140" width="1" height="32"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -24,10 +24,10 @@
                         <constraint firstAttribute="height" constant="32" id="quY-oV-8bM"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mj5-aO-hEH" customClass="TracksBox">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mj5-aO-hEH">
                     <rect key="frame" x="0.0" y="140" width="106" height="32"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ep4-YJ-ehR" customClass="ContentView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ep4-YJ-ehR">
                             <rect key="frame" x="18" y="0.0" width="70" height="32"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="172" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAp-ns-1r3">
@@ -57,10 +57,10 @@
                         <constraint firstItem="Ep4-YJ-ehR" firstAttribute="top" secondItem="mj5-aO-hEH" secondAttribute="top" id="pR8-WA-EJI"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahw-6f-ZcY" customClass="PeopleBox">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahw-6f-ZcY">
                     <rect key="frame" x="107" y="140" width="106" height="32"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sK4-5I-SC6" customClass="ContentView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sK4-5I-SC6">
                             <rect key="frame" x="13" y="0.0" width="80" height="32"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="221" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1m-ot-53Q">
@@ -91,10 +91,10 @@
                         <constraint firstAttribute="width" constant="106" id="ubc-gt-DxN"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19X-fd-Kbp" customClass="CommentsBox">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19X-fd-Kbp">
                     <rect key="frame" x="214" y="140" width="106" height="32"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGc-5u-3Za" customClass="ContentView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGc-5u-3Za">
                             <rect key="frame" x="3" y="0.0" width="100" height="32"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="102" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydr-Oj-rhr">
@@ -125,7 +125,7 @@
                         <constraint firstItem="nGc-5u-3Za" firstAttribute="centerX" secondItem="19X-fd-Kbp" secondAttribute="centerX" id="yoi-JM-aeL"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLR-HY-WOV" customClass="VerticalRuleView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLR-HY-WOV">
                     <rect key="frame" x="213" y="140" width="1" height="32"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -133,7 +133,7 @@
                         <constraint firstAttribute="width" constant="1" id="sdC-6w-yUS"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWq-vX-xrn" customClass="HorizontalRuleView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWq-vX-xrn">
                     <rect key="frame" x="0.0" y="172" width="320" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>

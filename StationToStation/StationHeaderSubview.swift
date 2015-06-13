@@ -12,11 +12,6 @@ class StationHeaderSubview: UIView {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-
-    var image: UIImage? {
-        get { return imageView.image }
-        set { imageView.image = newValue }
-    }
     
     var name: String? {
         get { return nameLabel.text }
