@@ -53,6 +53,7 @@
 		AB700E671B250655008FE3CB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E661B250655008FE3CB /* CoreMedia.framework */; };
 		AB700E691B25065B008FE3CB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E681B25065B008FE3CB /* Security.framework */; };
 		AB700E6B1B250660008FE3CB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB700E6A1B250660008FE3CB /* SystemConfiguration.framework */; };
+		AB7912A81B2C19EE002E1795 /* StationHeaderSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7912A71B2C19EE002E1795 /* StationHeaderSubview.swift */; };
 		AB89D84D1B26A5E60031FF22 /* Collaborator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89D84C1B26A5E60031FF22 /* Collaborator.swift */; };
 		ABC4ED961B23A62E00CF5981 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC4ED951B23A62E00CF5981 /* Vote.swift */; };
 		ABEB416B1B25277D0088C812 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEB416A1B25277D0088C812 /* Station.swift */; };
@@ -121,6 +122,7 @@
 		AB700E661B250655008FE3CB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		AB700E681B25065B008FE3CB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AB700E6A1B250660008FE3CB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AB7912A71B2C19EE002E1795 /* StationHeaderSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationHeaderSubview.swift; sourceTree = "<group>"; };
 		AB89D84C1B26A5E60031FF22 /* Collaborator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collaborator.swift; sourceTree = "<group>"; };
 		ABC4ED951B23A62E00CF5981 /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		ABEB416A1B25277D0088C812 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				9C2B571B1B2BB652001AE7AE /* AddTrackCell.swift */,
 				9C33B9851B2663BD0040A4E1 /* StationCell.swift */,
 				9C2B57131B2AB8FE001AE7AE /* StationHeaderView.swift */,
+				AB7912A71B2C19EE002E1795 /* StationHeaderSubview.swift */,
 				9C2B57151B2AB919001AE7AE /* StationHeaderView.xib */,
 				AB164E2C1B28138B00FCB441 /* TrackCell.swift */,
 				9C2B57031B28B664001AE7AE /* UserCell.swift */,
@@ -549,6 +552,7 @@
 				9C2B56F91B2897BB001AE7AE /* TabBarViewController.swift in Sources */,
 				560584EA1B2BDBF4009C36CF /* Checkbox.swift in Sources */,
 				9C2B571C1B2BB652001AE7AE /* AddTrackCell.swift in Sources */,
+				AB7912A81B2C19EE002E1795 /* StationHeaderSubview.swift in Sources */,
 				9C5379241B2658EF00246ECD /* StationsViewController.swift in Sources */,
 				9C33B9861B2663BD0040A4E1 /* StationCell.swift in Sources */,
 				AB164E351B281E8E00FCB441 /* AddTracksViewController.swift in Sources */,

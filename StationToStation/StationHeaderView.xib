@@ -4,20 +4,19 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StationHeaderView" customModule="StationToStation" customModuleProvider="target">
-            <connections>
-                <outlet property="contentView" destination="iN0-l3-epB" id="y2n-qs-7LV"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StationHeaderView" customModule="StationToStation" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StationHeaderSubview" customModule="StationToStation" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="station-banner" translatesAutoresizingMaskIntoConstraints="NO" id="4ru-79-G14">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="station-banner" translatesAutoresizingMaskIntoConstraints="NO" id="4ru-79-G14">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="yo9-EU-tfb"/>
+                    </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Station" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXo-sc-rYq">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Station" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXo-sc-rYq">
                     <rect key="frame" x="115" y="59" width="90" height="22"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,9 +76,16 @@
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="MXo-sc-rYq" firstAttribute="centerX" secondItem="4ru-79-G14" secondAttribute="centerX" id="Ioi-sM-JmY"/>
+                <constraint firstItem="4ru-79-G14" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OW8-ZU-ftG"/>
+                <constraint firstItem="4ru-79-G14" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mYh-6c-25V"/>
+                <constraint firstItem="MXo-sc-rYq" firstAttribute="centerY" secondItem="4ru-79-G14" secondAttribute="centerY" id="qV7-pT-Fl7"/>
+                <constraint firstAttribute="trailing" secondItem="4ru-79-G14" secondAttribute="trailing" id="uBQ-Nu-E2d"/>
+            </constraints>
             <connections>
-                <outlet property="imageView" destination="4ru-79-G14" id="HDB-Ko-IWN"/>
-                <outlet property="nameLabel" destination="MXo-sc-rYq" id="8aB-at-Hvo"/>
+                <outlet property="imageView" destination="4ru-79-G14" id="e1j-MC-S0b"/>
+                <outlet property="nameLabel" destination="MXo-sc-rYq" id="DpU-3r-aLv"/>
             </connections>
             <point key="canvasLocation" x="182" y="-415"/>
         </view>

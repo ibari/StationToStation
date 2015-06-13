@@ -10,19 +10,7 @@ import UIKit
 
 class StationHeaderView: UIView {
 
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    
-    var image: UIImage? {
-        get { return imageView.image }
-        set { imageView.image = newValue }
-    }
-    
-    var name: String? {
-        get { return nameLabel.text }
-        set { nameLabel.text = newValue }
-    }
+    var contentView: StationHeaderSubview!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -36,11 +24,7 @@ class StationHeaderView: UIView {
     
     func initSubviews() {
         let nib = UINib(nibName: "StationHeaderView", bundle: nil)
-
-        /*nib.instantiateWithOwner(self, options: nil)
-        contentView.frame = bounds
-        imageView.contentMode = UIViewContentMode.ScaleAspectFill
-        imageView.clipsToBounds = true
-        addSubview(contentView)*/
+        contentView = nib.instantiateWithOwner(self, options: nil)[0] as! StationHeaderSubview
+        addSubview(contentView)
     }
 }

@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Wd-Fz-pBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1673" y="-380"/>
+            <point key="canvasLocation" x="2205" y="-380"/>
         </scene>
         <!--Station-->
         <scene sceneID="IrE-pT-5iN">
@@ -88,15 +88,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="431-wn-INk" customClass="StationHeaderView" customModule="StationToStation" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="171"/>
                                 <color key="backgroundColor" red="0.86279296875" green="0.82745098039999998" blue="0.95736533717105265" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="171" id="a8U-2s-Urc"/>
                                     <constraint firstAttribute="width" constant="320" id="lNc-DO-FS2"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJY-Z6-8cR">
-                                <rect key="frame" x="11" y="179" width="77" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJY-Z6-8cR">
+                                <rect key="frame" x="8" y="199" width="77" height="30"/>
                                 <state key="normal" title="Add Tracks">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -104,8 +104,8 @@
                                     <action selector="didTapAddTracks:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="GCA-Ic-ulC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnC-vv-T5n">
-                                <rect key="frame" x="230" y="179" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnC-vv-T5n">
+                                <rect key="frame" x="232" y="199" width="80" height="30"/>
                                 <state key="normal" title="Add People">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -114,7 +114,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2y-W6-ebA">
-                                <rect key="frame" x="135.5" y="271" width="49" height="30"/>
+                                <rect key="frame" x="135.5" y="199" width="49" height="30"/>
                                 <state key="normal" title="Playlist">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -125,18 +125,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xJY-Z6-8cR" firstAttribute="leading" secondItem="Gpf-bp-Nbq" secondAttribute="leading" constant="8" id="FLF-Rn-K2b"/>
+                            <constraint firstItem="431-wn-INk" firstAttribute="top" secondItem="ggn-4L-dsv" secondAttribute="bottom" id="QbM-9v-Yri"/>
                             <constraint firstAttribute="trailing" secondItem="431-wn-INk" secondAttribute="trailing" id="Udo-U2-GpG"/>
-                            <constraint firstItem="431-wn-INk" firstAttribute="top" secondItem="Gpf-bp-Nbq" secondAttribute="top" id="Uqz-W4-e8a"/>
+                            <constraint firstAttribute="trailing" secondItem="DnC-vv-T5n" secondAttribute="trailing" constant="8" id="ZJT-DO-iPl"/>
+                            <constraint firstItem="xJY-Z6-8cR" firstAttribute="top" secondItem="431-wn-INk" secondAttribute="bottom" constant="8" id="ioy-kx-poG"/>
                             <constraint firstItem="X2y-W6-ebA" firstAttribute="top" secondItem="431-wn-INk" secondAttribute="bottom" constant="100" id="k38-AZ-h3e"/>
                             <constraint firstItem="431-wn-INk" firstAttribute="leading" secondItem="Gpf-bp-Nbq" secondAttribute="leading" id="m0d-r5-38a"/>
                             <constraint firstAttribute="centerX" secondItem="X2y-W6-ebA" secondAttribute="centerX" id="qlv-GE-RS1"/>
+                            <constraint firstItem="X2y-W6-ebA" firstAttribute="top" secondItem="431-wn-INk" secondAttribute="bottom" constant="8" id="sDx-hq-iN9"/>
+                            <constraint firstAttribute="centerX" secondItem="X2y-W6-ebA" secondAttribute="centerX" id="t5H-Jy-qK9"/>
+                            <constraint firstItem="DnC-vv-T5n" firstAttribute="top" secondItem="431-wn-INk" secondAttribute="bottom" constant="8" id="tk1-NU-C0M"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="16o-0t-ywo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZZ-WF-JQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2142" y="-380"/>
+            <point key="canvasLocation" x="2674" y="-380"/>
         </scene>
     </scenes>
     <resources>
