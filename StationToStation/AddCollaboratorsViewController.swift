@@ -15,7 +15,7 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
     
     var station: Station?
     var collaborators: [Collaborator]!
-    
+    var InvitedCollaborators: [Collaborator] = []
 
     
     override func viewDidLoad() {
@@ -84,31 +84,40 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
         }
     }
     */
+
+    @IBAction func onAddButtonClicked(sender: AnyObject) {
+        // need to store the table into an array first?
+        // go through each row selected and pack into an array to be the invitees
+        
+        println("INVITED collaborators are \(InvitedCollaborators)")
+        
+        
+    }
     
-    // should comment out the following code since not needed anymore
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let collaborator = collaborators[indexPath.item]
         var cell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         
-        
+        println("Row Selected")
+       
         
         switch cell.accessoryType {
         case .None:
                 cell.accessoryType = .Checkmark
-                println("Inside None")
-
+                InvitedCollaborators.append(collaborator)
         default:
                 cell.accessoryType = .None
-                println("Inside Default")
+                // need to remove collaborator from the InvitedCollaborators list
 
         }
         
         tableView.reloadData()
 
 
-        NSLog("Should add user \(collaborator.key) to invitees")
+        // NSLog("Should add user \(collaborator.key) to invitees")
     }
-    
+ 
     
     
 
