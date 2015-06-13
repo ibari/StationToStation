@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4AFB84C703669EADE82E1EA7 /* libPods-StationToStation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F9A742435132C8C84A1AA3 /* libPods-StationToStation.a */; };
+		560584EA1B2BDBF4009C36CF /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560584E91B2BDBF4009C36CF /* Checkbox.swift */; };
 		9C1067EF1B26A393006F9492 /* CollaboratorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1067EE1B26A393006F9492 /* CollaboratorsViewController.swift */; };
 		9C1067F21B26A3D4006F9492 /* Playlist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C1067F11B26A3D4006F9492 /* Playlist.storyboard */; };
 		9C1067F41B26A3E7006F9492 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1067F31B26A3E7006F9492 /* PlaylistViewController.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		560584E91B2BDBF4009C36CF /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		9C1067EE1B26A393006F9492 /* CollaboratorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaboratorsViewController.swift; sourceTree = "<group>"; };
 		9C1067F11B26A3D4006F9492 /* Playlist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Playlist.storyboard; sourceTree = "<group>"; };
 		9C1067F31B26A3E7006F9492 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				9C2B57151B2AB919001AE7AE /* StationHeaderView.xib */,
 				AB164E2C1B28138B00FCB441 /* TrackCell.swift */,
 				9C2B57031B28B664001AE7AE /* UserCell.swift */,
+				560584E91B2BDBF4009C36CF /* Checkbox.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				9C2850EE1B23C3B80051D05A /* RdioClient.swift in Sources */,
 				ABEB416B1B25277D0088C812 /* Station.swift in Sources */,
 				9C2B56F91B2897BB001AE7AE /* TabBarViewController.swift in Sources */,
+				560584EA1B2BDBF4009C36CF /* Checkbox.swift in Sources */,
 				9C2B571C1B2BB652001AE7AE /* AddTrackCell.swift in Sources */,
 				9C5379241B2658EF00246ECD /* StationsViewController.swift in Sources */,
 				9C33B9861B2663BD0040A4E1 /* StationCell.swift in Sources */,
