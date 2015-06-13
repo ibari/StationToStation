@@ -11,6 +11,7 @@ import UIKit
 class StationViewController: UIViewController {
     
     @IBOutlet weak var headerView: StationHeaderView!
+    @IBOutlet weak var containerView: UIView!
     
     var station: Station?
     
@@ -20,6 +21,27 @@ class StationViewController: UIViewController {
 
         //headerView.image = UIImage(named: "yodawg")
         //headerView.nameLabel.text = "Testing"
+        
+        // add playlist subview
+        configurePlaylist()
+    }
+    
+    func configurePlaylist() {
+        self.station!.getPlaylist() { (playlist, error) in
+            if let error = error {
+                NSLog("Error loading playlist: \(error)")
+                return
+            }
+            
+            var storyboard = UIStoryboard(name: "Playlist", bundle: nil)
+            var playlistViewController = storyboard.instantiateViewControllerWithIdentifier("PlaylistViewController") as! PlaylistViewController
+            playlistViewController.playlist = playlist!
+            
+            self.addChildViewController(playlistViewController)
+            playlistViewController.view.frame = self.containerView.frame
+            self.containerView.addSubview(playlistViewController.view)
+            playlistViewController.didMoveToParentViewController(self)
+        }
     }
 
     override func didReceiveMemoryWarning() {

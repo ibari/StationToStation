@@ -28,6 +28,8 @@
 		9C2B57141B2AB8FE001AE7AE /* StationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B57131B2AB8FE001AE7AE /* StationHeaderView.swift */; };
 		9C2B57161B2AB919001AE7AE /* StationHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C2B57151B2AB919001AE7AE /* StationHeaderView.xib */; };
 		9C2B571C1B2BB652001AE7AE /* AddTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B571B1B2BB652001AE7AE /* AddTrackCell.swift */; };
+		9C2B571E1B2BF6B5001AE7AE /* CreateStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B571D1B2BF6B5001AE7AE /* CreateStationViewController.swift */; };
+		9C2B57201B2BF77B001AE7AE /* CreateStation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C2B571F1B2BF77A001AE7AE /* CreateStation.storyboard */; };
 		9C3204551B24145E00BCD3B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3204541B24145D00BCD3B2 /* User.swift */; };
 		9C33B9861B2663BD0040A4E1 /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C33B9851B2663BD0040A4E1 /* StationCell.swift */; };
 		9C40DA4E1B21563A001AEBBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA4D1B21563A001AEBBF /* AppDelegate.swift */; };
@@ -92,6 +94,8 @@
 		9C2B57131B2AB8FE001AE7AE /* StationHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationHeaderView.swift; sourceTree = "<group>"; };
 		9C2B57151B2AB919001AE7AE /* StationHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StationHeaderView.xib; sourceTree = "<group>"; };
 		9C2B571B1B2BB652001AE7AE /* AddTrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrackCell.swift; sourceTree = "<group>"; };
+		9C2B571D1B2BF6B5001AE7AE /* CreateStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStationViewController.swift; sourceTree = "<group>"; };
+		9C2B571F1B2BF77A001AE7AE /* CreateStation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateStation.storyboard; sourceTree = "<group>"; };
 		9C3204541B24145D00BCD3B2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C33B9851B2663BD0040A4E1 /* StationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
 		9C40DA481B21563A001AEBBF /* StationToStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StationToStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -364,6 +368,8 @@
 				9C53791F1B2655AB00246ECD /* Stations.storyboard */,
 				9C5379231B2658EF00246ECD /* StationsViewController.swift */,
 				9C2B56FF1B28AD27001AE7AE /* StationViewController.swift */,
+				9C2B571D1B2BF6B5001AE7AE /* CreateStationViewController.swift */,
+				9C2B571F1B2BF77A001AE7AE /* CreateStation.storyboard */,
 			);
 			name = Stations;
 			sourceTree = "<group>";
@@ -479,6 +485,7 @@
 				9C53791E1B263C7200246ECD /* secrets.plist in Resources */,
 				9C2B57161B2AB919001AE7AE /* StationHeaderView.xib in Resources */,
 				9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */,
+				9C2B57201B2BF77B001AE7AE /* CreateStation.storyboard in Resources */,
 				AB34F2691B23AFDF00E14AB1 /* LICENSE in Resources */,
 				9C2B570F1B2951AA001AE7AE /* Invites.storyboard in Resources */,
 				AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */,
@@ -562,6 +569,7 @@
 				AB164E2D1B28138B00FCB441 /* TrackCell.swift in Sources */,
 				ABEB416F1B252BD40088C812 /* Track.swift in Sources */,
 				9C1067F41B26A3E7006F9492 /* PlaylistViewController.swift in Sources */,
+				9C2B571E1B2BF6B5001AE7AE /* CreateStationViewController.swift in Sources */,
 				AB89D84D1B26A5E60031FF22 /* Collaborator.swift in Sources */,
 				AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */,
 				9C2B56FC1B289C61001AE7AE /* ProfileViewController.swift in Sources */,

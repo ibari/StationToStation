@@ -131,7 +131,7 @@ class DataStoreClient {
         var obj = PFObject(className: DataStoreClient.station_ClassName)
         
         obj[DataStoreClient.station_UserKey] = s.userKey
-        obj[DataStoreClient.station_PlaylistKey] = s.playlistKey
+        //obj[DataStoreClient.station_PlaylistKey] = s.playlistKey
         obj[DataStoreClient.station_Name] = s.name
         obj[DataStoreClient.station_Description] = s.description
         obj[DataStoreClient.station_ImageUrl] = s.imageUrl
