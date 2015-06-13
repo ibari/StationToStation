@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="f9p-N4-pWt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FYZ-x1-Vtn">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Playlist View Controller-->
+        <!--Playlist-->
         <scene sceneID="Mz8-fr-cOE">
             <objects>
-                <viewController storyboardIdentifier="PlaylistViewController" id="FYZ-x1-Vtn" customClass="PlaylistViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlaylistViewController" title="Playlist" id="FYZ-x1-Vtn" customClass="PlaylistViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ddy-hx-T7q"/>
                         <viewControllerLayoutGuide type="bottom" id="8lB-gH-fuk"/>
@@ -19,7 +19,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lOi-Hw-FxT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" rowHeight="91" id="jyH-ea-hu4" customClass="TrackCell" customModule="StationToStation" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -69,8 +68,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lOi-Hw-FxT" firstAttribute="leading" secondItem="MK5-wF-vZi" secondAttribute="leading" id="6UY-HM-Xkm"/>
+                            <constraint firstItem="lOi-Hw-FxT" firstAttribute="leading" secondItem="MK5-wF-vZi" secondAttribute="leading" id="C0H-Wu-zDK"/>
                             <constraint firstAttribute="trailing" secondItem="lOi-Hw-FxT" secondAttribute="trailing" id="JNM-3o-7Cz"/>
+                            <constraint firstItem="lOi-Hw-FxT" firstAttribute="top" secondItem="MK5-wF-vZi" secondAttribute="top" id="LWY-5L-qUC"/>
+                            <constraint firstItem="8lB-gH-fuk" firstAttribute="top" secondItem="lOi-Hw-FxT" secondAttribute="bottom" id="bi9-qG-iF6"/>
                             <constraint firstAttribute="bottom" secondItem="lOi-Hw-FxT" secondAttribute="bottom" id="eCY-Dh-U7m"/>
+                            <constraint firstAttribute="trailing" secondItem="lOi-Hw-FxT" secondAttribute="trailing" id="jv2-3j-Ibk"/>
                             <constraint firstItem="lOi-Hw-FxT" firstAttribute="top" secondItem="MK5-wF-vZi" secondAttribute="top" id="zSz-fK-JsV"/>
                         </constraints>
                     </view>
@@ -82,24 +85,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQS-SU-5FS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1087" y="424"/>
-        </scene>
-        <!--Playlist Navigation-->
-        <scene sceneID="7aO-Vr-lQt">
-            <objects>
-                <navigationController title="Playlist Navigation" automaticallyAdjustsScrollViewInsets="NO" id="f9p-N4-pWt" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="L2V-1I-JX8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="FYZ-x1-Vtn" kind="relationship" relationship="rootViewController" id="Dym-ie-JtM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Hw-ud-bb8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="654" y="424"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -43,10 +43,18 @@ class StationsViewController: UIViewController {
     
     func configureToolbar() {
         self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "logout")
+        
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .Plain, target: self, action: "create")
     }
     
     func logout() {
         RdioClient.sharedInstance.logout()
+    }
+    
+    func create() {
+        var storyboard = UIStoryboard(name: "CreateStation", bundle: nil)
+        var createStationViewController = storyboard.instantiateViewControllerWithIdentifier("CreateStationViewController") as! CreateStationViewController
+        self.navigationController!.pushViewController(createStationViewController, animated: true)
     }
 
     // MARK: - Navigation

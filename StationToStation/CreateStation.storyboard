@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Create Station View Controller-->
+        <scene sceneID="8am-vo-Eq2">
+            <objects>
+                <viewController storyboardIdentifier="CreateStationViewController" id="yry-dW-xwf" customClass="CreateStationViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IkW-H7-d9e"/>
+                        <viewControllerLayoutGuide type="bottom" id="11R-kb-BRZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ucp-7F-TjL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="station-header" translatesAutoresizingMaskIntoConstraints="NO" id="vo5-5e-qay">
+                                <rect key="frame" x="0.0" y="20" width="320" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="4pV-1L-0cT"/>
+                                    <constraint firstAttribute="width" constant="320" id="jSH-wi-4n2"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Station Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vtK-j4-vfT">
+                                <rect key="frame" x="15" y="190" width="290" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="U83-j8-a7H"/>
+                                    <constraint firstAttribute="height" constant="30" id="pSr-C5-gN7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Station Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tgx-Od-RK0">
+                                <rect key="frame" x="15" y="235" width="290" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="E2r-pU-TM0"/>
+                                    <constraint firstAttribute="height" constant="30" id="dnO-3b-qJg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjZ-Mk-bC3">
+                                <rect key="frame" x="137" y="295" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="M7g-2Z-cwb"/>
+                                    <constraint firstAttribute="width" constant="46" id="Oj0-dN-lWj"/>
+                                </constraints>
+                                <state key="normal" title="Create">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createButton:" destination="yry-dW-xwf" eventType="touchUpInside" id="z2K-VR-kLU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBS-Al-7Md">
+                                <rect key="frame" x="135" y="65" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9dX-Ef-m6H"/>
+                                    <constraint firstAttribute="width" constant="50" id="lY3-Mx-4kN"/>
+                                </constraints>
+                                <state key="normal" image="camera">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vo5-5e-qay" secondAttribute="trailing" id="Fr5-y9-wqI"/>
+                            <constraint firstItem="tgx-Od-RK0" firstAttribute="top" secondItem="vtK-j4-vfT" secondAttribute="bottom" constant="15" id="LBR-n8-Yj0"/>
+                            <constraint firstAttribute="trailing" secondItem="vtK-j4-vfT" secondAttribute="trailing" constant="15" id="Ure-tE-pNv"/>
+                            <constraint firstItem="tgx-Od-RK0" firstAttribute="leading" secondItem="ucp-7F-TjL" secondAttribute="leading" constant="15" id="Uz6-qN-d08"/>
+                            <constraint firstItem="vtK-j4-vfT" firstAttribute="leading" secondItem="ucp-7F-TjL" secondAttribute="leading" constant="15" id="a9d-wH-D2T"/>
+                            <constraint firstAttribute="trailing" secondItem="tgx-Od-RK0" secondAttribute="trailing" constant="15" id="cH6-13-Xvn"/>
+                            <constraint firstAttribute="centerX" secondItem="rjZ-Mk-bC3" secondAttribute="centerX" id="fgv-tx-EqF"/>
+                            <constraint firstAttribute="centerX" secondItem="qBS-Al-7Md" secondAttribute="centerX" id="j3m-N3-V3C"/>
+                            <constraint firstItem="qBS-Al-7Md" firstAttribute="top" secondItem="IkW-H7-d9e" secondAttribute="bottom" constant="45" id="kSN-Nu-uHf"/>
+                            <constraint firstItem="rjZ-Mk-bC3" firstAttribute="top" secondItem="tgx-Od-RK0" secondAttribute="bottom" constant="30" id="mde-Ve-1Tl"/>
+                            <constraint firstItem="vo5-5e-qay" firstAttribute="top" secondItem="IkW-H7-d9e" secondAttribute="bottom" id="nGf-NP-HRY"/>
+                            <constraint firstItem="vo5-5e-qay" firstAttribute="leading" secondItem="ucp-7F-TjL" secondAttribute="leading" id="vBT-UZ-hEN"/>
+                            <constraint firstItem="vtK-j4-vfT" firstAttribute="top" secondItem="vo5-5e-qay" secondAttribute="bottom" constant="30" id="xOi-d8-UrW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="qBS-Al-7Md" id="4vR-u2-nZM"/>
+                        <outlet property="descriptionTextField" destination="tgx-Od-RK0" id="srK-d3-B0I"/>
+                        <outlet property="headerImageView" destination="vo5-5e-qay" id="zAA-an-7oz"/>
+                        <outlet property="nameTextField" destination="vtK-j4-vfT" id="yq6-WR-aBy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ugw-tF-juS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149" y="268"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera" width="128" height="128"/>
+        <image name="station-header" width="400" height="225"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

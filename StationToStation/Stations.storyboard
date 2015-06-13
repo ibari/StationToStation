@@ -39,7 +39,7 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="station-banner" translatesAutoresizingMaskIntoConstraints="NO" id="QQa-iZ-ZVh">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="station-header" translatesAutoresizingMaskIntoConstraints="NO" id="QQa-iZ-ZVh">
                                                     <rect key="frame" x="0.0" y="0.0" width="170" height="120"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Station" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSP-az-j7H">
@@ -88,51 +88,85 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="431-wn-INk" customClass="StationHeaderView" customModule="StationToStation" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
                                 <color key="backgroundColor" red="0.86279296875" green="0.82745098039999998" blue="0.95736533717105265" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="171" id="a8U-2s-Urc"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="170" id="Zg9-me-67y"/>
+                                    <constraint firstAttribute="height" constant="170" id="a8U-2s-Urc"/>
                                     <constraint firstAttribute="width" constant="320" id="lNc-DO-FS2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="oPb-WO-4KH"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJY-Z6-8cR">
-                                <rect key="frame" x="11" y="179" width="77" height="30"/>
-                                <state key="normal" title="Add Tracks">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapAddTracks:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="GCA-Ic-ulC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnC-vv-T5n">
-                                <rect key="frame" x="230" y="179" width="80" height="30"/>
-                                <state key="normal" title="Add People">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapAddCollaborators:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="s86-v3-aEF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2y-W6-ebA">
-                                <rect key="frame" x="135.5" y="271" width="49" height="30"/>
-                                <state key="normal" title="Playlist">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapPlaylist:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="WlC-vl-Y4P"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOa-G1-et9">
+                                <rect key="frame" x="0.0" y="170" width="320" height="48"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AV1-YV-s4W">
+                                        <rect key="frame" x="0.0" y="-180" width="320" height="48"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="2LY-7n-cix"/>
+                                            <constraint firstAttribute="height" constant="48" id="C4Q-BX-hBx"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTy-Lc-c2f">
+                                        <rect key="frame" x="229" y="10" width="76" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Add People">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapAddCollaborators:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="OvG-eF-E6Y"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpn-NJ-Aou">
+                                        <rect key="frame" x="15" y="10" width="73" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Add Tracks">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapAddTracks:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="lLk-gF-8G3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Wpn-NJ-Aou" firstAttribute="leading" secondItem="rOa-G1-et9" secondAttribute="leading" constant="15" id="BGg-UI-S0a"/>
+                                    <constraint firstAttribute="trailing" secondItem="kTy-Lc-c2f" secondAttribute="trailing" constant="15" id="Uun-BL-162"/>
+                                    <constraint firstItem="kTy-Lc-c2f" firstAttribute="top" secondItem="rOa-G1-et9" secondAttribute="top" constant="10" id="dFe-to-nq2"/>
+                                    <constraint firstItem="Wpn-NJ-Aou" firstAttribute="top" secondItem="rOa-G1-et9" secondAttribute="top" constant="10" id="eQv-FD-d06"/>
+                                    <constraint firstAttribute="width" constant="320" id="gKp-HL-NVk"/>
+                                    <constraint firstAttribute="height" constant="48" id="qa0-xd-cCS"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8w-85-iwT">
+                                <rect key="frame" x="0.0" y="218" width="320" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="235-0a-RkZ"/>
+                                    <constraint firstAttribute="height" constant="350" id="ZHR-F3-72B"/>
+                                </constraints>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="C8w-85-iwT" firstAttribute="leading" secondItem="Gpf-bp-Nbq" secondAttribute="leading" id="8i4-g7-oEP"/>
+                            <constraint firstAttribute="trailing" secondItem="rOa-G1-et9" secondAttribute="trailing" id="AyF-VA-gwg"/>
+                            <constraint firstItem="JBK-86-nUk" firstAttribute="top" secondItem="C8w-85-iwT" secondAttribute="bottom" id="Dbb-Bb-K7A"/>
+                            <constraint firstAttribute="trailing" secondItem="431-wn-INk" secondAttribute="trailing" id="Lx1-eh-dNN"/>
+                            <constraint firstItem="431-wn-INk" firstAttribute="leading" secondItem="Gpf-bp-Nbq" secondAttribute="leading" id="Ttf-gu-AcZ"/>
                             <constraint firstAttribute="trailing" secondItem="431-wn-INk" secondAttribute="trailing" id="Udo-U2-GpG"/>
-                            <constraint firstItem="431-wn-INk" firstAttribute="top" secondItem="Gpf-bp-Nbq" secondAttribute="top" id="Uqz-W4-e8a"/>
-                            <constraint firstItem="X2y-W6-ebA" firstAttribute="top" secondItem="431-wn-INk" secondAttribute="bottom" constant="100" id="k38-AZ-h3e"/>
+                            <constraint firstItem="rOa-G1-et9" firstAttribute="leading" secondItem="Gpf-bp-Nbq" secondAttribute="leading" id="daD-aj-zdv"/>
+                            <constraint firstItem="rOa-G1-et9" firstAttribute="top" secondItem="431-wn-INk" secondAttribute="bottom" id="ksD-Tn-Qbt"/>
                             <constraint firstItem="431-wn-INk" firstAttribute="leading" secondItem="Gpf-bp-Nbq" secondAttribute="leading" id="m0d-r5-38a"/>
-                            <constraint firstAttribute="centerX" secondItem="X2y-W6-ebA" secondAttribute="centerX" id="qlv-GE-RS1"/>
+                            <constraint firstItem="431-wn-INk" firstAttribute="top" secondItem="Gpf-bp-Nbq" secondAttribute="top" id="num-7h-pcB"/>
+                            <constraint firstAttribute="trailing" secondItem="C8w-85-iwT" secondAttribute="trailing" id="xPh-Ox-iYH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="16o-0t-ywo"/>
+                    <connections>
+                        <outlet property="containerView" destination="C8w-85-iwT" id="uqm-hy-4gc"/>
+                        <outlet property="headerView" destination="431-wn-INk" id="dYW-FX-2uU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZZ-WF-JQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,7 +174,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="station-banner" width="170" height="120"/>
+        <image name="station-header" width="400" height="225"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

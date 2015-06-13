@@ -35,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = primaryColor
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
+        /*var backButtonImage = UIImage(named: "left_arrow");
+        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, forState: .Normal, barMetrics: .Default) */
+        
         let navBarFont = UIFont(name: "HelveticaNeue", size:15.0)!
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName:navBarFont,NSForegroundColorAttributeName:UIColor.whiteColor()], forState: UIControlState.Normal)
         
