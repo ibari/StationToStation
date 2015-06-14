@@ -26,7 +26,6 @@ class CreateStationViewController: UIViewController {
     @IBAction func createButton(sender: AnyObject) {
         
     }
-    
 
     /*
     // MARK: - Navigation
@@ -37,5 +36,4 @@ class CreateStationViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

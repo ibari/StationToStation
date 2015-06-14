@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4AFB84C703669EADE82E1EA7 /* libPods-StationToStation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F9A742435132C8C84A1AA3 /* libPods-StationToStation.a */; };
 		560584EA1B2BDBF4009C36CF /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560584E91B2BDBF4009C36CF /* Checkbox.swift */; };
-		56678D9E1B2D371600E3899B /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56678D9D1B2D371600E3899B /* secrets.plist */; };
 		56678DA01B2D56A300E3899B /* CollaboratorsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56678D9F1B2D56A300E3899B /* CollaboratorsView.storyboard */; };
 		9C1067EF1B26A393006F9492 /* CollaboratorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1067EE1B26A393006F9492 /* CollaboratorsViewController.swift */; };
 		9C1067F21B26A3D4006F9492 /* Playlist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C1067F11B26A3D4006F9492 /* Playlist.storyboard */; };
@@ -39,6 +38,7 @@
 		9C40DA641B21563A001AEBBF /* StationToStationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA631B21563A001AEBBF /* StationToStationTests.swift */; };
 		9C5379201B2655AB00246ECD /* Stations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C53791F1B2655AB00246ECD /* Stations.storyboard */; };
 		9C5379241B2658EF00246ECD /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5379231B2658EF00246ECD /* StationsViewController.swift */; };
+		9CC026BB1B2DF53E000F6038 /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CC026BA1B2DF53E000F6038 /* secrets.plist */; };
 		AB164E2D1B28138B00FCB441 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB164E2C1B28138B00FCB441 /* TrackCell.swift */; };
 		AB164E331B281E7E00FCB441 /* AddTracks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB164E321B281E7E00FCB441 /* AddTracks.storyboard */; };
 		AB164E351B281E8E00FCB441 /* AddTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB164E341B281E8E00FCB441 /* AddTracksViewController.swift */; };
@@ -76,7 +76,6 @@
 
 /* Begin PBXFileReference section */
 		560584E91B2BDBF4009C36CF /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
-		56678D9D1B2D371600E3899B /* secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = secrets.plist; sourceTree = "<group>"; };
 		56678D9F1B2D56A300E3899B /* CollaboratorsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CollaboratorsView.storyboard; sourceTree = "<group>"; };
 		9C1067EE1B26A393006F9492 /* CollaboratorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaboratorsViewController.swift; sourceTree = "<group>"; };
 		9C1067F11B26A3D4006F9492 /* Playlist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Playlist.storyboard; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		9C40DA631B21563A001AEBBF /* StationToStationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationToStationTests.swift; sourceTree = "<group>"; };
 		9C53791F1B2655AB00246ECD /* Stations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stations.storyboard; sourceTree = "<group>"; };
 		9C5379231B2658EF00246ECD /* StationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
+		9CC026BA1B2DF53E000F6038 /* secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = secrets.plist; sourceTree = "<group>"; };
 		AB164E2C1B28138B00FCB441 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		AB164E321B281E7E00FCB441 /* AddTracks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTracks.storyboard; sourceTree = "<group>"; };
 		AB164E341B281E8E00FCB441 /* AddTracksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTracksViewController.swift; sourceTree = "<group>"; };
@@ -290,7 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				9C40DA4C1B21563A001AEBBF /* Info.plist */,
-				56678D9D1B2D371600E3899B /* secrets.plist */,
+				9CC026BA1B2DF53E000F6038 /* secrets.plist */,
 				AB34F2621B23A83800E14AB1 /* StationToStation-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
@@ -489,7 +489,7 @@
 				9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */,
 				9C2B57201B2BF77B001AE7AE /* CreateStation.storyboard in Resources */,
 				AB34F2691B23AFDF00E14AB1 /* LICENSE in Resources */,
-				56678D9E1B2D371600E3899B /* secrets.plist in Resources */,
+				9CC026BB1B2DF53E000F6038 /* secrets.plist in Resources */,
 				9C2B570F1B2951AA001AE7AE /* Invites.storyboard in Resources */,
 				56678DA01B2D56A300E3899B /* CollaboratorsView.storyboard in Resources */,
 				AB34F2681B23AFDF00E14AB1 /* Podfile in Resources */,

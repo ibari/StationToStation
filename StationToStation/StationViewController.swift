@@ -25,6 +25,7 @@ class StationViewController: UIViewController {
         headerView.contentView.name = station!.name
         headerView.contentView.collaboratorsButton.addTarget(self, action: "didTapCollaboratorsButton", forControlEvents: UIControlEvents.TouchUpInside)
 
+        setButtonAppearance()
         configurePlaylist()
     }
     
@@ -59,6 +60,20 @@ class StationViewController: UIViewController {
             self.navigationController!.pushViewController(collaboratorsViewController, animated: true)
         }
     }
+    
+    func setButtonAppearance() {
+        addTracksButton.backgroundColor = UIColor.clearColor()
+        addTracksButton.layer.cornerRadius = 12
+        addTracksButton.layer.borderWidth = 1
+        addTracksButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        addTracksButton.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
+        
+        addPeopleButton.backgroundColor = UIColor.clearColor()
+        addPeopleButton.layer.cornerRadius = 12
+        addPeopleButton.layer.borderWidth = 1
+        addPeopleButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        addPeopleButton.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -91,14 +106,4 @@ class StationViewController: UIViewController {
             self.navigationController!.pushViewController(playlistViewController, animated: true)
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
