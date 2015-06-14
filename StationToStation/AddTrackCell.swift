@@ -19,7 +19,7 @@ class AddTrackCell: UITableViewCell {
         didSet {
             titleLabel.text = track.trackTitle
             artistLabel.text = track.artistName
-            durationLabel.text = track.duration
+            durationLabel.text = "\(track.duration)"
             iconImageView.setImageWithURL(NSURL(string: track.albumImageUrl))
         }
     }
