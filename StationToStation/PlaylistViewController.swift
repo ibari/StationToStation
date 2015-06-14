@@ -13,9 +13,11 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     var playlist: Playlist!
+    let trackSegueIdentifier = "trackSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Track"
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -47,5 +49,16 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == trackSegueIdentifier {
+            if let indexPath = tableView.indexPathForSelectedRow() {
+                let trackViewController = segue.destinationViewController as! TrackViewController
+                trackViewController.track = playlist.tracks[indexPath.row]
+            }
+        }
     }
 }

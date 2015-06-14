@@ -39,6 +39,7 @@
 		9C5379201B2655AB00246ECD /* Stations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C53791F1B2655AB00246ECD /* Stations.storyboard */; };
 		9C5379241B2658EF00246ECD /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5379231B2658EF00246ECD /* StationsViewController.swift */; };
 		9CC026BB1B2DF53E000F6038 /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CC026BA1B2DF53E000F6038 /* secrets.plist */; };
+		9CC026BD1B2DFD92000F6038 /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC026BC1B2DFD92000F6038 /* TrackViewController.swift */; };
 		AB164E2D1B28138B00FCB441 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB164E2C1B28138B00FCB441 /* TrackCell.swift */; };
 		AB164E331B281E7E00FCB441 /* AddTracks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB164E321B281E7E00FCB441 /* AddTracks.storyboard */; };
 		AB164E351B281E8E00FCB441 /* AddTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB164E341B281E8E00FCB441 /* AddTracksViewController.swift */; };
@@ -110,6 +111,7 @@
 		9C53791F1B2655AB00246ECD /* Stations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stations.storyboard; sourceTree = "<group>"; };
 		9C5379231B2658EF00246ECD /* StationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
 		9CC026BA1B2DF53E000F6038 /* secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = secrets.plist; sourceTree = "<group>"; };
+		9CC026BC1B2DFD92000F6038 /* TrackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
 		AB164E2C1B28138B00FCB441 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		AB164E321B281E7E00FCB441 /* AddTracks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTracks.storyboard; sourceTree = "<group>"; };
 		AB164E341B281E8E00FCB441 /* AddTracksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTracksViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				9C1067F31B26A3E7006F9492 /* PlaylistViewController.swift */,
 				AB164E321B281E7E00FCB441 /* AddTracks.storyboard */,
 				AB164E341B281E8E00FCB441 /* AddTracksViewController.swift */,
+				9CC026BC1B2DFD92000F6038 /* TrackViewController.swift */,
 			);
 			name = Playlist;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				AB34F2601B23A75300E14AB1 /* DataStoreClient.swift in Sources */,
 				9C2B57021B28B0F3001AE7AE /* AddCollaboratorsViewController.swift in Sources */,
 				ABC4ED961B23A62E00CF5981 /* Vote.swift in Sources */,
+				9CC026BD1B2DFD92000F6038 /* TrackViewController.swift in Sources */,
 				9C2850F61B24029E0051D05A /* AuthenticationViewController.swift in Sources */,
 				9C2B57001B28AD27001AE7AE /* StationViewController.swift in Sources */,
 				9C3204551B24145E00BCD3B2 /* User.swift in Sources */,
