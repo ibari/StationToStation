@@ -26,7 +26,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = rootController
         window?.makeKeyAndVisible()
         
+        let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+        let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
         return true
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        NSLog("did register remote notification")
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        NSLog("failed to register remote notification \(error)")
     }
     
     func setAppearance() {
