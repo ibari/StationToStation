@@ -39,7 +39,6 @@ class StationViewController: UIViewController {
             playlistViewController.playlist = playlist!
             
             self.addChildViewController(playlistViewController)
-            playlistViewController.view.frame = self.containerView.frame
             self.containerView.addSubview(playlistViewController.view)
             playlistViewController.didMoveToParentViewController(self)
         }
