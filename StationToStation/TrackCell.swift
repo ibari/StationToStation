@@ -17,6 +17,7 @@ class TrackCell: UITableViewCell {
     var track: Track! {
         didSet {
             titleLabel.text = track.trackTitle
+            artistLabel.text = track.artistName
         }
     }
     
