@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="K5t-PP-HIx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="K5t-PP-HIx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Add Collaborators-->
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="64" width="257" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ViA-F2-fda">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ViA-F2-fda">
                                 <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -72,14 +72,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bPy-ch-lgl" firstAttribute="top" secondItem="ViA-F2-fda" secondAttribute="bottom" id="3ch-9O-2Ci"/>
-                            <constraint firstItem="ViA-F2-fda" firstAttribute="top" secondItem="JgU-Ta-xuR" secondAttribute="bottom" id="Hgg-8w-h8c"/>
-                            <constraint firstAttribute="trailing" secondItem="ViA-F2-fda" secondAttribute="trailing" constant="5" id="K4a-2g-xz1"/>
                             <constraint firstAttribute="trailing" secondItem="JgU-Ta-xuR" secondAttribute="trailing" constant="50" id="O2i-qg-Ybn"/>
                             <constraint firstItem="JgU-Ta-xuR" firstAttribute="top" secondItem="ltY-9e-eFu" secondAttribute="bottom" id="a1e-uv-lWm"/>
-                            <constraint firstItem="ViA-F2-fda" firstAttribute="leading" secondItem="Jf3-4J-rFX" secondAttribute="leading" id="db5-Ya-Ogv"/>
                             <constraint firstItem="JgU-Ta-xuR" firstAttribute="leading" secondItem="Jf3-4J-rFX" secondAttribute="leading" id="f5a-9U-biq"/>
-                            <constraint firstAttribute="trailing" secondItem="ViA-F2-fda" secondAttribute="trailing" id="jS0-tY-q3D"/>
                             <constraint firstAttribute="trailing" secondItem="8wV-rW-XW1" secondAttribute="trailing" constant="5" id="oS1-N5-mkf"/>
                         </constraints>
                     </view>

@@ -24,6 +24,10 @@ class UserCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        profileImageView.layer.masksToBounds = false
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+        profileImageView.clipsToBounds = true
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

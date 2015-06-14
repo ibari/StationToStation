@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Phx-Mi-hfr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Phx-Mi-hfr">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--CollaboratorsView-->
+        <!--Collaborators View Controller-->
         <scene sceneID="vnQ-1q-kGb">
             <objects>
-                <viewController storyboardIdentifier="CollaboratorsViewController" autoresizesArchivedViewToFullSize="NO" title="CollaboratorsView" wantsFullScreenLayout="YES" extendedLayoutIncludesOpaqueBars="YES" hidesBottomBarWhenPushed="YES" id="Phx-Mi-hfr" customClass="CollaboratorsViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CollaboratorsViewController" autoresizesArchivedViewToFullSize="NO" wantsFullScreenLayout="YES" extendedLayoutIncludesOpaqueBars="YES" hidesBottomBarWhenPushed="YES" id="Phx-Mi-hfr" customClass="CollaboratorsViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="09X-Qq-4Q4"/>
                         <viewControllerLayoutGuide type="bottom" id="QzH-vI-S1n"/>
@@ -16,34 +16,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QGs-Sp-sV4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QGs-Sp-sV4">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="56" id="tzz-qE-1Pg" customClass="UserCell" customModule="StationToStation" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="76" id="tzz-qE-1Pg" customClass="UserCell" customModule="StationToStation" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tzz-qE-1Pg" id="2Sj-ZY-buP">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brA-A5-Vog">
-                                                    <rect key="frame" x="8" y="8" width="48" height="39"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="48" id="Am7-hd-6D9"/>
-                                                        <constraint firstAttribute="height" constant="20" id="oAF-Wq-ngZ"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOJ-yy-0O1">
-                                                    <rect key="frame" x="70" y="17" width="86" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOJ-yy-0O1">
+                                                    <rect key="frame" x="52" y="17.5" width="68" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="brA-A5-Vog">
+                                                    <rect key="frame" x="8" y="8" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="Nuc-ra-ymq"/>
+                                                        <constraint firstAttribute="width" constant="35" id="WY9-SU-y9S"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="mOJ-yy-0O1" firstAttribute="centerY" secondItem="brA-A5-Vog" secondAttribute="centerY" id="Eeq-VE-0Eo"/>
-                                                <constraint firstItem="mOJ-yy-0O1" firstAttribute="leading" secondItem="brA-A5-Vog" secondAttribute="trailing" constant="14" id="NnE-KJ-kfy"/>
-                                                <constraint firstItem="brA-A5-Vog" firstAttribute="leading" secondItem="2Sj-ZY-buP" secondAttribute="leading" constant="8" id="pdU-gO-OlU"/>
+                                                <constraint firstItem="brA-A5-Vog" firstAttribute="centerY" secondItem="mOJ-yy-0O1" secondAttribute="centerY" id="2Ge-ln-p00"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="brA-A5-Vog" secondAttribute="bottom" constant="8" id="L9f-TF-YGa"/>
+                                                <constraint firstItem="brA-A5-Vog" firstAttribute="top" secondItem="2Sj-ZY-buP" secondAttribute="top" constant="8" id="eMk-4h-w6f"/>
+                                                <constraint firstItem="brA-A5-Vog" firstAttribute="leading" secondItem="2Sj-ZY-buP" secondAttribute="leading" constant="8" id="lHV-aP-DDV"/>
+                                                <constraint firstItem="mOJ-yy-0O1" firstAttribute="leading" secondItem="brA-A5-Vog" secondAttribute="trailing" constant="9" id="nJC-Jy-VpH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -57,9 +59,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="QGs-Sp-sV4" secondAttribute="trailing" id="E4q-CV-SDI"/>
+                            <constraint firstItem="QGs-Sp-sV4" firstAttribute="leading" secondItem="Nzu-sQ-r7z" secondAttribute="leading" id="GtG-sP-COt"/>
+                            <constraint firstAttribute="trailing" secondItem="QGs-Sp-sV4" secondAttribute="trailing" id="NJ8-LJ-1eK"/>
                             <constraint firstItem="QzH-vI-S1n" firstAttribute="top" secondItem="QGs-Sp-sV4" secondAttribute="bottom" id="Qac-Bz-t8G"/>
+                            <constraint firstItem="QGs-Sp-sV4" firstAttribute="top" secondItem="Nzu-sQ-r7z" secondAttribute="top" id="Qb9-lb-UHS"/>
                             <constraint firstItem="QGs-Sp-sV4" firstAttribute="leading" secondItem="Nzu-sQ-r7z" secondAttribute="leading" id="Val-Vy-YMK"/>
                             <constraint firstItem="QGs-Sp-sV4" firstAttribute="top" secondItem="Nzu-sQ-r7z" secondAttribute="top" id="Zx5-Mm-t3z"/>
+                            <constraint firstItem="QzH-vI-S1n" firstAttribute="top" secondItem="QGs-Sp-sV4" secondAttribute="bottom" id="sXh-qF-QQZ"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>

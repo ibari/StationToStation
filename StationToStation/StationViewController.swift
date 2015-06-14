@@ -23,11 +23,9 @@ class StationViewController: UIViewController {
 
         headerView.contentView.imageView.setImageWithURL(station!.imageUrl)
         headerView.contentView.name = station!.name
-        
-        // need to select between configurePlaylist and configureCollaboratorslist depending on whether "Tracks" or "People" tab is clicked
-        
-        // configurePlaylist()
-        configureCollaboratorslist()
+        headerView.contentView.collaboratorsButton.addTarget(self, action: "didTapCollaboratorsButton", forControlEvents: UIControlEvents.TouchUpInside)
+
+        configurePlaylist()
     }
     
     func configurePlaylist() {
@@ -48,28 +46,20 @@ class StationViewController: UIViewController {
     }
 
     
-    func configureCollaboratorslist() {
+    func didTapCollaboratorsButton() {
         self.station!.getCollaborators() { (collaboratorlist, error) in
             if let error = error {
                 NSLog("Error loading collaboratorlist: \(error)")
                 return
             }
-            
-            
+
             var storyboard = UIStoryboard(name: "CollaboratorsView", bundle: nil)
             var collaboratorsViewController = storyboard.instantiateViewControllerWithIdentifier("CollaboratorsViewController") as! CollaboratorsViewController
             collaboratorsViewController.collaborators = collaboratorlist!
-            
-            self.addChildViewController(collaboratorsViewController)
-            self.containerView.addSubview(collaboratorsViewController.view)
-            collaboratorsViewController.didMoveToParentViewController(self)
-            
-            
+            self.navigationController!.pushViewController(collaboratorsViewController, animated: true)
         }
     }
 
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -111,5 +101,4 @@ class StationViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

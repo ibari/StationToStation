@@ -9,32 +9,25 @@
 import UIKit
 
 class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    
+
     @IBOutlet weak var tableView: UITableView!
     
     // var station: Station?
-
     var collaborators: [Collaborator]!
 
-    
     override func viewDidLoad() {
-        
-
         super.viewDidLoad()
+        self.title = "People"
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 60
+        tableView.estimatedRowHeight = 100
         tableView.reloadData()
         
         var sidebarBackgroundView = UIView(frame: CGRectZero)
         self.tableView.tableFooterView = sidebarBackgroundView
         self.tableView.backgroundColor = UIColor.clearColor()
-        
-
-
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -53,11 +46,9 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
 
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-
         
     /*
     // MARK: - Navigation
@@ -68,5 +59,4 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
         // Pass the selected object to the new view controller.
     }
     */
-
 }
