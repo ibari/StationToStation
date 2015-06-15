@@ -50,14 +50,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    // MARK: - Navigation
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == trackSegueIdentifier {
-            if let indexPath = tableView.indexPathForSelectedRow() {
-                let trackViewController = segue.destinationViewController as! TrackViewController
-                trackViewController.track = playlist.tracks[indexPath.row]
-            }
-        }
+    func reloadData() {
+        tableView.reloadData()
     }
 }
