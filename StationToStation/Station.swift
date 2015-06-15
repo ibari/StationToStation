@@ -10,18 +10,18 @@ import UIKit
 
 class Station {
    
-    let userKey: String?
-    let playlistKey: String?
-    let name: String?
-    let description: String?
-    let imageUrl: NSURL?
+    let ownerKey: String!
+    let playlistKey: String!
+    let name: String!
+    let description: String!
+    let imageUrl: String!
     
-    init(userKey: String, playlistKey: String, name: String, description: String, imageUrl: String) {
-        self.userKey = userKey
+    init(ownerKey: String, playlistKey: String, name: String, description: String, imageUrl: String) {
+        self.ownerKey = ownerKey
         self.playlistKey = playlistKey
         self.name = name
         self.description = description
-        self.imageUrl = NSURL(string: imageUrl)!
+        self.imageUrl = imageUrl
     }
  
     func save(completion: (success: Bool, error: NSError?) -> Void) {
@@ -30,7 +30,7 @@ class Station {
     
     func getPlaylist(completion: (playlist: Playlist?, error: NSError?) -> Void) {
         completion(
-            playlist: Playlist(userKey: userKey!, playlistKey: playlistKey!, tracks: [
+            playlist: Playlist(key: playlistKey!, ownerKey: ownerKey!,  tracks: [
                 Track(key: "t1", trackTitle: "No Fun", artistName: "Stooges", albumImageUrl: "http://rdio3img-a.akamaihd.net/album/a/2/3/000000000007232a/square-1200.jpg", duration: 123),
                 Track(key: "t2", trackTitle: "Five Years", artistName: "David Bowie", albumImageUrl: "http://rdio3img-a.akamaihd.net/album/c/e/f/0000000000352fec/2/square-1200.jpg", duration: 321),
                 Track(key: "t3", trackTitle: "Hiding In My Car", artistName: "Sector Zero", albumImageUrl: "http://rdio3img-a.akamaihd.net/album/8/9/d/000000000050ad98/2/square-1200.jpg", duration: 218)
