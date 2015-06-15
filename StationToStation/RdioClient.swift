@@ -32,6 +32,39 @@ class RdioClient {
         rdio.logout()
     }
     
+    func rdioToPlaylist(dict: [String : AnyObject]) -> Playlist {
+        let name = dict["name"] as! String
+        let key = dict["key"] as! String
+        let ownerKey = dict["ownerKey"] as! String
+        
+        return Playlist(key: key, ownerKey: ownerKey, tracks: [])
+    }
+    
+    func createPlaylist(name: String, description: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
+        rdio.callAPIMethod("createPlaylist",
+            withParameters: [
+                "name": "foobar",
+                "description": "foobar description",
+                "tracks": "",
+                "collaborationMode": 1
+            ], success: { (response) in
+                let playlist = self.rdioToPlaylist(response as! [String : AnyObject])
+                completion(playlist: playlist, error: nil)
+            }, failure: { (error) in
+                completion(playlist: nil, error: error)
+            }
+        )
+    }
+    
+    func rdioToTrack(dict: [String : AnyObject]) -> Track {
+        let trackKey = dict["key"] as! String
+        let trackTitle = dict["name"] as! String
+        let artistName = dict["artist"] as! String
+        let albumImageUrl = dict["icon"] as! String
+        let duration = dict["duration"] as! Int
+        return Track(key: trackKey, trackTitle: trackTitle, artistName: artistName, albumImageUrl: albumImageUrl, duration: duration)
+    }
+    
     func searchTrack(query: String, completion: (tracks: [Track]?, error: NSError?) -> Void) {
         let param = ["dsads": "dsdsa"]
         
@@ -39,14 +72,9 @@ class RdioClient {
             withParameters: ["query": query, "types": "Track"],
             success: { (response) in
                 var tracks = [Track]()
-                if let results = response["results"] as? NSArray {
+                if let results = response["results"] as? [[String : AnyObject]] {
                     for rdioTrack in results {
-                        let trackKey = rdioTrack["key"] as! String
-                        let trackTitle = rdioTrack["name"] as! String
-                        let artistName = rdioTrack["artist"] as! String
-                        let albumImageUrl = rdioTrack["icon"] as! String
-                        let duration = rdioTrack["duration"] as! Int
-                        tracks.append(Track(key: trackKey, trackTitle: trackTitle, artistName: artistName, albumImageUrl: albumImageUrl, duration: duration))
+                        tracks.append(self.rdioToTrack(rdioTrack))
                     }
                 }
                 completion(tracks: tracks, error: nil)

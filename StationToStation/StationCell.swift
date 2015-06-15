@@ -16,7 +16,7 @@ class StationCell: UICollectionViewCell {
     
     var station: Station! {
         didSet {
-            banerImageView.setImageWithURL(station.imageUrl!)
+            banerImageView.setImageWithURL(NSURL(string: station.imageUrl!))
             nameLabel.text = station!.name
         }
     }

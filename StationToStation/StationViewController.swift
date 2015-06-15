@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StationViewController: UIViewController {
+class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     
     @IBOutlet weak var headerView: StationHeaderView!
     @IBOutlet weak var containerView: UIView!
@@ -21,7 +21,7 @@ class StationViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Station"
 
-        headerView.contentView.imageView.setImageWithURL(station!.imageUrl)
+        headerView.contentView.imageView.setImageWithURL(NSURL(string: station!.imageUrl))
         headerView.contentView.name = station!.name
         headerView.contentView.collaboratorsButton.addTarget(self, action: "didTapCollaboratorsButton", forControlEvents: UIControlEvents.TouchUpInside)
 
@@ -81,8 +81,9 @@ class StationViewController: UIViewController {
     
     @IBAction func didTapAddTracks(sender: AnyObject) {
         var storyboard = UIStoryboard(name: "AddTracks", bundle: nil)
-        var viewController = storyboard.instantiateViewControllerWithIdentifier("AddTracksViewController") as! AddTracksViewController
-        self.navigationController!.pushViewController(viewController, animated: true)
+        var addTrackVc = storyboard.instantiateViewControllerWithIdentifier("AddTracksViewController") as! AddTracksViewController
+        addTrackVc.delegate = self
+        self.navigationController!.pushViewController(addTrackVc, animated: true)
     }
 
     @IBAction func didTapAddCollaborators(sender: AnyObject) {
@@ -91,19 +92,17 @@ class StationViewController: UIViewController {
         self.navigationController!.pushViewController(viewController, animated: true)
     }
     
-    // MARK: - Testing
+    // MARK: - AddTracksViewControllerDelegate
     
-    @IBAction func didTapPlaylist(sender: AnyObject) {
-        self.station!.getPlaylist() { (playlist, error) in
+    func addTracksViewController(sender: AddTracksViewController, didAddTrack track: Track) {
+        self.navigationController!.popToViewController(self, animated: true)
+        station!.getPlaylist() { (playlist, error) in
             if let error = error {
-                NSLog("Error loading playlist: \(error)")
+                NSLog("Error loading playlist for track add: \(error)")
                 return
             }
             
-            var storyboard = UIStoryboard(name: "Playlist", bundle: nil)
-            var playlistViewController = storyboard.instantiateViewControllerWithIdentifier("PlaylistViewController") as! PlaylistViewController
-            playlistViewController.playlist = playlist!
-            self.navigationController!.pushViewController(playlistViewController, animated: true)
+            playlist!.addTrack(track)
         }
     }
 }

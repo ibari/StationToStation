@@ -75,7 +75,7 @@ class DataStoreClient {
     // MARK: - STATION
     
     private static let station_ClassName = "Station"
-    private static let station_UserKey = "user_key"
+    private static let station_OwnerKey = "owner_key"
     private static let station_PlaylistKey = "playlist_key"
     private static let station_Name = "name"
     private static let station_Description = "description"
@@ -92,20 +92,10 @@ class DataStoreClient {
             
             if let objects = objects as? [PFObject] {
                 var stations = [Station]()
-                /*for obj in objects {
+                for obj in objects {
                     stations.append(self.pfoToStation(obj))
                 }
-                completion(stations: stations, error: nil)*/
-                
-                // Temp
-                completion(
-                    stations : [
-                        Station(userKey: "s1", playlistKey: "p1", name: "Station1", description: "", imageUrl: "http://rdiodynimages3-a.akamaihd.net/?l=album/browse/rectangle/Top_Stations.jpg"),
-                        Station(userKey: "s2", playlistKey: "p3", name: "Station2", description: "", imageUrl: "http://rdiodynimages3-a.akamaihd.net/?l=album/browse/rectangle/Classics.jpg"),
-                        Station(userKey: "s3", playlistKey: "p3", name: "Station3", description: "", imageUrl: "http://rdiodynimages2-a.akamaihd.net/?l=album/browse/rectangle/Decades.jpg")
-                    ],
-                    error: nil
-                )
+                completion(stations: stations, error: nil)
             } else {
                 completion(stations: [], error: nil)
                 return
@@ -119,7 +109,7 @@ class DataStoreClient {
     
     func pfoToStation(obj: PFObject) -> Station {
         return Station(
-            userKey: obj[DataStoreClient.station_UserKey] as! String,
+            ownerKey: obj[DataStoreClient.station_OwnerKey] as! String,
             playlistKey: obj[DataStoreClient.station_PlaylistKey] as! String,
             name: obj[DataStoreClient.station_Name] as! String,
             description: obj[DataStoreClient.station_Description] as! String,
@@ -130,8 +120,8 @@ class DataStoreClient {
     func stationToPfo(s: Station) -> PFObject {
         var obj = PFObject(className: DataStoreClient.station_ClassName)
         
-        obj[DataStoreClient.station_UserKey] = s.userKey
-        //obj[DataStoreClient.station_PlaylistKey] = s.playlistKey
+        obj[DataStoreClient.station_OwnerKey] = s.ownerKey
+        obj[DataStoreClient.station_PlaylistKey] = s.playlistKey
         obj[DataStoreClient.station_Name] = s.name
         obj[DataStoreClient.station_Description] = s.description
         obj[DataStoreClient.station_ImageUrl] = s.imageUrl

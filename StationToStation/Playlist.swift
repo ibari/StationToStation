@@ -10,14 +10,18 @@ import UIKit
 
 class Playlist: NSObject {
    
-    let userKey: String
-    let playlistKey: String
-    let tracks: [Track]
+    let key: String
+    let ownerKey: String
+    var tracks: [Track]
     
-    init(userKey: String, playlistKey: String, tracks: [Track]) {
-        self.userKey = userKey
-        self.playlistKey = playlistKey
+    init(key: String, ownerKey: String, tracks: [Track]) {
+        self.key = key
+        self.ownerKey = ownerKey
         self.tracks = tracks
+    }
+ 
+    func addTrack(track: Track) {
+        NSLog("adding track")
     }
     
 }

@@ -11,7 +11,7 @@ import UIKit
 private let reuseIdentifier = "StationCell"
 private let sectionInsets = UIEdgeInsets(top: 12.0, left: 10.0, bottom: 10.0, right: 12.0)
 
-class StationsViewController: UIViewController {
+class StationsViewController: UIViewController, CreateStationViewControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -28,15 +28,19 @@ class StationsViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        DataStoreClient.sharedInstance.getStations { (stations, error) -> Void in
-            self.stations = stations
-            self.collectionView.reloadData()
-        }
+
+        refresh()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func refresh() {
+        DataStoreClient.sharedInstance.getStations { (stations, error) -> Void in
+            self.stations = stations
+            self.collectionView.reloadData()
+        }
     }
     
     // MARK: - Configuration
@@ -53,8 +57,9 @@ class StationsViewController: UIViewController {
     
     func create() {
         var storyboard = UIStoryboard(name: "CreateStation", bundle: nil)
-        var createStationViewController = storyboard.instantiateViewControllerWithIdentifier("CreateStationViewController") as! CreateStationViewController
-        self.navigationController!.pushViewController(createStationViewController, animated: true)
+        var createStationVc = storyboard.instantiateViewControllerWithIdentifier("CreateStationViewController") as! CreateStationViewController
+        createStationVc.delegate = self
+        self.navigationController!.pushViewController(createStationVc, animated: true)
     }
 
     // MARK: - Navigation
@@ -66,6 +71,14 @@ class StationsViewController: UIViewController {
                 stationViewController.station = stations![indexPath.row]
             }
         }
+    }
+    
+    // MARK: - CreateStationViewControllerDelegate
+    
+    func createStationViewController(sender: CreateStationViewController, didCreateStation: Station) {
+        // why doesn't popToViewController self work here?
+        self.navigationController!.popViewControllerAnimated(true)
+        refresh()
     }
 }
 

@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol AddTracksViewControllerDelegate {
+    func addTracksViewController(sender: AddTracksViewController, didAddTrack: Track)
+}
+
 class AddTracksViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 
     var tracks: [Track]!
+
+    var delegate: AddTracksViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +75,6 @@ class AddTracksViewController: UIViewController, UISearchBarDelegate, UITableVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let track = tracks[indexPath.item]
         
-        NSLog("Should add track \(track.key) to playlist")
+        delegate?.addTracksViewController(self, didAddTrack: track)
     }
 }
