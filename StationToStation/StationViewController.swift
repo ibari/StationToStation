@@ -16,6 +16,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     @IBOutlet weak var addPeopleButton: UIButton!
     
     var station: Station?
+    var playlistViewController: PlaylistViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +38,12 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             }
             
             var storyboard = UIStoryboard(name: "Playlist", bundle: nil)
-            var playlistViewController = storyboard.instantiateViewControllerWithIdentifier("PlaylistViewController") as! PlaylistViewController
-            playlistViewController.playlist = playlist!
+            self.playlistViewController = storyboard.instantiateViewControllerWithIdentifier("PlaylistViewController") as! PlaylistViewController
+            self.playlistViewController.playlist = playlist!
             
-            self.addChildViewController(playlistViewController)
-            self.containerView.addSubview(playlistViewController.view)
-            playlistViewController.didMoveToParentViewController(self)
+            self.addChildViewController(self.playlistViewController)
+            self.containerView.addSubview(self.playlistViewController.view)
+            self.playlistViewController.didMoveToParentViewController(self)
         }
     }
 
@@ -102,7 +103,14 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
                 return
             }
             
-            playlist!.addTrack(track)
+            playlist!.addTrack(track) { (playlist: Playlist?, error: NSError?) in
+                if let error = error {
+                    NSLog("Error adding track to playlist \(error)")
+                    return
+                }
+                self.playlistViewController.playlist = playlist!
+                self.playlistViewController.reloadData()
+            }
         }
     }
 }

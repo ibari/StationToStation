@@ -37,7 +37,28 @@ class RdioClient {
         let key = dict["key"] as! String
         let ownerKey = dict["ownerKey"] as! String
         
-        return Playlist(key: key, ownerKey: ownerKey, tracks: [])
+        let rdioTracks = dict["tracks"] as! [[String : AnyObject]]
+        var tracks = [Track]()
+        for rdioTrack in rdioTracks {
+            tracks.append(rdioToTrack(rdioTrack))
+        }
+        
+        return Playlist(key: key, ownerKey: ownerKey, tracks: tracks)
+    }
+    
+    func getPlaylist(key: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
+        rdio.callAPIMethod("addToPlaylist",
+            withParameters: [
+                "playlist": key,
+                "tracks": "",
+                "extras": "tracks"
+            ], success: { (response) in
+                let playlist = self.rdioToPlaylist(response as! [String : AnyObject])
+                completion(playlist: playlist, error: nil)
+            }, failure: { (error) in
+                completion(playlist: nil, error: error)
+            }
+        )
     }
     
     func createPlaylist(name: String, description: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
@@ -46,7 +67,23 @@ class RdioClient {
                 "name": "foobar",
                 "description": "foobar description",
                 "tracks": "",
-                "collaborationMode": 1
+                "collaborationMode": 1,
+                "extras": "tracks"
+            ], success: { (response) in
+                let playlist = self.rdioToPlaylist(response as! [String : AnyObject])
+                completion(playlist: playlist, error: nil)
+            }, failure: { (error) in
+                completion(playlist: nil, error: error)
+            }
+        )
+    }
+    
+    func addTrackToPlaylist(key: String, trackKey: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
+        rdio.callAPIMethod("addToPlaylist",
+            withParameters: [
+                "playlist": key,
+                "tracks": trackKey,
+                "extras": "tracks"
             ], success: { (response) in
                 let playlist = self.rdioToPlaylist(response as! [String : AnyObject])
                 completion(playlist: playlist, error: nil)

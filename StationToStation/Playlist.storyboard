@@ -26,15 +26,22 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jyH-ea-hu4" id="vd9-8E-eyH">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfO-NI-WQz">
-                                                    <rect key="frame" x="14" y="10" width="14" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ahz-r8-trg">
+                                                    <rect key="frame" x="8" y="8" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="OOU-Wu-3sX"/>
+                                                        <constraint firstAttribute="width" constant="50" id="eDF-tF-Z0d"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWs-ad-BpB">
+                                                    <rect key="frame" x="66" y="8" width="63" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vne-su-hO6">
-                                                    <rect key="frame" x="38" y="10" width="59" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laN-hZ-S5L">
+                                                    <rect key="frame" x="66" y="25" width="32" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -46,14 +53,15 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ooo-Ko-tBd" firstAttribute="leading" secondItem="Vne-su-hO6" secondAttribute="leading" id="0Il-Ip-a8K"/>
-                                                <constraint firstItem="Vne-su-hO6" firstAttribute="centerY" secondItem="ZfO-NI-WQz" secondAttribute="centerY" id="3Et-8j-QqX"/>
-                                                <constraint firstItem="ZfO-NI-WQz" firstAttribute="leading" secondItem="vd9-8E-eyH" secondAttribute="leading" constant="14" id="9Fi-Vd-TeA"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="ZfO-NI-WQz" secondAttribute="bottom" constant="6" id="FBU-pF-TKb"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ooo-Ko-tBd" secondAttribute="bottom" constant="6" id="RoA-G9-3Aa"/>
-                                                <constraint firstItem="ooo-Ko-tBd" firstAttribute="top" secondItem="Vne-su-hO6" secondAttribute="bottom" id="fjm-ba-cGH"/>
-                                                <constraint firstItem="Vne-su-hO6" firstAttribute="leading" secondItem="ZfO-NI-WQz" secondAttribute="trailing" constant="10" id="nhh-3L-4x3"/>
-                                                <constraint firstItem="ZfO-NI-WQz" firstAttribute="top" secondItem="vd9-8E-eyH" secondAttribute="top" constant="10" id="xlm-NQ-QSb"/>
+                                                <constraint firstItem="oe0-xW-ApN" firstAttribute="leading" secondItem="Ahz-r8-trg" secondAttribute="trailing" constant="8" id="0f4-zn-mOb"/>
+                                                <constraint firstItem="laN-hZ-S5L" firstAttribute="leading" secondItem="Ahz-r8-trg" secondAttribute="trailing" constant="8" id="36o-x0-Xfx"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ahz-r8-trg" secondAttribute="bottom" constant="10" id="3Bc-sF-cd7"/>
+                                                <constraint firstItem="gWs-ad-BpB" firstAttribute="leading" secondItem="Ahz-r8-trg" secondAttribute="trailing" constant="8" id="9Dx-SP-1en"/>
+                                                <constraint firstItem="oe0-xW-ApN" firstAttribute="bottom" secondItem="Ahz-r8-trg" secondAttribute="bottom" id="N7b-na-drX"/>
+                                                <constraint firstItem="gWs-ad-BpB" firstAttribute="top" secondItem="Ahz-r8-trg" secondAttribute="top" id="NT8-Zx-YOz"/>
+                                                <constraint firstItem="Ahz-r8-trg" firstAttribute="top" secondItem="wkd-Wk-HN0" secondAttribute="top" constant="8" id="VN1-h9-afz"/>
+                                                <constraint firstItem="Ahz-r8-trg" firstAttribute="leading" secondItem="wkd-Wk-HN0" secondAttribute="leading" constant="8" id="Yfv-kh-200"/>
+                                                <constraint firstItem="laN-hZ-S5L" firstAttribute="top" secondItem="gWs-ad-BpB" secondAttribute="bottom" constant="1" id="mmG-zn-BT8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
