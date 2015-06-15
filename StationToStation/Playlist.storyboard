@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FYZ-x1-Vtn">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Playlist-->
@@ -69,6 +68,7 @@
                                             <outlet property="durationLabel" destination="oe0-xW-ApN" id="aqZ-uf-WCf"/>
                                             <outlet property="iconImageView" destination="Ahz-r8-trg" id="fg9-7d-lhS"/>
                                             <outlet property="titleLabel" destination="gWs-ad-BpB" id="swe-dB-pvM"/>
+                                            <segue destination="NBy-25-414" kind="push" identifier="trackSegue" id="hpT-4c-oLC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
