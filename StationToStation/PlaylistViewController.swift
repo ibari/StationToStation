@@ -41,7 +41,12 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TrackCell", forIndexPath: indexPath) as! TrackCell
+        
         cell.track = playlist.tracks[indexPath.item]
+        
+        if indexPath.row == 0 {
+            cell.bumpButton.hidden = true
+        }
         
         return cell
     }

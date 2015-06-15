@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class Utils {
     let secrets: NSDictionary
@@ -17,6 +18,13 @@ class Utils {
     
     func getSecret(property: String) -> String {
         return secrets[property] as! String
+    }
+    
+    func secondsToMinutes(interval: Double) -> String {
+        let minutes = floor(interval / 60.0)
+        let seconds = round(interval - minutes * 60.0)
+        
+        return "\(Int(minutes)):\(Int(seconds))"
     }
     
     class var sharedInstance: Utils {

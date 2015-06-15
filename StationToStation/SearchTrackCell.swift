@@ -1,5 +1,5 @@
 //
-//  TrackCell.swift
+//  SearchTrackCell.swift
 //  StationToStation
 //
 //  Created by Benjamin Tsai on 6/9/15.
@@ -8,24 +8,22 @@
 
 import UIKit
 
-class TrackCell: UITableViewCell {
+class SearchTrackCell: UITableViewCell {
     
-    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
-    @IBOutlet weak var bumpCountLabel: UILabel!
-    @IBOutlet weak var dropCountLabel: UILabel!
-    @IBOutlet weak var bumpButton: UIButton!
-    @IBOutlet weak var dropButton: UIButton!
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var durationLabel: UILabel!
     
     var track: Track! {
         didSet {
-            iconImageView.setImageWithURL(NSURL(string: track.albumImageUrl))
             titleLabel.text = track.trackTitle
             artistLabel.text = track.artistName
+            durationLabel.text = Utils.sharedInstance.secondsToMinutes(Double(track.duration))
+            iconImageView.setImageWithURL(NSURL(string: track.albumImageUrl))
         }
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

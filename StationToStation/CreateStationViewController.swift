@@ -18,11 +18,17 @@ class CreateStationViewController: UIViewController {
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
-
+    @IBOutlet weak var createButton: UIButton!
+    
     var delegate: CreateStationViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        createButton.backgroundColor = UIColor.clearColor()
+        createButton.layer.cornerRadius = 12
+        createButton.layer.borderWidth = 1
+        createButton.layer.borderColor = UIColor(red: 0.0/255.0, green: 142.0/255.0, blue: 212.0/255.0, alpha: 1.0).CGColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,14 +40,14 @@ class CreateStationViewController: UIViewController {
         let name = nameTextField.text
         let description = descriptionTextField.text
 
-        RdioClient.sharedInstance.createPlaylist("aaa", description: "bbb") { (playlist: Playlist?, error: NSError?) in
+        RdioClient.sharedInstance.createPlaylist(name, description: description) { (playlist: Playlist?, error: NSError?) in
             if let error = error {
                 NSLog("Error while creating playlist \(error)")
                 return
             }
   
             let playlistKey = playlist!.key
-            let imageUrl = "http://rdiodynimages3-a.akamaihd.net/?l=album/browse/rectangle/Classics.jpg"
+            let imageUrl = "http://rdiodynimages3-a.akamaihd.net/?l=album/browse/rectangle/Top_Stations.jpg"
             
             let station = Station(ownerKey: ownerKey, playlistKey: playlistKey, name: name, description: description, imageUrl: imageUrl)
             station.save() { (success, error) in
@@ -54,14 +60,4 @@ class CreateStationViewController: UIViewController {
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
