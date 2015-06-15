@@ -67,7 +67,7 @@ class AddTracksViewController: UIViewController, UISearchBarDelegate, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let track = tracks[indexPath.item]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("AddTrackCell", forIndexPath: indexPath) as! AddTrackCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("AddTrackCell", forIndexPath: indexPath) as! TrackCell
         cell.track = track
         return cell
     }

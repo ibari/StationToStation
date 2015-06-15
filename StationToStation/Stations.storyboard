@@ -109,16 +109,6 @@
                                             <action selector="didTapAddTracks:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="GCA-Ic-ulC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2y-W6-ebA">
-                                        <rect key="frame" x="139" y="9" width="43" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Playlist">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didTapPlaylist:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="WlC-vl-Y4P"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnC-vv-T5n">
                                         <rect key="frame" x="235" y="10" width="70" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -136,9 +126,7 @@
                                     <constraint firstAttribute="centerY" secondItem="DnC-vv-T5n" secondAttribute="centerY" id="GI4-34-mfT"/>
                                     <constraint firstAttribute="trailing" secondItem="DnC-vv-T5n" secondAttribute="trailing" constant="15" id="GkH-M7-D7A"/>
                                     <constraint firstAttribute="centerY" secondItem="xJY-Z6-8cR" secondAttribute="centerY" id="Kh8-y4-taF"/>
-                                    <constraint firstAttribute="centerX" secondItem="X2y-W6-ebA" secondAttribute="centerX" id="jMJ-5Y-ghj"/>
                                     <constraint firstAttribute="width" constant="320" id="oHg-yr-c12"/>
-                                    <constraint firstAttribute="centerY" secondItem="X2y-W6-ebA" secondAttribute="centerY" id="ykI-sz-ZNV"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5b-6e-MCd">

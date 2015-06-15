@@ -20,8 +20,7 @@ class Playlist: NSObject {
         self.tracks = tracks
     }
  
-    func addTrack(track: Track) {
-        NSLog("adding track")
+    func addTrack(track: Track, completion: (playlist: Playlist?, error: NSError?) -> Void) {
+        RdioClient.sharedInstance.addTrackToPlaylist(key, trackKey: track.key, completion: completion)
     }
-    
 }
