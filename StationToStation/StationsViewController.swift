@@ -93,6 +93,15 @@ extension StationsViewController: UICollectionViewDataSource {
         if stations != nil {
             return stations!.count
         } else {
+            // display message when collection is empty
+            var messageLabel = UILabel(frame: CGRectMake(0, 150, self.view.bounds.size.width, 30))
+    
+            messageLabel.textColor = UIColor.lightGrayColor()
+            messageLabel.textAlignment = NSTextAlignment.Center
+            messageLabel.numberOfLines = 1
+            messageLabel.text = "Join or create a station to get started."
+            self.collectionView.addSubview(messageLabel)
+            
             return 0
         }
     }
