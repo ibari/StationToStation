@@ -83,6 +83,7 @@ class DataStoreClient {
     
     func getStations(completion: (stations: [Station]?, error: NSError?) -> Void) {
         var query: PFQuery = PFQuery(className: DataStoreClient.station_ClassName)
+        query.whereKey(DataStoreClient.station_OwnerKey, equalTo: User.currentUser!.key)
         
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let error = error {
