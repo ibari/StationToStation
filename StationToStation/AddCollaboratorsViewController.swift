@@ -14,10 +14,8 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
     @IBOutlet weak var tableView: UITableView!
     
     var station: Station?
-    var collaborators: [Collaborator]!
-    var InvitedCollaborators: [Collaborator] = []
+    var collaborators: [User]!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,31 +26,24 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 120
+        tableView.estimatedRowHeight = 100
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.backgroundColor = UIColor.clearColor()
         tableView.reloadData()
-        
-        var sidebarBackgroundView = UIView(frame: CGRectZero)
-        self.tableView.tableFooterView = sidebarBackgroundView
-        self.tableView.backgroundColor = UIColor.clearColor()
-        
-        // tableView.setEditing(true, animated: true)
-        tableView.allowsMultipleSelection = true
-        
-
     }
     
     func searchBarSearchButtonClicked(sender: UISearchBar) {
-        Collaborator.search(sender.text) { (collaborators, error) in
+        User.search(sender.text) { (user, error) in
             if let error = error {
-                NSLog("Error while searching for collaborator: \(error)")
+                NSLog("Error while searching for user: \(error)")
                 return
             }
             
-            if let collaborators = collaborators {
-                self.collaborators = collaborators
+            if let user = user {
+                self.collaborators.append(user)
                 self.tableView.reloadData()
             } else {
-                NSLog("Unexpected nil returned for collaborators")
+                NSLog("Unexpected nil returned for user")
                 return
             }
         }
@@ -63,62 +54,35 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return collaborators.count
+        if collaborators != nil {
+            return collaborators!.count
+        } else {
+            var messageLabel = UILabel(frame: CGRectMake(0, 150, self.view.bounds.size.width, 30))
+            
+            messageLabel.textColor = UIColor.lightGrayColor()
+            messageLabel.textAlignment = NSTextAlignment.Center
+            messageLabel.numberOfLines = 1
+            messageLabel.text = "User not found"
+            self.tableView.addSubview(messageLabel)
+            
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let collaborator = collaborators[indexPath.item]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
-        cell.collaborator = collaborator
+        let cell = tableView.dequeueReusableCellWithIdentifier("InviteUserCell", forIndexPath: indexPath) as! InviteUserCell
+        cell.user = collaborator
+        
+        if indexPath.row == collaborators.count - 1 {
+            cell.separatorInset = UIEdgeInsetsMake(0, 10000, 0, 0)
+        }
+        
         return cell
     }
     
-    /*
-    func updateCount(){
-        if tableView.UserCell.userCheckBox == true {
-            
-        }
-        if let list = tableView.indexPathsForSelectedRows() as? [NSIndexPath] {
-            println(list.count)
-        }
-    }
-    */
-
-    @IBAction func onAddButtonClicked(sender: AnyObject) {
-        // need to store the table into an array first?
-        // go through each row selected and pack into an array to be the invitees
-        
-        println("INVITED collaborators are \(InvitedCollaborators)")
-        
-        
-    }
-    
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let collaborator = collaborators[indexPath.item]
-        var cell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
-        
-        println("Row Selected")
-       
-        
-        switch cell.accessoryType {
-        case .None:
-                cell.accessoryType = .Checkmark
-                InvitedCollaborators.append(collaborator)
-        default:
-                cell.accessoryType = .None
-                // need to remove collaborator from the InvitedCollaborators list
-
-        }
-        
-        tableView.reloadData()
-
-
-        // NSLog("Should add user \(collaborator.key) to invitees")
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
- 
-    
-    
-
 }

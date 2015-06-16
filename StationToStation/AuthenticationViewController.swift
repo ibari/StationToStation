@@ -16,7 +16,7 @@ class AuthenticationViewController: UIViewController {
         RdioClient.sharedInstance.delegate = self
         
         if User.currentUser != nil {
-            NSLog("Current user: \(User.currentUser!.firstName!) \(User.currentUser!.lastName!)")
+            NSLog("Current user: \(User.currentUser!.firstName) \(User.currentUser!.lastName)")
         }
     }
     
@@ -37,7 +37,7 @@ extension AuthenticationViewController: RdioDelegate {
             NSLog("Rdio authorized user")
         
             User.currentUser = User(dictionary: user as NSDictionary)
-            
+
             var storyboard = UIStoryboard(name: "Main", bundle: nil)
             var viewController = storyboard.instantiateViewControllerWithIdentifier("TabBarViewController") as! TabBarViewController
             let navigationController = UINavigationController(rootViewController: viewController)

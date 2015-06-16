@@ -103,8 +103,6 @@ class RdioClient {
     }
     
     func searchTrack(query: String, completion: (tracks: [Track]?, error: NSError?) -> Void) {
-        let param = ["dsads": "dsdsa"]
-        
         rdio.callAPIMethod("search",
             withParameters: ["query": query, "types": "Track"],
             success: { (response) in
@@ -117,6 +115,18 @@ class RdioClient {
                 completion(tracks: tracks, error: nil)
             }, failure: { (error) in
                 completion(tracks: nil, error: error)
+            }
+        )
+    }
+    
+    func searchUser(query: String, completion: (user: User?, error: NSError?) -> Void) {
+        rdio.callAPIMethod("findUser",
+            withParameters: ["email": query, "extras": "username"],
+            success: { (response) in
+                var user = User(dictionary: response as NSDictionary)
+                completion(user: user, error: nil)
+            }, failure: { (error) in
+                completion(user: nil, error: error)
             }
         )
     }

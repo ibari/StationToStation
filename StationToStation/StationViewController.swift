@@ -49,7 +49,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
 
     
     func didTapCollaboratorsButton() {
-        self.station!.getCollaborators() { (collaboratorlist, error) in
+        self.station!.getCollaborators() { (collaborators, error) in
             if let error = error {
                 NSLog("Error loading collaboratorlist: \(error)")
                 return
@@ -57,7 +57,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
 
             var storyboard = UIStoryboard(name: "CollaboratorsView", bundle: nil)
             var collaboratorsViewController = storyboard.instantiateViewControllerWithIdentifier("CollaboratorsViewController") as! CollaboratorsViewController
-            collaboratorsViewController.collaborators = collaboratorlist!
+            collaboratorsViewController.collaborators = collaborators
             self.navigationController!.pushViewController(collaboratorsViewController, animated: true)
         }
     }

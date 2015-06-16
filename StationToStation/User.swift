@@ -60,6 +60,10 @@ class User: NSObject {
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
+    
+    class func search(phrase: String, completion: (user: User?, error: NSError?) -> Void) {
+        RdioClient.sharedInstance.searchUser(phrase, completion: completion)
+    }
 }
 
 

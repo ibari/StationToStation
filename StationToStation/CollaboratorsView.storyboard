@@ -20,20 +20,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="76" id="tzz-qE-1Pg" customClass="UserCell" customModule="StationToStation" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="76" id="tzz-qE-1Pg" userLabel="User Cell" customClass="UserCell" customModule="StationToStation" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tzz-qE-1Pg" id="2Sj-ZY-buP">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOJ-yy-0O1">
-                                                    <rect key="frame" x="52" y="17.5" width="68" height="16"/>
+                                                    <rect key="frame" x="58" y="17.5" width="68" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="brA-A5-Vog">
-                                                    <rect key="frame" x="8" y="8" width="35" height="35"/>
+                                                    <rect key="frame" x="15" y="8" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="Nuc-ra-ymq"/>
                                                         <constraint firstAttribute="width" constant="35" id="WY9-SU-y9S"/>
@@ -44,11 +44,12 @@
                                                 <constraint firstItem="brA-A5-Vog" firstAttribute="centerY" secondItem="mOJ-yy-0O1" secondAttribute="centerY" id="2Ge-ln-p00"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="brA-A5-Vog" secondAttribute="bottom" constant="8" id="L9f-TF-YGa"/>
                                                 <constraint firstItem="brA-A5-Vog" firstAttribute="top" secondItem="2Sj-ZY-buP" secondAttribute="top" constant="8" id="eMk-4h-w6f"/>
-                                                <constraint firstItem="brA-A5-Vog" firstAttribute="leading" secondItem="2Sj-ZY-buP" secondAttribute="leading" constant="8" id="lHV-aP-DDV"/>
-                                                <constraint firstItem="mOJ-yy-0O1" firstAttribute="leading" secondItem="brA-A5-Vog" secondAttribute="trailing" constant="9" id="nJC-Jy-VpH"/>
+                                                <constraint firstItem="brA-A5-Vog" firstAttribute="leading" secondItem="2Sj-ZY-buP" secondAttribute="leading" constant="15" id="lHV-aP-DDV"/>
+                                                <constraint firstItem="mOJ-yy-0O1" firstAttribute="leading" secondItem="brA-A5-Vog" secondAttribute="trailing" constant="8" id="nJC-Jy-VpH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="nameLabel" destination="mOJ-yy-0O1" id="W73-Wx-pi7"/>
                                             <outlet property="profileImageView" destination="brA-A5-Vog" id="rR3-bv-6ea"/>
                                             <outlet property="usernameLabel" destination="mOJ-yy-0O1" id="kQ7-gG-Es2"/>
                                         </connections>

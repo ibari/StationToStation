@@ -32,19 +32,19 @@ class Station {
         RdioClient.sharedInstance.getPlaylist(playlistKey, completion: completion)
     }
     
-    func inviteCollaborator(collaborator: Collaborator, completion: (success: Bool?, error: NSError?) -> Void) {
+    func inviteCollaborator(collaborator: User, completion: (success: Bool?, error: NSError?) -> Void) {
         completion(success: true, error: nil)
     }
     
-    func getCollaborators(completion: (collaborators: [Collaborator]?, error: NSError?) -> Void) {
-        completion(
+    func getCollaborators(completion: (collaborators: [User]?, error: NSError?) -> Void) {
+        /*completion(
             collaborators: [
-                Collaborator(key: "c1", username: "User_1", profileImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
-                Collaborator(key: "c2", username: "User_2", profileImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
-                Collaborator(key: "c3", username: "User_3", profileImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg")
+                User(key: "c1", firstName: "User", lastName: "One", profileImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
+                User(key: "c2", firstName: "User", lastName: "Two", profileImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
+                User(key: "c3", firstName: "User", lastName: "Three", profileImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg")
             ],
             error: nil
-        )
+        )*/
     }
     
     class func loadAll(completion: (stations: [Station]?, error: NSError?) -> Void) {

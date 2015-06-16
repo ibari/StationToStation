@@ -21,14 +21,11 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.backgroundColor = UIColor.clearColor()
         tableView.reloadData()
-        
-        var sidebarBackgroundView = UIView(frame: CGRectZero)
-        self.tableView.tableFooterView = sidebarBackgroundView
-        self.tableView.backgroundColor = UIColor.clearColor()
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -46,6 +43,10 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         
         if indexPath.row == 0 {
             cell.bumpButton.hidden = true
+        }
+        
+        if indexPath.row == playlist.tracks.count - 1 {
+            cell.separatorInset = UIEdgeInsetsMake(0, 10000, 0, 0)
         }
         
         return cell

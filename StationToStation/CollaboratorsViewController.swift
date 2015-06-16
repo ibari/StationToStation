@@ -13,7 +13,7 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var tableView: UITableView!
     
     // var station: Station?
-    var collaborators: [Collaborator]!
+    var collaborators: [User]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,23 +40,13 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
-         cell.profileImageView.setImageWithURL(NSURL(string: collaborators[indexPath.row].profileImageUrl))
-         // cell.usernameLabel.text = String(indexPath.row + 1)
-         cell.usernameLabel.text = collaborators[indexPath.row].username
+        
+        cell.user = collaborators![indexPath.row]
+
         return cell
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-        
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
