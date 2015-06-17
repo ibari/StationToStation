@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlaylistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PlaylistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TrackCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -39,11 +39,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TrackCell", forIndexPath: indexPath) as! TrackCell
         
+        cell.delegate = self
         cell.track = playlist.tracks[indexPath.item]
-        
-        if indexPath.row == 0 {
-            cell.bumpButton.hidden = true
-        }
         
         if indexPath.row == playlist.tracks.count - 1 {
             cell.separatorInset = UIEdgeInsetsMake(0, 10000, 0, 0)
@@ -69,5 +66,14 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
                 trackViewController.track = playlist.tracks[indexPath.row]
             }
         }
+    }
+    
+    // MARK: - TrackCellDelegate
+    
+    func trackCell(sender: TrackCell, didChangeVote state: VoteState) {
+        let track = sender.track
+        
+        playlist.setVoteForTrack(track.key, withState: state)
+        tableView.reloadData()
     }
 }

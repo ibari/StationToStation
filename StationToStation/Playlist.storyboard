@@ -61,12 +61,18 @@
                                                     <state key="normal" image="up_arrow">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onBump:" destination="eVc-8C-yoZ" eventType="touchUpInside" id="4dn-b2-qAV"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4D-4A-guy">
                                                     <rect key="frame" x="278" y="19" width="30" height="30"/>
                                                     <state key="normal" image="down_arrow">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onDrop:" destination="eVc-8C-yoZ" eventType="touchUpInside" id="0hk-hf-CfH"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

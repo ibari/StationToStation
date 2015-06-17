@@ -8,6 +8,7 @@
 
 class Vote {
     
+    
     let userKey: String
     let trackKey: String
     

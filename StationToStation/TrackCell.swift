@@ -8,6 +8,14 @@
 
 import UIKit
 
+enum VoteState {
+    case Bump, Drop, Neutral
+}
+
+protocol TrackCellDelegate {
+    func trackCell(sender: TrackCell, didChangeVote: VoteState)
+}
+
 class TrackCell: UITableViewCell {
     
     @IBOutlet weak var iconImageView: UIImageView!
@@ -18,11 +26,30 @@ class TrackCell: UITableViewCell {
     @IBOutlet weak var bumpButton: UIButton!
     @IBOutlet weak var dropButton: UIButton!
     
+    var delegate: TrackCellDelegate?
+    
     var track: Track! {
         didSet {
             iconImageView.setImageWithURL(NSURL(string: track.albumImageUrl))
             titleLabel.text = track.trackTitle
             artistLabel.text = track.artistName
+            
+            if let voteState = track.voteState {
+                switch voteState {
+                case .Bump:
+                    bumpButton.setImage(UIImage(named: "up_arrow_active"), forState: .Normal)
+                    dropButton.setImage(UIImage(named: "down_arrow"), forState: .Normal)
+                case .Drop:
+                    bumpButton.setImage(UIImage(named: "up_arrow"), forState: .Normal)
+                    dropButton.setImage(UIImage(named: "down_arrow_active"), forState: .Normal)
+                case .Neutral:
+                    bumpButton.setImage(UIImage(named: "up_arrow"), forState: .Normal)
+                    dropButton.setImage(UIImage(named: "down_arrow"), forState: .Normal)
+                }
+            } else {
+                bumpButton.setImage(UIImage(named: "up_arrow"), forState: .Normal)
+                dropButton.setImage(UIImage(named: "down_arrow"), forState: .Normal)
+            } 
         }
     }
 
@@ -32,5 +59,13 @@ class TrackCell: UITableViewCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @IBAction func onBump(sender: AnyObject) {
+        delegate?.trackCell(self, didChangeVote: .Bump)
+    }
+    
+    @IBAction func onDrop(sender: AnyObject) {
+        delegate?.trackCell(self, didChangeVote: .Drop)
     }
 }

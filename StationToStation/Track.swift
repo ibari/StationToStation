@@ -13,6 +13,8 @@ class Track {
     let artistName: String
     let albumImageUrl: String
     let duration: Int
+
+    var voteState: VoteState?
     
     init(key: String, trackTitle: String, artistName: String, albumImageUrl: String, duration: Int) {
         self.key = key
