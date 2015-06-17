@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" placeholder="Email" translatesAutoresizingMaskIntoConstraints="NO" id="JgU-Ta-xuR">
+                            <searchBar contentMode="redraw" text="" placeholder="search by email" translatesAutoresizingMaskIntoConstraints="NO" id="JgU-Ta-xuR">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>

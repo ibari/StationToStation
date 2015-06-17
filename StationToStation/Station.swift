@@ -10,6 +10,7 @@ import UIKit
 
 class Station {
    
+    var objectId: String?
     let ownerKey: String!
     let playlistKey: String!
     let name: String!
@@ -30,21 +31,6 @@ class Station {
     
     func getPlaylist(completion: (playlist: Playlist?, error: NSError?) -> Void) {
         RdioClient.sharedInstance.getPlaylist(playlistKey, completion: completion)
-    }
-    
-    func inviteCollaborator(collaborator: User, completion: (success: Bool?, error: NSError?) -> Void) {
-        completion(success: true, error: nil)
-    }
-    
-    func getCollaborators(completion: (collaborators: [User]?, error: NSError?) -> Void) {
-        /*completion(
-            collaborators: [
-                User(key: "c1", firstName: "User", lastName: "One", profileImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
-                User(key: "c2", firstName: "User", lastName: "Two", profileImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg"),
-                User(key: "c3", firstName: "User", lastName: "Three", profileImageUrl: "http://upload.wikimedia.org/wikipedia/commons/9/9d/PalaceofFineArts1915.jpg")
-            ],
-            error: nil
-        )*/
     }
     
     class func loadAll(completion: (stations: [Station]?, error: NSError?) -> Void) {

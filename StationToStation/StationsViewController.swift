@@ -58,7 +58,6 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
     
     func configureToolbar() {
         self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "logout")
-        
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .Plain, target: self, action: "create")
     }
     

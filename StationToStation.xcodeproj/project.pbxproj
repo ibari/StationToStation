@@ -41,6 +41,7 @@
 		9CC026BF1B2F5DE4000F6038 /* SearchTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC026BE1B2F5DE4000F6038 /* SearchTrackCell.swift */; };
 		9CC026C11B2F6D60000F6038 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC026C01B2F6D60000F6038 /* TrackCell.swift */; };
 		9CC026C31B3006D2000F6038 /* InviteUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC026C21B3006D2000F6038 /* InviteUserCell.swift */; };
+		9CC026C51B311241000F6038 /* Invite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC026C41B311241000F6038 /* Invite.swift */; };
 		AB164E331B281E7E00FCB441 /* AddTracks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB164E321B281E7E00FCB441 /* AddTracks.storyboard */; };
 		AB164E351B281E8E00FCB441 /* AddTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB164E341B281E8E00FCB441 /* AddTracksViewController.swift */; };
 		AB34F2601B23A75300E14AB1 /* DataStoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */; };
@@ -112,6 +113,7 @@
 		9CC026BE1B2F5DE4000F6038 /* SearchTrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTrackCell.swift; sourceTree = "<group>"; };
 		9CC026C01B2F6D60000F6038 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		9CC026C21B3006D2000F6038 /* InviteUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteUserCell.swift; sourceTree = "<group>"; };
+		9CC026C41B311241000F6038 /* Invite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invite.swift; sourceTree = "<group>"; };
 		AB164E321B281E7E00FCB441 /* AddTracks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTracks.storyboard; sourceTree = "<group>"; };
 		AB164E341B281E8E00FCB441 /* AddTracksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTracksViewController.swift; sourceTree = "<group>"; };
 		AB34F25E1B23A75300E14AB1 /* DataStoreClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreClient.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 		9C40DA6D1B215640001AEBBF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9CC026C21B3006D2000F6038 /* InviteUserCell.swift */,
 				9CC026BE1B2F5DE4000F6038 /* SearchTrackCell.swift */,
 				9C33B9851B2663BD0040A4E1 /* StationCell.swift */,
 				AB7912A71B2C19EE002E1795 /* StationHeaderSubview.swift */,
@@ -324,7 +327,6 @@
 				9C2B57151B2AB919001AE7AE /* StationHeaderView.xib */,
 				9CC026C01B2F6D60000F6038 /* TrackCell.swift */,
 				9C2B57031B28B664001AE7AE /* UserCell.swift */,
-				9CC026C21B3006D2000F6038 /* InviteUserCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -347,6 +349,7 @@
 		9C40DA6F1B215653001AEBBF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9CC026C41B311241000F6038 /* Invite.swift */,
 				ABEB416C1B252B250088C812 /* Playlist.swift */,
 				ABEB416A1B25277D0088C812 /* Station.swift */,
 				ABEB416E1B252BD40088C812 /* Track.swift */,
@@ -576,6 +579,7 @@
 				9C2B571E1B2BF6B5001AE7AE /* CreateStationViewController.swift in Sources */,
 				AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */,
 				9C2B56FC1B289C61001AE7AE /* ProfileViewController.swift in Sources */,
+				9CC026C51B311241000F6038 /* Invite.swift in Sources */,
 				9CC026C11B2F6D60000F6038 /* TrackCell.swift in Sources */,
 				9C1067EF1B26A393006F9492 /* CollaboratorsViewController.swift in Sources */,
 				ABEB416D1B252B250088C812 /* Playlist.swift in Sources */,

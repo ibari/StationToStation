@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc protocol InviteUserCellDelegate {
+    optional func inviteUserCell(inviteUserCell: InviteUserCell, buttonTouched button: UIButton, didInviteUser userKey: String)
+}
+
 class InviteUserCell: UITableViewCell {
 
     @IBOutlet weak var profileImageView: UIImageView!
@@ -21,6 +25,8 @@ class InviteUserCell: UITableViewCell {
         }
     }
     
+    weak var delegate: InviteUserCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -32,9 +38,15 @@ class InviteUserCell: UITableViewCell {
         inviteButton.layer.cornerRadius = 12
         inviteButton.layer.borderWidth = 1
         inviteButton.layer.borderColor = UIColor(red: 0.0/255.0, green: 142.0/255.0, blue: 212.0/255.0, alpha: 1.0).CGColor
+        
+        inviteButton.addTarget(self, action: "didTapInvite:", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func didTapInvite(sender: UIButton) {
+        delegate?.inviteUserCell?(self, buttonTouched: inviteButton, didInviteUser: user.key)
     }
 }

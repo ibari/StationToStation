@@ -24,57 +24,10 @@ class DataStoreClient {
         return Static.instance
     }
     
-    // MARK: - VOTE
-    
-    private static let vote_ClassName = "Vote"
-    private static let vote_UserKey = "user_key"
-    private static let vote_TrackKey = "track_key"
-    
-    func getVotes(completion: (votes: [Vote]?, error: NSError?) -> Void) {
-        var query: PFQuery = PFQuery(className: DataStoreClient.vote_ClassName)
-
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
-            if let error = error {
-                completion(votes: nil, error: error)
-                return
-            }
-            
-            if let objects = objects as? [PFObject] {
-                var votes = [Vote]()
-                for obj in objects {
-                    votes.append(self.pfoToVote(obj))
-                }
-                completion(votes: votes, error: nil)
-            } else {
-                completion(votes: [], error: nil)
-                return
-            }
-        }
-    }
-    
-    func saveVote(vote: Vote, completion: (success: Bool, error: NSError?) -> Void) {
-        voteToPfo(vote).saveInBackgroundWithBlock(completion)
-    }
-
-    func pfoToVote(obj: PFObject) -> Vote {
-        return Vote(
-            userKey: obj[DataStoreClient.vote_UserKey] as! String,
-            trackKey: obj[DataStoreClient.vote_TrackKey] as! String
-        )
-    }
-    
-    func voteToPfo(vote: Vote) -> PFObject {
-        var obj = PFObject(className: DataStoreClient.vote_ClassName)
-        
-        obj[DataStoreClient.vote_UserKey] = vote.userKey
-        obj[DataStoreClient.vote_TrackKey] = vote.trackKey
-        
-        return obj
-    }
-    
-    // MARK: - STATION
+    // MARK: - Station
     
     private static let station_ClassName = "Station"
+    private static let station_ObjectId = "objectId"
     private static let station_OwnerKey = "owner_key"
     private static let station_PlaylistKey = "playlist_key"
     private static let station_Name = "name"
@@ -109,23 +62,129 @@ class DataStoreClient {
     }
     
     func pfoToStation(obj: PFObject) -> Station {
-        return Station(
+        let station = Station(
             ownerKey: obj[DataStoreClient.station_OwnerKey] as! String,
             playlistKey: obj[DataStoreClient.station_PlaylistKey] as! String,
             name: obj[DataStoreClient.station_Name] as! String,
             description: obj[DataStoreClient.station_Description] as! String,
             imageUrl: obj[DataStoreClient.station_ImageUrl] as! String
         )
+        
+        station.objectId = obj.objectId!
+        
+        return station
     }
     
-    func stationToPfo(s: Station) -> PFObject {
+    func stationToPfo(station: Station) -> PFObject {
         var obj = PFObject(className: DataStoreClient.station_ClassName)
         
-        obj[DataStoreClient.station_OwnerKey] = s.ownerKey
-        obj[DataStoreClient.station_PlaylistKey] = s.playlistKey
-        obj[DataStoreClient.station_Name] = s.name
-        obj[DataStoreClient.station_Description] = s.description
-        obj[DataStoreClient.station_ImageUrl] = s.imageUrl
+        obj[DataStoreClient.station_OwnerKey] = station.ownerKey
+        obj[DataStoreClient.station_PlaylistKey] = station.playlistKey
+        obj[DataStoreClient.station_Name] = station.name
+        obj[DataStoreClient.station_Description] = station.description
+        obj[DataStoreClient.station_ImageUrl] = station.imageUrl
+        
+        return obj
+    }
+    
+    // MARK: - Vote
+    
+    private static let vote_ClassName = "Vote"
+    private static let vote_UserKey = "user_key"
+    private static let vote_TrackKey = "track_key"
+    
+    func getVotes(completion: (votes: [Vote]?, error: NSError?) -> Void) {
+        var query: PFQuery = PFQuery(className: DataStoreClient.vote_ClassName)
+        
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                completion(votes: nil, error: error)
+                return
+            }
+            
+            if let objects = objects as? [PFObject] {
+                var votes = [Vote]()
+                for obj in objects {
+                    votes.append(self.pfoToVote(obj))
+                }
+                completion(votes: votes, error: nil)
+            } else {
+                completion(votes: [], error: nil)
+                return
+            }
+        }
+    }
+    
+    func saveVote(vote: Vote, completion: (success: Bool, error: NSError?) -> Void) {
+        voteToPfo(vote).saveInBackgroundWithBlock(completion)
+    }
+    
+    func pfoToVote(obj: PFObject) -> Vote {
+        return Vote(
+            userKey: obj[DataStoreClient.vote_UserKey] as! String,
+            trackKey: obj[DataStoreClient.vote_TrackKey] as! String
+        )
+    }
+    
+    func voteToPfo(vote: Vote) -> PFObject {
+        var obj = PFObject(className: DataStoreClient.vote_ClassName)
+        
+        obj[DataStoreClient.vote_UserKey] = vote.userKey
+        obj[DataStoreClient.vote_TrackKey] = vote.trackKey
+        
+        return obj
+    }
+    
+    // MARK: - Invite
+    
+    private static let invite_ClassName = "Invite"
+    private static let invite_fromUserKey = "fromUserKey"
+    private static let invite_toUserKey = "toUserkey"
+    private static let invite_stationObjectId = "stationObjectId"
+    private static let invite_accepted = "accepted"
+    
+    func getInvites(completion: (invites: [Invite]?, error: NSError?) -> Void) {
+        var query: PFQuery = PFQuery(className: DataStoreClient.invite_ClassName)
+        
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                completion(invites: nil, error: error)
+                return
+            }
+            
+            if let objects = objects as? [PFObject] {
+                var invites = [Invite]()
+                for obj in objects {
+                    invites.append(self.pfoToInvite(obj))
+                }
+                completion(invites: invites, error: nil)
+            } else {
+                completion(invites: [], error: nil)
+                return
+            }
+        }
+    }
+    
+    func saveInvite(invite: Invite, completion: (success: Bool, error: NSError?) -> Void) {
+        inviteToPfo(invite).saveInBackgroundWithBlock(completion)
+    }
+    
+    func pfoToInvite(obj: PFObject) -> Invite {
+        return Invite(
+            fromUserKey: obj[DataStoreClient.invite_fromUserKey] as! String,
+            toUserKey: obj[DataStoreClient.invite_toUserKey] as! String,
+            stationObjectId: obj[DataStoreClient.invite_stationObjectId] as! String,
+            accepted: obj[DataStoreClient.invite_accepted] as! Bool
+        )
+    }
+    
+    func inviteToPfo(invite: Invite) -> PFObject {
+        var obj = PFObject(className: DataStoreClient.invite_ClassName)
+        
+        obj[DataStoreClient.invite_fromUserKey] = invite.fromUserKey
+        obj[DataStoreClient.invite_toUserKey] = invite.toUserKey
+        obj[DataStoreClient.invite_stationObjectId] = invite.stationObjectId
+        obj[DataStoreClient.invite_accepted] = invite.accepted
         
         return obj
     }

@@ -48,8 +48,8 @@ class CreateStationViewController: UIViewController {
   
             let playlistKey = playlist!.key
             let imageUrl = "http://rdiodynimages3-a.akamaihd.net/?l=album/browse/rectangle/Top_Stations.jpg"
-            
             let station = Station(ownerKey: ownerKey, playlistKey: playlistKey, name: name, description: description, imageUrl: imageUrl)
+            
             station.save() { (success, error) in
                 if let error = error {
                     NSLog("Error while creating station \(error)")

@@ -49,7 +49,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
 
     
     func didTapCollaboratorsButton() {
-        self.station!.getCollaborators() { (collaborators, error) in
+        /*self.station!.getCollaborators() { (collaborators, error) in
             if let error = error {
                 NSLog("Error loading collaboratorlist: \(error)")
                 return
@@ -59,7 +59,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             var collaboratorsViewController = storyboard.instantiateViewControllerWithIdentifier("CollaboratorsViewController") as! CollaboratorsViewController
             collaboratorsViewController.collaborators = collaborators
             self.navigationController!.pushViewController(collaboratorsViewController, animated: true)
-        }
+        }*/
     }
     
     func setButtonAppearance() {
@@ -82,15 +82,16 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     
     @IBAction func didTapAddTracks(sender: AnyObject) {
         var storyboard = UIStoryboard(name: "AddTracks", bundle: nil)
-        var addTrackVc = storyboard.instantiateViewControllerWithIdentifier("AddTracksViewController") as! AddTracksViewController
-        addTrackVc.delegate = self
-        self.navigationController!.pushViewController(addTrackVc, animated: true)
+        var addTrackVC = storyboard.instantiateViewControllerWithIdentifier("AddTracksViewController") as! AddTracksViewController
+        addTrackVC.delegate = self
+        self.navigationController!.pushViewController(addTrackVC, animated: true)
     }
 
     @IBAction func didTapAddCollaborators(sender: AnyObject) {
         var storyboard = UIStoryboard(name: "Collaborators", bundle: nil)
-        var viewController = storyboard.instantiateViewControllerWithIdentifier("AddCollaboratorsViewController") as! AddCollaboratorsViewController
-        self.navigationController!.pushViewController(viewController, animated: true)
+        var addCollaboratorsVC = storyboard.instantiateViewControllerWithIdentifier("AddCollaboratorsViewController") as! AddCollaboratorsViewController
+        addCollaboratorsVC.station = station
+        self.navigationController!.pushViewController(addCollaboratorsVC, animated: true)
     }
     
     // MARK: - AddTracksViewControllerDelegate

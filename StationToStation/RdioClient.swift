@@ -121,7 +121,7 @@ class RdioClient {
     
     func searchUser(query: String, completion: (user: User?, error: NSError?) -> Void) {
         rdio.callAPIMethod("findUser",
-            withParameters: ["email": query, "extras": "username"],
+            withParameters: ["email": query],
             success: { (response) in
                 var user = User(dictionary: response as NSDictionary)
                 completion(user: user, error: nil)
