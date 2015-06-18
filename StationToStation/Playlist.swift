@@ -57,7 +57,7 @@ class Playlist: NSObject {
                 track.voteState = .Neutral
             }
             
-            if trackIndex + delta > 0 && trackIndex + delta < tracks.count - 1 {
+            if trackIndex + delta >= 0 && trackIndex + delta <= tracks.count - 1 {
                 tracks.removeAtIndex(trackIndex)
                 tracks.insert(track, atIndex: trackIndex + delta)
             }
