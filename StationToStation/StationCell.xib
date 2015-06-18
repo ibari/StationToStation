@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StationCell" id="U1I-2Y-0eJ" customClass="StationCell" customModule="StationToStation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="170" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="170" height="140"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="station-header" translatesAutoresizingMaskIntoConstraints="NO" id="5Ua-yz-d0n">
+                        <rect key="frame" x="0.0" y="0.0" width="170" height="120"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="120" id="jaz-8b-0bQ"/>
+                            <constraint firstAttribute="width" constant="170" id="kPb-SP-u8L"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4 Tracks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xa-7w-EgH">
+                        <rect key="frame" x="0.0" y="119" width="47" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Station" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HK9-Kc-m0j">
+                        <rect key="frame" x="40.5" y="50" width="89.5" height="21.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="HK9-Kc-m0j" secondAttribute="centerX" id="3WE-8m-adP"/>
+                <constraint firstItem="5Ua-yz-d0n" firstAttribute="top" secondItem="U1I-2Y-0eJ" secondAttribute="top" id="UuH-zz-5JY"/>
+                <constraint firstAttribute="trailing" secondItem="5Ua-yz-d0n" secondAttribute="trailing" id="V8u-Zb-9fg"/>
+                <constraint firstItem="HK9-Kc-m0j" firstAttribute="top" secondItem="U1I-2Y-0eJ" secondAttribute="top" constant="50" id="skd-BH-0a4"/>
+                <constraint firstItem="5Ua-yz-d0n" firstAttribute="leading" secondItem="U1I-2Y-0eJ" secondAttribute="leading" id="woL-Xz-Ax7"/>
+            </constraints>
+            <size key="customSize" width="50" height="81"/>
+            <connections>
+                <outlet property="banerImageView" destination="5Ua-yz-d0n" id="fgb-OP-ZOi"/>
+                <outlet property="nameLabel" destination="HK9-Kc-m0j" id="Kzo-Sc-Qpv"/>
+                <outlet property="trackCountLabel" destination="9Xa-7w-EgH" id="7o6-Ev-dCI"/>
+            </connections>
+            <point key="canvasLocation" x="216" y="89"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="station-header" width="400" height="225"/>
+    </resources>
+</document>

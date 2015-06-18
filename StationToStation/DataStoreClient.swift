@@ -57,6 +57,65 @@ class DataStoreClient {
         }
     }
     
+    func getStations(ids: [String], completion: (stations: [Station]?, error: NSError?) -> Void) {
+        var query: PFQuery = PFQuery(className: DataStoreClient.station_ClassName)
+        query.whereKey("objectId", containedIn: ids)
+        
+        query.findObjectsInBackgroundWithBlock { (objs: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                completion(stations: nil, error: error)
+                return
+            }
+            
+            var stations = [Station]()
+            for obj in objs! {
+                stations.append(self.pfoToStation(obj as! PFObject))
+            }
+            completion(stations: stations, error: nil)
+        }
+    }
+    
+    func getInvitedStations(completion: (stations: [Station]?, error: NSError?) -> Void) {
+        var query: PFQuery = PFQuery(className: DataStoreClient.invite_ClassName)
+        
+        query.whereKey(DataStoreClient.invite_toUserKey, equalTo: User.currentUser!.key)
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                completion(stations: nil, error: error)
+                return
+            }
+            
+            if let objects = objects as? [PFObject] {
+                var stationIds = [String]()
+                for obj in objects {
+                    stationIds.append(obj["stationObjectId"] as! String)
+                }
+                self.getStations(stationIds, completion: completion)
+                return
+            } else {
+                completion(stations: [], error: nil)
+                return
+            }
+        }
+    }
+    
+    class func loadAll(completion: (stations: [Station]?, error: NSError?) -> Void) {
+        DataStoreClient.sharedInstance.getStations(completion)
+    }
+    
+    func getStation(objectId: String, completion: (station: Station?, error: NSError?) -> Void) {
+        var query: PFQuery = PFQuery(className: DataStoreClient.station_ClassName)
+    
+        query.getObjectInBackgroundWithId(objectId) { (obj: PFObject?, error: NSError?) -> Void in
+            if error == nil && obj != nil {
+                let stationObj = self.pfoToStation(obj!)
+                completion(station: stationObj, error: nil)
+            } else {
+                completion(station: nil, error: error)
+            }
+        }
+    }
+    
     func saveStation(station: Station, completion: (success: Bool, error: NSError?) -> Void) {
         stationToPfo(station).saveInBackgroundWithBlock(completion)
     }

@@ -8,27 +8,36 @@
 
 import UIKit
 
-class InvitesViewController: UIViewController {
+class InvitesViewController: StationsViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.tabBarController?.navigationItem.title = "Invites"
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController!.navigationBar.translucent = false
+        super.message = "You don't have any invites yet."
+        
+        loadStations()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    override func loadStations() {
+        DataStoreClient.sharedInstance.getInvitedStations { (stations, error) -> Void in
+            if let error = error {
+                NSLog("Error while fetching invited stations: \(error)")
+                return
+            }
+            
+            if let stations = stations {
+                self.stations = stations
+                self.collectionView.reloadData()
+            } else {
+                NSLog("Unexpected nil returned for invited stations")
+                return
+            }
+        }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
+

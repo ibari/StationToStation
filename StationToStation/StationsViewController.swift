@@ -13,10 +13,9 @@ private let sectionInsets = UIEdgeInsets(top: 12.0, left: 10.0, bottom: 10.0, ri
 
 class StationsViewController: UIViewController, CreateStationViewControllerDelegate {
 
-    @IBOutlet weak var collectionView: UICollectionView!
-    
+    var collectionView: UICollectionView!
     var stations: [Station]?
-    let stationSegueIdentifier = "stationSegue"
+    var message = "Join or create a station to get started."
     
     override func viewWillAppear(animated: Bool) {
         self.tabBarController?.navigationItem.title = "Stations"
@@ -24,34 +23,49 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureToolbar()
         
+        configureToolbar()
+
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        collectionView.registerNib(UINib(nibName: "StationCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.dataSource = self
         collectionView.delegate = self
-
-        refresh()
+        collectionView.backgroundColor = UIColor.whiteColor()
+        self.view = collectionView
+        
+        loadStations()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func refresh() {
+    func loadStations() {
         DataStoreClient.sharedInstance.getStations { (stations, error) -> Void in
-            self.stations = stations
-            self.collectionView.reloadData()
+            if let error = error {
+                NSLog("Error while fetching stations: \(error)")
+                return
+            }
             
-            if stations == nil {
-                // display message when collection is empty
-                var messageLabel = UILabel(frame: CGRectMake(0, 150, self.view.bounds.size.width, 30))
-                
-                messageLabel.textColor = UIColor.lightGrayColor()
-                messageLabel.textAlignment = NSTextAlignment.Center
-                messageLabel.numberOfLines = 1
-                messageLabel.text = "Join or create a station to get started."
-                self.collectionView.addSubview(messageLabel)
+            if let stations = stations {
+                self.stations = stations
+                self.collectionView.reloadData()
+            } else {
+                NSLog("Unexpected nil returned for stations")
+                return
             }
         }
+    }
+    
+    func showMessage(message: String) {
+        var messageLabel = UILabel(frame: CGRectMake(0, 150, self.view.bounds.size.width, 30))
+        
+        messageLabel.textColor = UIColor.lightGrayColor()
+        messageLabel.textAlignment = NSTextAlignment.Center
+        messageLabel.numberOfLines = 1
+        messageLabel.text = message
+        self.view.addSubview(messageLabel)
     }
     
     // MARK: - Configuration
@@ -71,24 +85,13 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
         createStationVc.delegate = self
         self.navigationController!.pushViewController(createStationVc, animated: true)
     }
-
-    // MARK: - Navigation
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == stationSegueIdentifier {
-            if let indexPath = collectionView.indexPathForCell((sender as? StationCell)!) {
-                let stationViewController = segue.destinationViewController as! StationViewController
-                stationViewController.station = stations![indexPath.row]
-            }
-        }
-    }
     
     // MARK: - CreateStationViewControllerDelegate
     
     func createStationViewController(sender: CreateStationViewController, didCreateStation: Station) {
         // why doesn't popToViewController self work here?
         self.navigationController!.popViewControllerAnimated(true)
-        refresh()
+        loadStations()
     }
 }
 
@@ -110,9 +113,16 @@ extension StationsViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! StationCell
         
-        cell.station = stations![indexPath.row]
+        cell.station = stations![indexPath.item]
         
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        var storyboard = UIStoryboard(name: "Stations", bundle: nil)
+        var stationVC = storyboard.instantiateViewControllerWithIdentifier("StationViewController") as! StationViewController
+        stationVC.station = stations![indexPath.item]
+        self.navigationController!.pushViewController(stationVC, animated: true)
     }
 }
 

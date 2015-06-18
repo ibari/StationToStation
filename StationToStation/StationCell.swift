@@ -18,6 +18,7 @@ class StationCell: UICollectionViewCell {
         didSet {
             banerImageView.setImageWithURL(NSURL(string: station.imageUrl!))
             nameLabel.text = station!.name
+            //trackCountLabel.text = station.
         }
     }
     

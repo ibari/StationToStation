@@ -64,8 +64,8 @@ class RdioClient {
     func createPlaylist(name: String, description: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
         rdio.callAPIMethod("createPlaylist",
             withParameters: [
-                "name": "foobar",
-                "description": "foobar description",
+                "name": name,
+                "description": description,
                 "tracks": "",
                 "collaborationMode": 1,
                 "extras": "tracks"
