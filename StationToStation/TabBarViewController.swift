@@ -12,23 +12,18 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.whiteColor()
         
-        // stations
-        var stationsStoryboard = UIStoryboard(name: "Stations", bundle: nil)
-        var stationsController = stationsStoryboard.instantiateInitialViewController() as! StationsViewController
-        
-        // invites
-        var invitesStoryboard = UIStoryboard(name: "Invites", bundle: nil)
-        var invitesController = invitesStoryboard.instantiateInitialViewController() as! InvitesViewController
-        
-        // profile
-        var profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-        var profileController = profileStoryboard.instantiateInitialViewController() as! ProfileViewController
-        
-        let controllers = [stationsController, invitesController, profileController]
-        self.viewControllers = controllers
-        
+        var stationsController = StationsViewController()
+        var invitesController = InvitesViewController()
+        var profileController = ProfileViewController()
+
+        self.viewControllers = [stationsController, invitesController, profileController]
         self.selectedIndex = 0
+        
+        stationsController.tabBarItem = UITabBarItem(title: "Stations", image: nil, tag: 0)
+        invitesController.tabBarItem = UITabBarItem(title: "Invites", image: nil, tag: 1)
+        profileController.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 2)
     }
 
     override func didReceiveMemoryWarning() {
