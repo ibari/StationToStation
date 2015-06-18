@@ -62,10 +62,18 @@ class TrackCell: UITableViewCell {
     }
     
     @IBAction func onBump(sender: AnyObject) {
-        delegate?.trackCell(self, didChangeVote: .Bump)
+        if track.voteState == .Bump {
+            delegate?.trackCell(self, didChangeVote: .Neutral)
+        } else {
+            delegate?.trackCell(self, didChangeVote: .Bump)
+        }
     }
     
     @IBAction func onDrop(sender: AnyObject) {
-        delegate?.trackCell(self, didChangeVote: .Drop)
+        if track.voteState == .Drop {
+            delegate?.trackCell(self, didChangeVote: .Neutral)
+        } else {
+            delegate?.trackCell(self, didChangeVote: .Drop)
+        }
     }
 }

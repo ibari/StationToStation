@@ -34,22 +34,32 @@ class Playlist: NSObject {
         }
         if let trackIndex = trackIndex {
             let track = tracks[trackIndex]
-            
+
+            var delta = 0
             switch state {
             case .Bump:
-                if trackIndex > 0 && track.voteState != .Bump {
-                    tracks.removeAtIndex(trackIndex)
-                    tracks.insert(track, atIndex: trackIndex - 1)
-                    track.voteState = .Bump
-                }
+                delta = -1
+                track.voteState = .Bump
             case .Drop:
-                if trackIndex < tracks.count - 1 && track.voteState != .Drop {
-                    tracks.removeAtIndex(trackIndex)
-                    tracks.insert(track, atIndex: trackIndex + 1)
-                    track.voteState = .Drop
-                }
+                delta = 1
+                track.voteState = .Drop
             case .Neutral:
+                // buggy .. bump top and bump second to top has same unbump behavior
+                let oldState = track.voteState ?? .Neutral
+                switch oldState {
+                case .Bump:
+                    delta = 1
+                case .Drop:
+                    delta = -1
+                case .Neutral:
+                    delta = 0
+                }
                 track.voteState = .Neutral
+            }
+            
+            if trackIndex + delta > 0 && trackIndex + delta < tracks.count - 1 {
+                tracks.removeAtIndex(trackIndex)
+                tracks.insert(track, atIndex: trackIndex + delta)
             }
         }
     }
