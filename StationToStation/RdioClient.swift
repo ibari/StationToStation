@@ -88,13 +88,13 @@ class RdioClient {
     }
     
     func getPlaylist(key: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
-        rdio.callAPIMethod("addToPlaylist",
+        rdio.callAPIMethod("get",
             withParameters: [
-                "playlist": key,
-                "tracks": "",
+                "keys": key,
                 "extras": "tracks"
             ], success: { (response) in
-                let playlist = self.rdioToPlaylist(response as! [String : AnyObject])
+                let rdioPlaylist = response[key] as! [String : AnyObject]
+                let playlist = self.rdioToPlaylist(rdioPlaylist)
                 completion(playlist: playlist, error: nil)
             }, failure: { (error) in
                 completion(playlist: nil, error: error)
