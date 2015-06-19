@@ -24,13 +24,28 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
 
         headerView.contentView.imageView.setImageWithURL(NSURL(string: station!.imageUrl))
         headerView.contentView.name = station!.name
-        headerView.contentView.collaboratorsButton.addTarget(self, action: "didTapCollaboratorsButton", forControlEvents: UIControlEvents.TouchUpInside)
+        headerView.contentView.collaboratorsButton.addTarget(self, action: "didTapCollaborators:", forControlEvents: UIControlEvents.TouchUpInside)
 
         setButtonAppearance()
-        configurePlaylist()
+        loadPlaylist()
+        
+        User.currentUser!.isCollaborator(station!, completion: { (collaborator, error) -> Void in
+            if let error = error {
+                NSLog("Error calling isCollaborator: \(error)")
+                return
+            }
+            
+            User.currentUser!.isCollaborator = collaborator!
+            println("user: \(User.currentUser!.key) is collaborator: \(User.currentUser!.isCollaborator!)")
+            self.configureNavigation()
+        })
     }
     
-    func configurePlaylist() {
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func loadPlaylist() {
         self.station!.getPlaylist() { (playlist, error) in
             if let error = error {
                 NSLog("Error loading playlist: \(error)")
@@ -46,20 +61,21 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             self.playlistViewController.didMoveToParentViewController(self)
         }
     }
-
     
-    func didTapCollaboratorsButton() {
-        /*self.station!.getCollaborators() { (collaborators, error) in
-            if let error = error {
-                NSLog("Error loading collaboratorlist: \(error)")
-                return
+    // MARK: - Configuration
+    
+    func configureNavigation() {
+        if station!.ownerKey != User.currentUser!.key {
+            if let collaborator = User.currentUser!.isCollaborator {
+                if (collaborator == true) {
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Leave", style: .Plain, target: self, action: nil)
+                } else {
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Join", style: .Plain, target: self, action: nil)
+                }
             }
-
-            var storyboard = UIStoryboard(name: "CollaboratorsView", bundle: nil)
-            var collaboratorsViewController = storyboard.instantiateViewControllerWithIdentifier("CollaboratorsViewController") as! CollaboratorsViewController
-            collaboratorsViewController.collaborators = collaborators
-            self.navigationController!.pushViewController(collaboratorsViewController, animated: true)
-        }*/
+        } else {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: nil)
+        }
     }
     
     func setButtonAppearance() {
@@ -75,9 +91,33 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
         addPeopleButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         addPeopleButton.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
     }
+    
+    // MARK: - Actions
+    
+    func didTapEdit() {
+        // edit station form
+    }
+    
+    func didTapJoin() {
+        
+    }
+    
+    func didTapLeave() {
+       
+    }
+    
+    func didTapCollaborators() {
+        /*self.station!.getCollaborators() { (collaborators, error) in
+            if let error = error {
+                NSLog("Error loading collaboratorlist: \(error)")
+                return
+            }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+            var storyboard = UIStoryboard(name: "CollaboratorsView", bundle: nil)
+            var collaboratorsViewController = storyboard.instantiateViewControllerWithIdentifier("CollaboratorsViewController") as! CollaboratorsViewController
+            collaboratorsViewController.collaborators = collaborators
+            self.navigationController!.pushViewController(collaboratorsViewController, animated: true)
+        }*/
     }
     
     @IBAction func didTapAddTracks(sender: AnyObject) {

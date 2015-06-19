@@ -247,4 +247,95 @@ class DataStoreClient {
         
         return obj
     }
+    
+    // MARK: - Collaborator
+    
+    private static let collaborator_ClassName = "Collaborator"
+    private static let collaborator_userKey = "userKey"
+    private static let collaborator_stationObjectId = "stationObjectId"
+    
+    func getCollaborators(station: Station, completion: (collaborators: [User]?, error: NSError?) -> Void) {
+        var query: PFQuery = PFQuery(className: DataStoreClient.collaborator_ClassName)
+        
+        query.whereKey(DataStoreClient.station_ObjectId, equalTo: station.objectId!)
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                completion(collaborators: nil, error: error)
+                return
+            }
+            
+            if let objects = objects as? [PFObject] {
+                var collaborators = [User]()
+                for obj in objects {
+                    collaborators.append(self.pfoToCollaborator(obj))
+                }
+                completion(collaborators: collaborators, error: nil)
+            } else {
+                completion(collaborators: [], error: nil)
+                return
+            }
+        }
+    }
+    
+    func saveCollaborator(collaborator: User, station: Station, completion: (success: Bool, error: NSError?) -> Void) {
+        collaboratorToPfo(collaborator, station: station).saveInBackgroundWithBlock(completion)
+    }
+    
+    func pfoToCollaborator(obj: PFObject) -> User {
+        let userKey = obj[DataStoreClient.collaborator_userKey] as! String
+        var collaborator: User?
+        
+        RdioClient.sharedInstance.getUser(userKey) { (user, error) -> Void in
+            if let error = error {
+                NSLog("Error while fetching collaborator: \(error)")
+                return
+            }
+            
+            if user != nil {
+                collaborator = user
+            } else {
+                NSLog("Unexpected nil returned for collaborator")
+                return
+            }
+        }
+        
+        return collaborator!
+    }
+    
+    func collaboratorToPfo(collaborator: User, station: Station) -> PFObject {
+        var obj = PFObject(className: DataStoreClient.collaborator_ClassName)
+        
+        obj[DataStoreClient.collaborator_userKey] = collaborator.key
+        obj[DataStoreClient.collaborator_stationObjectId] = station.objectId
+        
+        return obj
+    }
+    
+    func isCollaborator(user: User, station: Station, completion: (collaborator: Bool?, error: NSError?) -> Void) {
+        var query: PFQuery = PFQuery(className: DataStoreClient.collaborator_ClassName)
+        
+        query.whereKey(DataStoreClient.collaborator_userKey, equalTo: user.key)
+        query.whereKey(DataStoreClient.collaborator_stationObjectId, equalTo: station.objectId!)
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                completion(collaborator: nil, error: error)
+                return
+            }
+            
+            if let objects = objects as? [PFObject] {
+                var collaborators = [String]()
+                
+                for obj in objects {
+                    collaborators.append(obj[DataStoreClient.collaborator_userKey] as! String)
+                }
+                
+                let collaborator = (collaborators.first != nil) ? true : false
+                completion(collaborator: collaborator, error: nil)
+                return
+            } else {
+                completion(collaborator: false, error: nil)
+                return
+            }
+        }
+    }
 }

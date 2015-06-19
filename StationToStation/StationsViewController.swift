@@ -24,7 +24,7 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureToolbar()
+        configureNavigation()
 
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
@@ -68,13 +68,6 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
         self.view.addSubview(messageLabel)
     }
     
-    // MARK: - Configuration
-    
-    func configureToolbar() {
-        self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "logout")
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .Plain, target: self, action: "create")
-    }
-    
     func logout() {
         RdioClient.sharedInstance.logout()
     }
@@ -92,6 +85,13 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
         // why doesn't popToViewController self work here?
         self.navigationController!.popViewControllerAnimated(true)
         loadStations()
+    }
+    
+    // MARK: - Configuration
+    
+    func configureNavigation() {
+        self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "logout")
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .Plain, target: self, action: "create")
     }
 }
 

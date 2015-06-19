@@ -19,6 +19,7 @@ class User: NSObject {
     var lastName: String!
     var profileImageUrl: NSURL!
     var dictionary: NSDictionary!
+    var isCollaborator: Bool?
     
     init(dictionary: NSDictionary) {
         self.key = dictionary["key"] as! String
@@ -63,6 +64,10 @@ class User: NSObject {
     
     class func search(phrase: String, completion: (user: User?, error: NSError?) -> Void) {
         RdioClient.sharedInstance.searchUser(phrase, completion: completion)
+    }
+    
+    func isCollaborator(station: Station, completion: (collaborator: Bool?, error: NSError?) -> Void) {
+        DataStoreClient.sharedInstance.isCollaborator(self, station: station, completion: completion)
     }
 }
 

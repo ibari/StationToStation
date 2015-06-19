@@ -14,6 +14,14 @@ class RdioClient {
     private let rdioClientId = Utils.sharedInstance.getSecret("sts_client_id")
     private let rdioClientSecret = Utils.sharedInstance.getSecret("sts_client_secret")
     
+    class var sharedInstance: RdioClient {
+        struct Static {
+            static let instance = RdioClient()
+        }
+        
+        return Static.instance
+    }
+    
     var delegate: RdioDelegate? {
         didSet {
             rdio.delegate = delegate
@@ -23,6 +31,8 @@ class RdioClient {
     init() {
         rdio = Rdio(clientId: self.rdioClientId, andSecret: self.rdioClientSecret, delegate: nil)
     }
+    
+    // MARK: - User
 
     func authorizeFromController(vc: UIViewController) {
         rdio.authorizeFromController(vc)
@@ -32,34 +42,33 @@ class RdioClient {
         rdio.logout()
     }
     
-    func rdioToPlaylist(dict: [String : AnyObject]) -> Playlist {
-        let name = dict["name"] as! String
-        let key = dict["key"] as! String
-        let ownerKey = dict["ownerKey"] as! String
-        
-        let rdioTracks = dict["tracks"] as! [[String : AnyObject]]
-        var tracks = [Track]()
-        for rdioTrack in rdioTracks {
-            tracks.append(rdioToTrack(rdioTrack))
-        }
-        
-        return Playlist(key: key, ownerKey: ownerKey, tracks: tracks)
-    }
-    
-    func getPlaylist(key: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
-        rdio.callAPIMethod("addToPlaylist",
+    func searchUser(query: String, completion: (user: User?, error: NSError?) -> Void) {
+        rdio.callAPIMethod("findUser",
             withParameters: [
-                "playlist": key,
-                "tracks": "",
-                "extras": "tracks"
+                "email": query
             ], success: { (response) in
-                let playlist = self.rdioToPlaylist(response as! [String : AnyObject])
-                completion(playlist: playlist, error: nil)
+                var user = User(dictionary: response as NSDictionary)
+                completion(user: user, error: nil)
             }, failure: { (error) in
-                completion(playlist: nil, error: error)
+                completion(user: nil, error: error)
             }
         )
     }
+    
+    func getUser(key: String, completion: (user: User?, error: NSError?) -> Void) {
+        rdio.callAPIMethod("get",
+            withParameters: [
+                "keys": key
+            ], success: { (response) in
+                let user = self.rdioToUser(response as! [String : AnyObject])
+                completion(user: user, error: nil)
+            }, failure: { (error) in
+                completion(user: nil, error: error)
+            }
+        )
+    }
+    
+    // MARK: - Playlist
     
     func createPlaylist(name: String, description: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
         rdio.callAPIMethod("createPlaylist",
@@ -78,11 +87,11 @@ class RdioClient {
         )
     }
     
-    func addTrackToPlaylist(key: String, trackKey: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
+    func getPlaylist(key: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
         rdio.callAPIMethod("addToPlaylist",
             withParameters: [
                 "playlist": key,
-                "tracks": trackKey,
+                "tracks": "",
                 "extras": "tracks"
             ], success: { (response) in
                 let playlist = self.rdioToPlaylist(response as! [String : AnyObject])
@@ -91,15 +100,6 @@ class RdioClient {
                 completion(playlist: nil, error: error)
             }
         )
-    }
-    
-    func rdioToTrack(dict: [String : AnyObject]) -> Track {
-        let trackKey = dict["key"] as! String
-        let trackTitle = dict["name"] as! String
-        let artistName = dict["artist"] as! String
-        let albumImageUrl = dict["icon"] as! String
-        let duration = dict["duration"] as! Int
-        return Track(key: trackKey, trackTitle: trackTitle, artistName: artistName, albumImageUrl: albumImageUrl, duration: duration)
     }
     
     func searchTrack(query: String, completion: (tracks: [Track]?, error: NSError?) -> Void) {
@@ -119,23 +119,45 @@ class RdioClient {
         )
     }
     
-    func searchUser(query: String, completion: (user: User?, error: NSError?) -> Void) {
-        rdio.callAPIMethod("findUser",
-            withParameters: ["email": query],
-            success: { (response) in
-                var user = User(dictionary: response as NSDictionary)
-                completion(user: user, error: nil)
+    func addTrackToPlaylist(key: String, trackKey: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
+        rdio.callAPIMethod("addToPlaylist",
+            withParameters: [
+                "playlist": key,
+                "tracks": trackKey,
+                "extras": "tracks"
+            ], success: { (response) in
+                let playlist = self.rdioToPlaylist(response as! [String : AnyObject])
+                completion(playlist: playlist, error: nil)
             }, failure: { (error) in
-                completion(user: nil, error: error)
+                completion(playlist: nil, error: error)
             }
         )
     }
     
-    class var sharedInstance: RdioClient {
-        struct Static {
-            static let instance = RdioClient()
+    func rdioToUser(dict: [String : AnyObject]) -> User {
+        return User(dictionary: dict as NSDictionary)
+    }
+    
+    func rdioToPlaylist(dict: [String : AnyObject]) -> Playlist {
+        let name = dict["name"] as! String
+        let key = dict["key"] as! String
+        let ownerKey = dict["ownerKey"] as! String
+        
+        let rdioTracks = dict["tracks"] as! [[String : AnyObject]]
+        var tracks = [Track]()
+        for rdioTrack in rdioTracks {
+            tracks.append(rdioToTrack(rdioTrack))
         }
         
-        return Static.instance
+        return Playlist(key: key, ownerKey: ownerKey, tracks: tracks)
+    }
+    
+    func rdioToTrack(dict: [String : AnyObject]) -> Track {
+        let trackKey = dict["key"] as! String
+        let trackTitle = dict["name"] as! String
+        let artistName = dict["artist"] as! String
+        let albumImageUrl = dict["icon"] as! String
+        let duration = dict["duration"] as! Int
+        return Track(key: trackKey, trackTitle: trackTitle, artistName: artistName, albumImageUrl: albumImageUrl, duration: duration)
     }
 }
