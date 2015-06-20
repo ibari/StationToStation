@@ -167,7 +167,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
                 return
             }
             
-            playlist!.addTrack(track) { (playlist: Playlist?, error: NSError?) in
+            playlist!.addTrack(track, withMeta: self.station!.playlistMeta) { (playlist: Playlist?, error: NSError?) in
                 if let error = error {
                     NSLog("Error adding track to playlist: \(error)")
                     return

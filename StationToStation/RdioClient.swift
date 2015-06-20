@@ -106,7 +106,7 @@ class RdioClient {
         )
     }
     
-    func getPlaylist(key: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
+    func getPlaylist(key: String, withMeta meta: PlaylistMeta, completion: (playlist: Playlist?, error: NSError?) -> Void) {
         rdio.callAPIMethod("get",
             withParameters: [
                 "keys": key,
@@ -114,6 +114,7 @@ class RdioClient {
             ], success: { (response) in
                 let rdioPlaylist = response[key] as! [String : AnyObject]
                 let playlist = self.rdioToPlaylist(rdioPlaylist)
+                meta.apply(playlist)
                 completion(playlist: playlist, error: nil)
             }, failure: { (error) in
                 completion(playlist: nil, error: error)
@@ -138,7 +139,7 @@ class RdioClient {
         )
     }
     
-    func addTrackToPlaylist(key: String, trackKey: String, completion: (playlist: Playlist?, error: NSError?) -> Void) {
+    func addTrackToPlaylist(key: String, trackKey: String, withMeta meta: PlaylistMeta, completion: (playlist: Playlist?, error: NSError?) -> Void) {
         rdio.callAPIMethod("addToPlaylist",
             withParameters: [
                 "playlist": key,
@@ -146,6 +147,7 @@ class RdioClient {
                 "extras": "tracks"
             ], success: { (response) in
                 let playlist = self.rdioToPlaylist(response as! [String : AnyObject])
+                meta.apply(playlist)
                 completion(playlist: playlist, error: nil)
             }, failure: { (error) in
                 completion(playlist: nil, error: error)

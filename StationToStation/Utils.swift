@@ -27,6 +27,12 @@ class Utils {
         return "\(Int(minutes)):\(Int(seconds))"
     }
     
+    func foo() {
+        var dict = [String: String]()
+        let data = NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.allZeros, error: nil)
+
+    }
+    
     class var sharedInstance: Utils {
         struct Static {
             static let instance = Utils()

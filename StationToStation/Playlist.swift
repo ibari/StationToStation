@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol PlaylistDelegate {
+    func playlist(sender: Playlist, onSetVoteForTrack key: String, withState state: VoteState)
+}
+
 class Playlist: NSObject {
    
     let key: String
     let ownerKey: String
     var tracks: [Track]
+    
+    var delegate: PlaylistDelegate?
     
     init(key: String, ownerKey: String, tracks: [Track]) {
         self.key = key
@@ -20,8 +26,8 @@ class Playlist: NSObject {
         self.tracks = tracks
     }
  
-    func addTrack(track: Track, completion: (playlist: Playlist?, error: NSError?) -> Void) {
-        RdioClient.sharedInstance.addTrackToPlaylist(key, trackKey: track.key, completion: completion)
+    func addTrack(track: Track, withMeta meta: PlaylistMeta, completion: (playlist: Playlist?, error: NSError?) -> Void) {
+        RdioClient.sharedInstance.addTrackToPlaylist(key, trackKey: track.key, withMeta: meta, completion: completion)
     }
     
     func setVoteForTrack(key: String, withState state: VoteState) {
@@ -40,9 +46,11 @@ class Playlist: NSObject {
             case .Bump:
                 delta = -1
                 track.voteState = .Bump
+                delegate?.playlist(self, onSetVoteForTrack: track.key, withState: track.voteState!)
             case .Drop:
                 delta = 1
                 track.voteState = .Drop
+                delegate?.playlist(self, onSetVoteForTrack: track.key, withState: track.voteState!)
             case .Neutral:
                 // buggy .. bump top and bump second to top has same unbump behavior
                 let oldState = track.voteState ?? .Neutral
@@ -55,6 +63,7 @@ class Playlist: NSObject {
                     delta = 0
                 }
                 track.voteState = .Neutral
+                delegate?.playlist(self, onSetVoteForTrack: track.key, withState: track.voteState!)
             }
             
             if trackIndex + delta >= 0 && trackIndex + delta <= tracks.count - 1 {

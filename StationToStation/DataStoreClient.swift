@@ -33,6 +33,7 @@ class DataStoreClient {
     private static let station_Name = "name"
     private static let station_Description = "description"
     private static let station_ImageUrl = "image_url"
+    private static let station_PlaylistMeta = "playlist_meta"
     
     func getStations(completion: (stations: [Station]?, error: NSError?) -> Void) {
         var query: PFQuery = PFQuery(className: DataStoreClient.station_ClassName)
@@ -117,7 +118,15 @@ class DataStoreClient {
     }
     
     func saveStation(station: Station, completion: (success: Bool, error: NSError?) -> Void) {
-        stationToPfo(station).saveInBackgroundWithBlock(completion)
+        if let objectId = station.objectId {
+            // Update
+            let pfo = stationToPfo(station)
+            pfo.objectId = objectId
+            pfo.saveInBackgroundWithBlock(completion)
+        } else {
+            // Create
+            stationToPfo(station).saveInBackgroundWithBlock(completion)
+        }
     }
     
     func pfoToStation(obj: PFObject) -> Station {
@@ -126,9 +135,9 @@ class DataStoreClient {
             playlistKey: obj[DataStoreClient.station_PlaylistKey] as! String,
             name: obj[DataStoreClient.station_Name] as! String,
             description: obj[DataStoreClient.station_Description] as! String,
-            imageUrl: obj[DataStoreClient.station_ImageUrl] as! String
+            imageUrl: obj[DataStoreClient.station_ImageUrl] as! String,
+            playlistMetaDict: obj[DataStoreClient.station_PlaylistMeta] as? [String: AnyObject]
         )
-        
         station.objectId = obj.objectId!
         
         return station
@@ -142,54 +151,7 @@ class DataStoreClient {
         obj[DataStoreClient.station_Name] = station.name
         obj[DataStoreClient.station_Description] = station.description
         obj[DataStoreClient.station_ImageUrl] = station.imageUrl
-        
-        return obj
-    }
-    
-    // MARK: - Vote
-    
-    private static let vote_ClassName = "Vote"
-    private static let vote_UserKey = "user_key"
-    private static let vote_TrackKey = "track_key"
-    
-    func getVotes(completion: (votes: [Vote]?, error: NSError?) -> Void) {
-        var query: PFQuery = PFQuery(className: DataStoreClient.vote_ClassName)
-        
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
-            if let error = error {
-                completion(votes: nil, error: error)
-                return
-            }
-            
-            if let objects = objects as? [PFObject] {
-                var votes = [Vote]()
-                for obj in objects {
-                    votes.append(self.pfoToVote(obj))
-                }
-                completion(votes: votes, error: nil)
-            } else {
-                completion(votes: [], error: nil)
-                return
-            }
-        }
-    }
-    
-    func saveVote(vote: Vote, completion: (success: Bool, error: NSError?) -> Void) {
-        voteToPfo(vote).saveInBackgroundWithBlock(completion)
-    }
-    
-    func pfoToVote(obj: PFObject) -> Vote {
-        return Vote(
-            userKey: obj[DataStoreClient.vote_UserKey] as! String,
-            trackKey: obj[DataStoreClient.vote_TrackKey] as! String
-        )
-    }
-    
-    func voteToPfo(vote: Vote) -> PFObject {
-        var obj = PFObject(className: DataStoreClient.vote_ClassName)
-        
-        obj[DataStoreClient.vote_UserKey] = vote.userKey
-        obj[DataStoreClient.vote_TrackKey] = vote.trackKey
+        obj[DataStoreClient.station_PlaylistMeta] = station.playlistMeta.getData()
         
         return obj
     }
