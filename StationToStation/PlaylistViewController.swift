@@ -12,6 +12,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var tableView: UITableView!
     
+    var station: Station!
     var playlist: Playlist!
     let trackSegueIdentifier = "trackSegue"
     
@@ -74,6 +75,16 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         let track = sender.track
         
         playlist.setVoteForTrack(track.key, withState: state)
+        
+        
+        RdioClient.sharedInstance.reorderPlaylist(playlist.key, tracks: playlist.tracks, withMeta: station.playlistMeta) { (playlist, error) -> Void in
+            if let error = error {
+                NSLog("Error while reordering playlist")
+                return
+            }
+        }
+
+        
         tableView.reloadData()
     }
 }

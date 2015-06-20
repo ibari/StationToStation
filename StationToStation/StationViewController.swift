@@ -64,6 +64,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             
             var storyboard = UIStoryboard(name: "Playlist", bundle: nil)
             self.playlistViewController = storyboard.instantiateViewControllerWithIdentifier("PlaylistViewController") as! PlaylistViewController
+            self.playlistViewController.station = self.station!
             self.playlistViewController.playlist = playlist!
             
             self.addChildViewController(self.playlistViewController)

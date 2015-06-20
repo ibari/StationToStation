@@ -122,19 +122,29 @@ class RdioClient {
         )
     }
     
-    func searchTrack(query: String, completion: (tracks: [Track]?, error: NSError?) -> Void) {
-        rdio.callAPIMethod("search",
-            withParameters: ["query": query, "types": "Track"],
-            success: { (response) in
-                var tracks = [Track]()
-                if let results = response["results"] as? [[String : AnyObject]] {
-                    for rdioTrack in results {
-                        tracks.append(self.rdioToTrack(rdioTrack))
-                    }
-                }
-                completion(tracks: tracks, error: nil)
+    func reorderPlaylist(key: String, tracks: [Track], withMeta meta: PlaylistMeta, completion: (playlist: Playlist?, error: NSError?) -> Void) {
+        var trackKeys = ""
+        
+        for i in 0..<tracks.count {
+            let track = tracks[i]
+            if i == 0 {
+                trackKeys = track.key
+            } else {
+                trackKeys = trackKeys + "," + track.key
+            }
+        }
+      
+        rdio.callAPIMethod("setPlaylistOrder",
+            withParameters: [
+                "playlist": key,
+                "tracks": trackKeys,
+                "extras": "tracks"
+            ], success: { (response) in
+                let playlist = self.rdioToPlaylist(response as! [String : AnyObject])
+                meta.apply(playlist)
+                completion(playlist: playlist, error: nil)
             }, failure: { (error) in
-                completion(tracks: nil, error: error)
+                completion(playlist: nil, error: error)
             }
         )
     }
@@ -155,7 +165,25 @@ class RdioClient {
         )
     }
     
-    func rdioToUser(dict: [String : AnyObject]) -> User {
+    // MARK: - Track
+    
+    func searchTrack(query: String, completion: (tracks: [Track]?, error: NSError?) -> Void) {
+        rdio.callAPIMethod("search",
+            withParameters: ["query": query, "types": "Track"],
+            success: { (response) in
+                var tracks = [Track]()
+                if let results = response["results"] as? [[String : AnyObject]] {
+                    for rdioTrack in results {
+                        tracks.append(self.rdioToTrack(rdioTrack))
+                    }
+                }
+                completion(tracks: tracks, error: nil)
+            }, failure: { (error) in
+                completion(tracks: nil, error: error)
+            }
+        )
+    }
+        func rdioToUser(dict: [String : AnyObject]) -> User {
         return User(dictionary: dict as NSDictionary)
     }
     
