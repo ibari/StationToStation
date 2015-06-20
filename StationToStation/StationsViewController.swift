@@ -38,7 +38,7 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
     }
 
     func loadStations() {
-        DataStoreClient.sharedInstance.getStations { (stations, error) -> Void in
+        DataStoreClient.sharedInstance.getAllStations { (stations, error) -> Void in
             if let error = error {
                 NSLog("Error while fetching stations: \(error)")
                 return
