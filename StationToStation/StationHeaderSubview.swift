@@ -23,4 +23,8 @@ class StationHeaderSubview: UIView {
         get { return nameLabel.text }
         set { nameLabel.text = newValue }
     }
+    
+    @IBAction func onPlay(sender: AnyObject) {
+        NSLog("onPlay")
+    }
 }
