@@ -37,10 +37,6 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
         loadStations()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     func loadStations() {
         DataStoreClient.sharedInstance.getStations { (stations, error) -> Void in
             if let error = error {

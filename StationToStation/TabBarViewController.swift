@@ -25,8 +25,4 @@ class TabBarViewController: UITabBarController {
         invitesController.tabBarItem = UITabBarItem(title: "Invites", image: nil, tag: 1)
         profileController.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 2)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }

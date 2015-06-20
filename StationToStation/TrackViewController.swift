@@ -26,8 +26,4 @@ class TrackViewController: UIViewController {
         artistName.text = track.artistName
         durationLabel.text = "\(track.duration)"
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }

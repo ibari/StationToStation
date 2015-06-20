@@ -16,7 +16,6 @@
 		9C2850F61B24029E0051D05A /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2850F51B24029E0051D05A /* AuthenticationViewController.swift */; };
 		9C2B56F71B289788001AE7AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C2B56F61B289788001AE7AE /* Main.storyboard */; };
 		9C2B56F91B2897BB001AE7AE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B56F81B2897BB001AE7AE /* TabBarViewController.swift */; };
-		9C2B56FC1B289C61001AE7AE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B56FB1B289C61001AE7AE /* ProfileViewController.swift */; };
 		9C2B56FE1B289C73001AE7AE /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C2B56FD1B289C73001AE7AE /* Profile.storyboard */; };
 		9C2B57001B28AD27001AE7AE /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B56FF1B28AD27001AE7AE /* StationViewController.swift */; };
 		9C2B57021B28B0F3001AE7AE /* AddCollaboratorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B57011B28B0F3001AE7AE /* AddCollaboratorsViewController.swift */; };
@@ -32,6 +31,7 @@
 		9C40DA4E1B21563A001AEBBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA4D1B21563A001AEBBF /* AppDelegate.swift */; };
 		9C40DA551B21563A001AEBBF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C40DA541B21563A001AEBBF /* Images.xcassets */; };
 		9C40DA641B21563A001AEBBF /* StationToStationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40DA631B21563A001AEBBF /* StationToStationTests.swift */; };
+		9C46EBEA1B3547260095A943 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C46EBE91B3547260095A943 /* ProfileViewController.swift */; };
 		9C5379201B2655AB00246ECD /* Stations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C53791F1B2655AB00246ECD /* Stations.storyboard */; };
 		9C5379241B2658EF00246ECD /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5379231B2658EF00246ECD /* StationsViewController.swift */; };
 		9CC026BB1B2DF53E000F6038 /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CC026BA1B2DF53E000F6038 /* secrets.plist */; };
@@ -81,7 +81,6 @@
 		9C2850F51B24029E0051D05A /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		9C2B56F61B289788001AE7AE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9C2B56F81B2897BB001AE7AE /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		9C2B56FB1B289C61001AE7AE /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9C2B56FD1B289C73001AE7AE /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		9C2B56FF1B28AD27001AE7AE /* StationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 		9C2B57011B28B0F3001AE7AE /* AddCollaboratorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCollaboratorsViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		9C40DA5D1B21563A001AEBBF /* StationToStationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StationToStationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C40DA621B21563A001AEBBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C40DA631B21563A001AEBBF /* StationToStationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationToStationTests.swift; sourceTree = "<group>"; };
+		9C46EBE91B3547260095A943 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9C53791F1B2655AB00246ECD /* Stations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stations.storyboard; sourceTree = "<group>"; };
 		9C5379231B2658EF00246ECD /* StationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
 		9CC026BA1B2DF53E000F6038 /* secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = secrets.plist; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				9C2B56FD1B289C73001AE7AE /* Profile.storyboard */,
-				9C2B56FB1B289C61001AE7AE /* ProfileViewController.swift */,
+				9C46EBE91B3547260095A943 /* ProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -546,6 +546,7 @@
 				9C2850EE1B23C3B80051D05A /* RdioClient.swift in Sources */,
 				ABEB416B1B25277D0088C812 /* Station.swift in Sources */,
 				9CC026BF1B2F5DE4000F6038 /* SearchTrackCell.swift in Sources */,
+				9C46EBEA1B3547260095A943 /* ProfileViewController.swift in Sources */,
 				9C2B56F91B2897BB001AE7AE /* TabBarViewController.swift in Sources */,
 				9CC89A1C1B3254A20017D747 /* InvitesViewController.swift in Sources */,
 				AB7912A81B2C19EE002E1795 /* StationHeaderSubview.swift in Sources */,
@@ -558,7 +559,6 @@
 				9C1067F41B26A3E7006F9492 /* PlaylistViewController.swift in Sources */,
 				9C2B571E1B2BF6B5001AE7AE /* CreateStationViewController.swift in Sources */,
 				AB34F2611B23A75300E14AB1 /* Utils.swift in Sources */,
-				9C2B56FC1B289C61001AE7AE /* ProfileViewController.swift in Sources */,
 				9CC026C51B311241000F6038 /* Invite.swift in Sources */,
 				9CC026C11B2F6D60000F6038 /* TrackCell.swift in Sources */,
 				9C1067EF1B26A393006F9492 /* CollaboratorsViewController.swift in Sources */,

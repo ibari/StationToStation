@@ -2,13 +2,17 @@
 //  ProfileViewController.swift
 //  StationToStation
 //
-//  Created by Ian on 6/10/15.
+//  Created by Ian on 6/20/15.
 //  Copyright (c) 2015 Ian Bari. All rights reserved.
 //
 
 import UIKit
 
 class ProfileViewController: UIViewController {
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    var user: User?
     
     override func viewWillAppear(animated: Bool) {
         self.tabBarController?.navigationItem.title = "Profile"
@@ -16,21 +20,12 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if user == nil {
+            user = User.currentUser!
+        }
+        
+        profileImageView.setImageWithURL(user!.profileImageUrl)
+        nameLabel.text = "\(user!.firstName) \(user!.lastName)"
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

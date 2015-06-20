@@ -30,10 +30,6 @@ class CreateStationViewController: UIViewController {
         createButton.layer.borderWidth = 1
         createButton.layer.borderColor = UIColor(red: 0.0/255.0, green: 142.0/255.0, blue: 212.0/255.0, alpha: 1.0).CGColor
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     @IBAction func createButton(sender: AnyObject) {
         let ownerKey = User.currentUser!.key

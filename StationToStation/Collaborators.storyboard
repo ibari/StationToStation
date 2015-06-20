@@ -110,7 +110,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csF-hE-QI5" customClass="StationHeaderView" customModule="StationToStation" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="173"/>
-                                <color key="backgroundColor" red="0.8627929688" green="0.82745098039999998" blue="0.95736533720000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="173" id="D3N-ae-ow3"/>
                                     <constraint firstAttribute="width" constant="320" id="Je5-CV-Pdn"/>

@@ -75,5 +75,10 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        var storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        var profileVC = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController") as! ProfileViewController
+        profileVC.user = collaborators![indexPath.item]
+        self.navigationController!.pushViewController(profileVC, animated: true)
     }
 }

@@ -7,7 +7,8 @@
         <!--Profile-->
         <scene sceneID="6K1-Qr-2pq">
             <objects>
-                <viewController storyboardIdentifier="ProfileVewController" title="Profile" id="6En-hZ-pDB" customClass="ProfileViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SHp-jH-sxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="ProfileViewController" title="Profile" id="6En-hZ-pDB" customClass="ProfileViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pOx-hb-F9M"/>
                         <viewControllerLayoutGuide type="bottom" id="t51-MS-eyt"/>
@@ -15,12 +16,59 @@
                     <view key="view" contentMode="scaleToFill" id="lkC-ZY-bn9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8di-Xn-RxH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="169"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="ProfileViewController" text="John Doe " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyr-gL-vbU">
+                                        <rect key="frame" x="124.5" y="133" width="71.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="heW-rI-lXX">
+                                        <rect key="frame" x="110" y="25" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="K8v-MT-The"/>
+                                            <constraint firstAttribute="width" constant="100" id="yaJ-of-mTc"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="wyr-gL-vbU" secondAttribute="centerX" id="Axa-Or-FLc"/>
+                                    <constraint firstAttribute="height" constant="169" id="LYF-dP-f5W"/>
+                                    <constraint firstAttribute="centerX" secondItem="heW-rI-lXX" secondAttribute="centerX" id="XiO-BI-BPX"/>
+                                    <constraint firstItem="heW-rI-lXX" firstAttribute="top" secondItem="8di-Xn-RxH" secondAttribute="top" constant="25" id="sf4-Jz-HP7"/>
+                                    <constraint firstAttribute="width" constant="320" id="wRP-V7-xJA"/>
+                                    <constraint firstItem="wyr-gL-vbU" firstAttribute="top" secondItem="heW-rI-lXX" secondAttribute="bottom" constant="8" id="x5f-Qi-qiP"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byD-nA-AW3">
+                                <rect key="frame" x="0.0" y="169" width="320" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="P2x-DA-8CW"/>
+                                    <constraint firstAttribute="width" constant="320" id="nbf-Mh-DTs"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8di-Xn-RxH" firstAttribute="leading" secondItem="lkC-ZY-bn9" secondAttribute="leading" id="5eb-dw-gaC"/>
+                            <constraint firstItem="8di-Xn-RxH" firstAttribute="top" secondItem="lkC-ZY-bn9" secondAttribute="top" id="8qj-vn-ZJs"/>
+                            <constraint firstAttribute="trailing" secondItem="byD-nA-AW3" secondAttribute="trailing" id="KZc-pe-09l"/>
+                            <constraint firstAttribute="trailing" secondItem="8di-Xn-RxH" secondAttribute="trailing" id="MVL-6H-3TO"/>
+                            <constraint firstItem="byD-nA-AW3" firstAttribute="top" secondItem="8di-Xn-RxH" secondAttribute="bottom" id="RKb-Bs-zf5"/>
+                            <constraint firstItem="byD-nA-AW3" firstAttribute="leading" secondItem="lkC-ZY-bn9" secondAttribute="leading" id="ujp-vq-BqC"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="wyr-gL-vbU" id="t90-Em-zks"/>
+                        <outlet property="profileImageView" destination="heW-rI-lXX" id="fMq-T6-OYH"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SHp-jH-sxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.53333333333333" y="246.13333333333333"/>
+            <point key="canvasLocation" x="136" y="246"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
