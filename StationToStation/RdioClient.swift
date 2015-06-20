@@ -67,6 +67,25 @@ class RdioClient {
             }
         )
     }
+
+    func getUsers(keys: [String], completion: (users: [User]?, error: NSError?) -> Void) {
+        rdio.callAPIMethod("get",
+            withParameters: [
+                "keys": ",".join(keys)
+            ], success: { (response) in
+                var users = [User]()
+                
+                for key in keys {
+                    let rdioUser = response[key] as! [String : AnyObject]
+                    users.append(self.rdioToUser(rdioUser))
+                }
+                
+                completion(users: users, error: nil)
+            }, failure: { (error) in
+                completion(users: nil, error: error)
+            }
+        )
+    }
     
     // MARK: - Playlist
     

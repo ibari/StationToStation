@@ -16,17 +16,16 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     @IBOutlet weak var addPeopleButton: UIButton!
     
     var station: Station?
+    var collaborators: [User]?
     var playlistViewController: PlaylistViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Station"
-
-        headerView.contentView.imageView.setImageWithURL(NSURL(string: station!.imageUrl))
-        headerView.contentView.name = station!.name
-        headerView.contentView.collaboratorsButton.addTarget(self, action: "didTapCollaborators:", forControlEvents: UIControlEvents.TouchUpInside)
-
+        
         setButtonAppearance()
+
+        loadCollaborators()
         loadPlaylist()
         
         User.currentUser!.isCollaborator(station!, completion: { (collaborator, error) -> Void in
@@ -36,13 +35,24 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             }
             
             User.currentUser!.isCollaborator = collaborator!
-            println("user: \(User.currentUser!.key) is collaborator: \(User.currentUser!.isCollaborator!)")
             self.configureNavigation()
         })
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func loadCollaborators() {
+        station!.getCollaborators() { (users, error) in
+            if let error = error {
+                NSLog("Error loading collaboratorlist: \(error)")
+                return
+            }
+            
+            self.collaborators = users!
+            self.configureHeader()
+        }
     }
     
     func loadPlaylist() {
@@ -64,13 +74,20 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     
     // MARK: - Configuration
     
+    func configureHeader() {
+        headerView.contentView.imageView.setImageWithURL(NSURL(string: station!.imageUrl))
+        headerView.contentView.name = station!.name
+        headerView.contentView.collaboratorCountLabel.text = String(collaborators!.count)
+        headerView.contentView.collaboratorsButton.addTarget(self, action: "didTapCollaborators", forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
     func configureNavigation() {
         if station!.ownerKey != User.currentUser!.key {
             if let collaborator = User.currentUser!.isCollaborator {
                 if (collaborator == true) {
-                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Leave", style: .Plain, target: self, action: nil)
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Leave", style: .Plain, target: self, action: "didTapLeave")
                 } else {
-                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Join", style: .Plain, target: self, action: nil)
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Join", style: .Plain, target: self, action: "didTapJoin")
                 }
             }
         } else {
@@ -99,25 +116,31 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     }
     
     func didTapJoin() {
-        
+        User.currentUser!.collaborate(station!) { (success, error) in
+            if let error = error {
+                NSLog("Error joining station: \(error)")
+            }
+
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Leave", style: .Plain, target: self, action: nil)
+        }
     }
     
     func didTapLeave() {
-       
+        User.currentUser!.uncollaborate(station!) { (success, error) in
+            if let error = error {
+                NSLog("Error leaving station: \(error)")
+            }
+            
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Join", style: .Plain, target: self, action: nil)
+        }
     }
     
     func didTapCollaborators() {
-        /*self.station!.getCollaborators() { (collaborators, error) in
-            if let error = error {
-                NSLog("Error loading collaboratorlist: \(error)")
-                return
-            }
-
-            var storyboard = UIStoryboard(name: "CollaboratorsView", bundle: nil)
-            var collaboratorsViewController = storyboard.instantiateViewControllerWithIdentifier("CollaboratorsViewController") as! CollaboratorsViewController
-            collaboratorsViewController.collaborators = collaborators
-            self.navigationController!.pushViewController(collaboratorsViewController, animated: true)
-        }*/
+        var storyboard = UIStoryboard(name: "Collaborators", bundle: nil)
+        var collaboratorsVC = storyboard.instantiateViewControllerWithIdentifier("CollaboratorsViewController") as! CollaboratorsViewController
+        
+        collaboratorsVC.station = self.station!
+        self.navigationController!.pushViewController(collaboratorsVC, animated: true)
     }
     
     @IBAction func didTapAddTracks(sender: AnyObject) {
@@ -146,7 +169,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             
             playlist!.addTrack(track) { (playlist: Playlist?, error: NSError?) in
                 if let error = error {
-                    NSLog("Error adding track to playlist \(error)")
+                    NSLog("Error adding track to playlist: \(error)")
                     return
                 }
                 self.playlistViewController.playlist = playlist!

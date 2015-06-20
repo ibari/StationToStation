@@ -88,7 +88,7 @@ class DataStoreClient {
             if let objects = objects as? [PFObject] {
                 var stationIds = [String]()
                 for obj in objects {
-                    stationIds.append(obj["stationObjectId"] as! String)
+                    stationIds.append(obj[DataStoreClient.invite_stationObjectId] as! String)
                 }
                 self.getStations(stationIds, completion: completion)
                 return
@@ -251,27 +251,29 @@ class DataStoreClient {
     // MARK: - Collaborator
     
     private static let collaborator_ClassName = "Collaborator"
+    private static let collaborator_objectId = "objectId"
     private static let collaborator_userKey = "userKey"
     private static let collaborator_stationObjectId = "stationObjectId"
     
-    func getCollaborators(station: Station, completion: (collaborators: [User]?, error: NSError?) -> Void) {
+    func getCollaborators(station: Station, completion: (users: [User]?, error: NSError?) -> Void) {
         var query: PFQuery = PFQuery(className: DataStoreClient.collaborator_ClassName)
-        
-        query.whereKey(DataStoreClient.station_ObjectId, equalTo: station.objectId!)
+
+        query.whereKey(DataStoreClient.collaborator_stationObjectId, equalTo: station.objectId!)
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let error = error {
-                completion(collaborators: nil, error: error)
+                completion(users: nil, error: error)
                 return
             }
             
             if let objects = objects as? [PFObject] {
-                var collaborators = [User]()
+                var userKeys = [String]()
                 for obj in objects {
-                    collaborators.append(self.pfoToCollaborator(obj))
+                    userKeys.append(obj[DataStoreClient.collaborator_userKey] as! String)
                 }
-                completion(collaborators: collaborators, error: nil)
+                RdioClient.sharedInstance.getUsers(userKeys, completion: completion)
+                return
             } else {
-                completion(collaborators: [], error: nil)
+                completion(users: [], error: nil)
                 return
             }
         }
@@ -281,25 +283,26 @@ class DataStoreClient {
         collaboratorToPfo(collaborator, station: station).saveInBackgroundWithBlock(completion)
     }
     
-    func pfoToCollaborator(obj: PFObject) -> User {
-        let userKey = obj[DataStoreClient.collaborator_userKey] as! String
-        var collaborator: User?
-        
-        RdioClient.sharedInstance.getUser(userKey) { (user, error) -> Void in
+    func deleteCollaborator(collaborator: User, station: Station, completion: (success: Bool, error: NSError?) -> Void) {
+        var query: PFQuery = PFQuery(className: DataStoreClient.collaborator_ClassName)
+    
+        query.whereKey(DataStoreClient.collaborator_userKey, equalTo: collaborator.key)
+        query.whereKey(DataStoreClient.collaborator_stationObjectId, equalTo: station.objectId!)
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
             if let error = error {
-                NSLog("Error while fetching collaborator: \(error)")
+                completion(success: false, error: error)
                 return
             }
             
-            if user != nil {
-                collaborator = user
+            if let objects = objects as? [PFObject] {
+                for obj in objects {
+                    obj.deleteInBackgroundWithBlock(completion)
+                }
             } else {
-                NSLog("Unexpected nil returned for collaborator")
+                completion(success: false, error: nil)
                 return
             }
         }
-        
-        return collaborator!
     }
     
     func collaboratorToPfo(collaborator: User, station: Station) -> PFObject {

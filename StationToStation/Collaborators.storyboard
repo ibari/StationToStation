@@ -107,8 +107,64 @@
                     <view key="view" contentMode="scaleToFill" id="BdR-rB-fMh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csF-hE-QI5" customClass="StationHeaderView" customModule="StationToStation" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="173"/>
+                                <color key="backgroundColor" red="0.8627929688" green="0.82745098039999998" blue="0.95736533720000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="173" id="D3N-ae-ow3"/>
+                                    <constraint firstAttribute="width" constant="320" id="Je5-CV-Pdn"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Jwu-fg-8Se">
+                                <rect key="frame" x="0.0" y="193" width="320" height="375"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="UWb-uh-DOY"/>
+                                    <constraint firstAttribute="width" constant="320" id="eL3-mv-aPO"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="61" id="HaC-kq-x87" customClass="UserCell" customModule="StationToStation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HaC-kq-x87" id="T7Z-FU-Osr">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgh-zI-XSJ">
+                                                    <rect key="frame" x="8" y="8" width="30" height="30"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jane Smith" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g55-48-0Qo">
+                                                    <rect key="frame" x="46" y="12" width="74" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="g55-48-0Qo" id="adY-P4-urb"/>
+                                            <outlet property="profileImageView" destination="mgh-zI-XSJ" id="71P-ff-NdW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jwu-fg-8Se" firstAttribute="leading" secondItem="BdR-rB-fMh" secondAttribute="leading" id="3Jg-S6-yoG"/>
+                            <constraint firstItem="Jwu-fg-8Se" firstAttribute="top" secondItem="csF-hE-QI5" secondAttribute="bottom" constant="20" id="LXo-m9-OQB"/>
+                            <constraint firstAttribute="trailing" secondItem="Jwu-fg-8Se" secondAttribute="trailing" id="N3w-Cq-1va"/>
+                            <constraint firstItem="csF-hE-QI5" firstAttribute="leading" secondItem="BdR-rB-fMh" secondAttribute="leading" id="YQE-jv-HMX"/>
+                            <constraint firstItem="csF-hE-QI5" firstAttribute="top" secondItem="BdR-rB-fMh" secondAttribute="top" id="cJy-28-jd5"/>
+                            <constraint firstAttribute="trailing" secondItem="csF-hE-QI5" secondAttribute="trailing" id="ggA-y9-jYn"/>
+                            <constraint firstItem="hvm-QG-G2S" firstAttribute="top" secondItem="Jwu-fg-8Se" secondAttribute="bottom" id="tIr-kM-EUQ"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="headerView" destination="csF-hE-QI5" id="EYT-N7-SeN"/>
+                        <outlet property="tableView" destination="Jwu-fg-8Se" id="ggD-Jt-Kht"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wu-gS-SKf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -33,6 +33,10 @@ class Station {
         RdioClient.sharedInstance.getPlaylist(playlistKey, completion: completion)
     }
     
+    func getCollaborators(completion: (users: [User]?, error: NSError?) -> Void) {
+        DataStoreClient.sharedInstance.getCollaborators(self, completion: completion)
+    }
+    
     class func loadAll(completion: (stations: [Station]?, error: NSError?) -> Void) {
         DataStoreClient.sharedInstance.getStations(completion)
     }

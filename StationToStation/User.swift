@@ -69,6 +69,14 @@ class User: NSObject {
     func isCollaborator(station: Station, completion: (collaborator: Bool?, error: NSError?) -> Void) {
         DataStoreClient.sharedInstance.isCollaborator(self, station: station, completion: completion)
     }
+    
+    func collaborate(station: Station, completion: (success: Bool, error: NSError?) -> Void) {
+        DataStoreClient.sharedInstance.saveCollaborator(self, station: station, completion: completion)
+    }
+    
+    func uncollaborate(station: Station, completion: (success: Bool, error: NSError?) -> Void) {
+        DataStoreClient.sharedInstance.deleteCollaborator(self, station: station, completion: completion)
+    }
 }
 
 
