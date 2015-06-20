@@ -24,26 +24,19 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func loadCollaborators() {
-        station!.getCollaborators() { (users, error) in
-            if let error = error {
-                NSLog("Error loading collaboratorlist: \(error)")
-                return
-            }
-            
-            self.collaborators = users!
-            self.configureHeader()
-            
-            self.tableView.delegate = self
-            self.tableView.dataSource = self
-            
-            self.tableView.rowHeight = UITableViewAutomaticDimension
-            self.tableView.estimatedRowHeight = 80
-            
-            self.tableView.tableFooterView = UIView(frame: CGRectZero)
-            self.tableView.backgroundColor = UIColor.clearColor()
-            
-            self.tableView.reloadData()
-        }
+        self.collaborators = station.collaborators!
+        self.configureHeader()
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 80
+        
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.tableView.backgroundColor = UIColor.clearColor()
+        
+        self.tableView.reloadData()
     }
     
     // MARK: - Configuration

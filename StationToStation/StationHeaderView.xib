@@ -13,7 +13,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="station-header" translatesAutoresizingMaskIntoConstraints="NO" id="4ru-79-G14">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="320" id="KIa-WP-No5"/>
                         <constraint firstAttribute="height" constant="140" id="yo9-EU-tfb"/>
                     </constraints>
                 </imageView>

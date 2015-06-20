@@ -35,6 +35,35 @@ class DataStoreClient {
     private static let station_ImageUrl = "image_url"
     private static let station_PlaylistMeta = "playlist_meta"
     
+    func getAllStations(completion: (stations: [Station]?, error: NSError?) -> Void) {
+        var ownedStations: [Station]?
+        var invitedStations: [Station]?
+        
+        getStations() { (stations, error) in
+            if let error = error {
+                completion(stations: nil, error: error)
+                return
+            }
+            ownedStations = stations!
+            
+            if ownedStations != nil && invitedStations != nil {
+                completion(stations: ownedStations! + invitedStations!, error: nil)
+            }
+        }
+        
+        getInvitedStations() { (stations, error) in
+            if let error = error {
+                completion(stations: nil, error: error)
+                return
+            }
+            invitedStations = stations!
+            
+            if ownedStations != nil && invitedStations != nil {
+                completion(stations: ownedStations! + invitedStations!, error: nil)
+            }
+        }
+    }
+    
     func getStations(completion: (stations: [Station]?, error: NSError?) -> Void) {
         var query: PFQuery = PFQuery(className: DataStoreClient.station_ClassName)
         query.whereKey(DataStoreClient.station_OwnerKey, equalTo: User.currentUser!.key)
@@ -50,7 +79,7 @@ class DataStoreClient {
                 for obj in objects {
                     stations.append(self.pfoToStation(obj))
                 }
-                completion(stations: stations, error: nil)
+                self.fillStations(stations, completion: completion)
             } else {
                 completion(stations: [], error: nil)
                 return
@@ -72,7 +101,7 @@ class DataStoreClient {
             for obj in objs! {
                 stations.append(self.pfoToStation(obj as! PFObject))
             }
-            completion(stations: stations, error: nil)
+            self.fillStations(stations, completion: completion)
         }
     }
     
@@ -110,10 +139,46 @@ class DataStoreClient {
         query.getObjectInBackgroundWithId(objectId) { (obj: PFObject?, error: NSError?) -> Void in
             if error == nil && obj != nil {
                 let stationObj = self.pfoToStation(obj!)
-                completion(station: stationObj, error: nil)
+                self.fillStations([stationObj]) { (stations, error) in
+                    var station = stations?.first
+                    completion(station: station, error: error)
+                }
             } else {
                 completion(station: nil, error: error)
             }
+        }
+    }
+    
+    func fillStations(stations: [Station], completion: (stations: [Station]?, error: NSError?) -> Void) {
+        var loadedStationCollaboratorCount = 0
+        var loadedStationPlaylistCount = 0
+        
+        for station in stations {
+            getCollaborators(station, completion: { (users, error) -> Void in
+                if let error = error {
+                    NSLog("Error while loading collaborators in fillStations \(error)")
+                    return
+                }
+                station.collaborators = users
+                loadedStationCollaboratorCount += 1
+                
+                if stations.count == loadedStationCollaboratorCount && stations.count == loadedStationPlaylistCount {
+                    completion(stations: stations, error: nil)
+                }
+            })
+            
+            RdioClient.sharedInstance.getPlaylist(station.playlistKey, withMeta: station.playlistMeta, completion: { (playlist: Playlist?, error: NSError?) in
+                if let error = error {
+                    NSLog("Error while loading playlist in fillStations \(error)")
+                    return
+                }
+                station.playlist = playlist
+                loadedStationPlaylistCount += 1
+            
+                if stations.count == loadedStationCollaboratorCount && stations.count == loadedStationPlaylistCount {
+                    completion(stations: stations, error: nil)
+                }
+            })
         }
     }
     

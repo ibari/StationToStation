@@ -44,33 +44,25 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     }
     
     func loadCollaborators() {
-        station!.getCollaborators() { (users, error) in
-            if let error = error {
-                NSLog("Error loading collaboratorlist: \(error)")
-                return
-            }
-            
-            self.collaborators = users!
-            self.configureHeader()
-        }
+        self.collaborators = station!.collaborators!
+        self.configureHeader()
     }
     
     func loadPlaylist() {
-        self.station!.getPlaylist() { (playlist, error) in
-            if let error = error {
-                NSLog("Error loading playlist: \(error)")
-                return
-            }
-            
-            var storyboard = UIStoryboard(name: "Playlist", bundle: nil)
-            self.playlistViewController = storyboard.instantiateViewControllerWithIdentifier("PlaylistViewController") as! PlaylistViewController
-            self.playlistViewController.station = self.station!
-            self.playlistViewController.playlist = playlist!
-            
-            self.addChildViewController(self.playlistViewController)
-            self.containerView.addSubview(self.playlistViewController.view)
-            self.playlistViewController.didMoveToParentViewController(self)
-        }
+        let playlist = station!.playlist
+        
+        var storyboard = UIStoryboard(name: "Playlist", bundle: nil)
+        playlistViewController = storyboard.instantiateViewControllerWithIdentifier("PlaylistViewController") as! PlaylistViewController
+        playlistViewController.station = station!
+        playlistViewController.playlist = playlist!
+        
+        addChildViewController(playlistViewController)
+        containerView.addSubview(playlistViewController.view)
+        
+        playlistViewController.view.frame = containerView.frame
+        playlistViewController.view.center = playlistViewController.view.convertPoint(containerView.center, fromView: containerView)
+        
+        playlistViewController.didMoveToParentViewController(self)
     }
     
     // MARK: - Configuration
@@ -162,20 +154,15 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     
     func addTracksViewController(sender: AddTracksViewController, didAddTrack track: Track) {
         self.navigationController!.popToViewController(self, animated: true)
-        station!.getPlaylist() { (playlist, error) in
+        let playlist = station!.playlist
+        
+        playlist!.addTrack(track, withMeta: self.station!.playlistMeta) { (playlist: Playlist?, error: NSError?) in
             if let error = error {
-                NSLog("Error loading playlist for track add: \(error)")
+                NSLog("Error adding track to playlist: \(error)")
                 return
             }
-            
-            playlist!.addTrack(track, withMeta: self.station!.playlistMeta) { (playlist: Playlist?, error: NSError?) in
-                if let error = error {
-                    NSLog("Error adding track to playlist: \(error)")
-                    return
-                }
-                self.playlistViewController.playlist = playlist!
-                self.playlistViewController.reloadData()
-            }
+            self.playlistViewController.playlist = playlist!
+            self.playlistViewController.reloadData()
         }
     }
 }

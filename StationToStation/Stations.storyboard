@@ -78,28 +78,22 @@
                                     <constraint firstAttribute="centerY" secondItem="DnC-vv-T5n" secondAttribute="centerY" id="GI4-34-mfT"/>
                                     <constraint firstAttribute="trailing" secondItem="DnC-vv-T5n" secondAttribute="trailing" constant="15" id="GkH-M7-D7A"/>
                                     <constraint firstAttribute="centerY" secondItem="xJY-Z6-8cR" secondAttribute="centerY" id="Kh8-y4-taF"/>
-                                    <constraint firstAttribute="width" constant="320" id="oHg-yr-c12"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5b-6e-MCd">
-                                <rect key="frame" x="0.0" y="240" width="320" height="348"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="8jB-3s-ykn"/>
-                                    <constraint firstAttribute="height" constant="348" id="MJr-cR-XXd"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="240" width="320" height="328"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="431-wn-INk" customClass="StationHeaderView" customModule="StationToStation" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="320" height="173"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="173" id="XA1-4C-JfS"/>
-                                    <constraint firstAttribute="width" constant="320" id="lNc-DO-FS2"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="oPb-WO-4KH"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="N5b-6e-MCd" firstAttribute="top" secondItem="Qof-7n-tsF" secondAttribute="bottom" id="GNo-rY-ADL"/>
+                            <constraint firstAttribute="bottom" secondItem="N5b-6e-MCd" secondAttribute="bottom" id="KUd-xp-d7N"/>
                             <constraint firstItem="431-wn-INk" firstAttribute="top" secondItem="ggn-4L-dsv" secondAttribute="bottom" id="QbM-9v-Yri"/>
                             <constraint firstAttribute="trailing" secondItem="431-wn-INk" secondAttribute="trailing" id="Udo-U2-GpG"/>
                             <constraint firstAttribute="trailing" secondItem="N5b-6e-MCd" secondAttribute="trailing" id="e2i-Cn-lTW"/>

@@ -17,6 +17,9 @@ class Station: PlaylistMetaDelegate {
     let description: String!
     let imageUrl: String!
     let playlistMeta: PlaylistMeta!
+
+    var collaborators: [User]?
+    var playlist: Playlist?
     
     init(ownerKey: String, playlistKey: String, name: String, description: String, imageUrl: String, playlistMetaDict: [String: AnyObject]?) {
         self.ownerKey = ownerKey
@@ -32,23 +35,7 @@ class Station: PlaylistMetaDelegate {
     func save(completion: (success: Bool, error: NSError?) -> Void) {
         DataStoreClient.sharedInstance.saveStation(self, completion: completion)
     }
-    
-    func getPlaylist(completion: (playlist: Playlist?, error: NSError?) -> Void) {
-        RdioClient.sharedInstance.getPlaylist(playlistKey, withMeta: playlistMeta, completion: { (playlist: Playlist?, error: NSError?) in
-            if let error = error {
-                completion(playlist: nil, error: error)
-                return
-            }
 
-            completion(playlist: playlist, error: nil)
-            return
-        })
-    }
-    
-    func getCollaborators(completion: (users: [User]?, error: NSError?) -> Void) {
-        DataStoreClient.sharedInstance.getCollaborators(self, completion: completion)
-    }
-    
     class func loadAll(completion: (stations: [Station]?, error: NSError?) -> Void) {
         DataStoreClient.sharedInstance.getStations(completion)
     }
