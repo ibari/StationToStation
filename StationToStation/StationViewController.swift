@@ -16,45 +16,33 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     @IBOutlet weak var addPeopleButton: UIButton!
     
     var station: Station?
-    var collaborators: [User]?
     var playlistViewController: PlaylistViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Station"
         
-        setButtonAppearance()
-
-        loadCollaborators()
-        loadPlaylist()
-        
-        User.currentUser!.isCollaborator(station!, completion: { (collaborator, error) -> Void in
+        User.currentUser!.collaborating(station!, completion: { (collaborating, error) -> Void in
             if let error = error {
                 NSLog("Error calling isCollaborator: \(error)")
                 return
             }
             
-            User.currentUser!.isCollaborator = collaborator!
+            User.currentUser!.collaborating = collaborating!
             self.configureNavigation()
         })
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    func loadCollaborators() {
-        self.collaborators = station!.collaborators!
-        self.configureHeader()
-    }
-    
-    func loadPlaylist() {
-        let playlist = station!.playlist
         
+        self.configureHeader()
+        addPlaylistView()
+        setButtonAppearance()
+    }
+    
+    func addPlaylistView() {
         var storyboard = UIStoryboard(name: "Playlist", bundle: nil)
+        
         playlistViewController = storyboard.instantiateViewControllerWithIdentifier("PlaylistViewController") as! PlaylistViewController
         playlistViewController.station = station!
-        playlistViewController.playlist = playlist!
+        playlistViewController.playlist = station!.playlist
         
         addChildViewController(playlistViewController)
         containerView.addSubview(playlistViewController.view)
@@ -70,14 +58,16 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     func configureHeader() {
         headerView.contentView.imageView.setImageWithURL(NSURL(string: station!.imageUrl))
         headerView.contentView.name = station!.name
-        headerView.contentView.collaboratorCountLabel.text = String(collaborators!.count)
+        
+        headerView.contentView.trackCountLabel.text = String(station!.playlist!.tracks.count)
+        headerView.contentView.collaboratorCountLabel.text = String(station!.collaborators!.count)
         headerView.contentView.collaboratorsButton.addTarget(self, action: "didTapCollaborators", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     func configureNavigation() {
         if station!.ownerKey != User.currentUser!.key {
-            if let collaborator = User.currentUser!.isCollaborator {
-                if (collaborator == true) {
+            if let collaborating = User.currentUser!.collaborating {
+                if collaborating {
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Leave", style: .Plain, target: self, action: "didTapLeave")
                 } else {
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Join", style: .Plain, target: self, action: "didTapJoin")
@@ -109,22 +99,22 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     }
     
     func didTapJoin() {
-        User.currentUser!.collaborate(station!) { (success, error) in
+        station!.collaborate(User.currentUser!, collaborating: true) { (success, error) -> Void in
             if let error = error {
                 NSLog("Error joining station: \(error)")
             }
-
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Leave", style: .Plain, target: self, action: nil)
+            
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Leave", style: .Plain, target: self, action: "didTapLeave")
         }
     }
     
     func didTapLeave() {
-        User.currentUser!.uncollaborate(station!) { (success, error) in
+        station!.collaborate(User.currentUser!, collaborating: false) { (success, error) -> Void in
             if let error = error {
                 NSLog("Error leaving station: \(error)")
             }
             
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Join", style: .Plain, target: self, action: nil)
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Join", style: .Plain, target: self, action: "didTapJoin")
         }
     }
     

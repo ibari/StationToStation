@@ -35,7 +35,11 @@ class Station: PlaylistMetaDelegate {
     func save(completion: (success: Bool, error: NSError?) -> Void) {
         DataStoreClient.sharedInstance.saveStation(self, completion: completion)
     }
-
+    
+    func collaborate(user: User, collaborating: Bool, completion: (success: Bool, error: NSError?) -> Void) {
+        RdioClient.sharedInstance.stationCollaborate(self, user: user, collaborating: collaborating, completion: completion)
+    }
+    
     class func loadAll(completion: (stations: [Station]?, error: NSError?) -> Void) {
         DataStoreClient.sharedInstance.getStations(completion)
     }
