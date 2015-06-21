@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol StationHeaderSubviewDelegate {
+    func stationHeaderSubviewOnPlay(sender: StationHeaderSubview)
+}
+
 class StationHeaderSubview: UIView {
     
     @IBOutlet weak var imageView: UIImageView!
@@ -19,12 +23,14 @@ class StationHeaderSubview: UIView {
     @IBOutlet weak var commentCountLabel: UILabel!
     @IBOutlet weak var commentsButton: UIButton!
     
+    var delegate: StationHeaderSubviewDelegate?
+    
     var name: String? {
         get { return nameLabel.text }
         set { nameLabel.text = newValue }
     }
     
     @IBAction func onPlay(sender: AnyObject) {
-        NSLog("onPlay")
+        delegate?.stationHeaderSubviewOnPlay(self)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StationViewController: UIViewController, AddTracksViewControllerDelegate {
+class StationViewController: UIViewController, AddTracksViewControllerDelegate, StationHeaderViewDelegate {
     
     @IBOutlet weak var headerView: StationHeaderView!
     @IBOutlet weak var containerView: UIView!
@@ -68,6 +68,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     // MARK: - Configuration
     
     func configureHeader() {
+        headerView.delegate = self
         headerView.contentView.imageView.setImageWithURL(NSURL(string: station!.imageUrl))
         headerView.contentView.name = station!.name
         headerView.contentView.collaboratorCountLabel.text = String(collaborators!.count)
@@ -164,5 +165,12 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             self.playlistViewController.playlist = playlist!
             self.playlistViewController.reloadData()
         }
+    }
+    
+    // MARK: - StationHeaderViewDelegate
+    
+    func stationHeaderViewOnPlay(sender: StationHeaderView) {
+        NSLog("onplay")
+        RdioClient.sharedInstance.playPlaylist(station!.playlist!.key)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RdioClient {
+class RdioClient: NSObject, RDPlayerDelegate {
     
     private var rdio: Rdio!
     private let rdioClientId = Utils.sharedInstance.getSecret("sts_client_id")
@@ -28,7 +28,7 @@ class RdioClient {
         }
     }
     
-    init() {
+    override init() {
         rdio = Rdio(clientId: self.rdioClientId, andSecret: self.rdioClientSecret, delegate: nil)
     }
     
@@ -163,6 +163,28 @@ class RdioClient {
                 completion(playlist: nil, error: error)
             }
         )
+    }
+    
+    // MARK: - ???
+    
+    func playPlaylist(key: String) {
+        rdio.preparePlayerWithDelegate(self)
+        rdio.player.play(key)
+//        rdio.player.queue.add(key)
+//        rdio.player.playFromQueue(0)
+    }
+    
+    func rdioIsPlayingElsewhere() -> Bool {
+        return false
+    }
+    
+    func rdioPlayerChangedFromState(oldState: RDPlayerState, toState newState: RDPlayerState) {
+        NSLog("changed state \(oldState) to \(newState)")
+    }
+    
+    func rdioPlayerFailedDuringTrack(trackKey: String!, withError error: NSError!) -> Bool {
+        NSLog("Rdio player failed during track \(trackKey) with error \(error)")
+        return false // false = default behavior, skip to next track
     }
     
     // MARK: - Track

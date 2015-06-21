@@ -8,9 +8,14 @@
 
 import UIKit
 
-class StationHeaderView: UIView {
+protocol StationHeaderViewDelegate {
+    func stationHeaderViewOnPlay(sender: StationHeaderView)
+}
+
+class StationHeaderView: UIView, StationHeaderSubviewDelegate {
 
     var contentView: StationHeaderSubview!
+    var delegate: StationHeaderViewDelegate?
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -25,6 +30,11 @@ class StationHeaderView: UIView {
     func initSubviews() {
         let nib = UINib(nibName: "StationHeaderView", bundle: nil)
         contentView = nib.instantiateWithOwner(self, options: nil)[0] as! StationHeaderSubview
+        contentView.delegate = self
         addSubview(contentView)
+    }
+    
+    func stationHeaderSubviewOnPlay(sender: StationHeaderSubview) {
+        delegate?.stationHeaderViewOnPlay(self)
     }
 }
