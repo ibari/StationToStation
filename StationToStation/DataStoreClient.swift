@@ -36,31 +36,27 @@ class DataStoreClient {
     private static let station_PlaylistMeta = "playlist_meta"
     
     func getAllStations(completion: (stations: [Station]?, error: NSError?) -> Void) {
-        var ownedStations: [Station]?
-        var invitedStations: [Station]?
+        var ownedStations: [Station] = []
+        var collaboratingStations: [Station] = []
         
         getStations() { (stations, error) in
             if let error = error {
                 completion(stations: nil, error: error)
                 return
             }
-            ownedStations = stations!
             
-            if ownedStations != nil && invitedStations != nil {
-                completion(stations: ownedStations! + invitedStations!, error: nil)
-            }
+            ownedStations = stations!
+            completion(stations: ownedStations + collaboratingStations, error: nil)
         }
         
-        getInvitedStations() { (stations, error) in
+        getCollaboratingStations() { (stations, error) in
             if let error = error {
                 completion(stations: nil, error: error)
                 return
             }
-            invitedStations = stations!
             
-            if ownedStations != nil && invitedStations != nil {
-                completion(stations: ownedStations! + invitedStations!, error: nil)
-            }
+            collaboratingStations = stations!
+            completion(stations: ownedStations + collaboratingStations, error: nil)
         }
     }
     
@@ -119,6 +115,30 @@ class DataStoreClient {
                 var stationIds = [String]()
                 for obj in objects {
                     stationIds.append(obj[DataStoreClient.invite_stationObjectId] as! String)
+                }
+                self.getStations(stationIds, completion: completion)
+                return
+            } else {
+                completion(stations: [], error: nil)
+                return
+            }
+        }
+    }
+
+    func getCollaboratingStations(completion: (stations: [Station]?, error: NSError?) -> Void) {
+        var query: PFQuery = PFQuery(className: DataStoreClient.collaborator_ClassName)
+        
+        query.whereKey(DataStoreClient.collaborator_userKey, equalTo: User.currentUser!.key)
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                completion(stations: nil, error: error)
+                return
+            }
+            
+            if let objects = objects as? [PFObject] {
+                var stationIds = [String]()
+                for obj in objects {
+                    stationIds.append(obj[DataStoreClient.collaborator_stationObjectId] as! String)
                 }
                 self.getStations(stationIds, completion: completion)
                 return
