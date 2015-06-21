@@ -34,6 +34,7 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
         collectionView.backgroundColor = UIColor.whiteColor()
         self.view = collectionView
         
+         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loadStations()
     }
 
@@ -51,6 +52,8 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
                 NSLog("Unexpected nil returned for stations")
                 return
             }
+            
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
     }
     

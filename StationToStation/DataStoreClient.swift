@@ -32,7 +32,7 @@ class DataStoreClient {
     private static let station_PlaylistKey = "playlist_key"
     private static let station_Name = "name"
     private static let station_Description = "description"
-    private static let station_ImageUrl = "image_url"
+    private static let station_ImageFile = "imageFile"
     private static let station_PlaylistMeta = "playlist_meta"
     
     func getAllStations(completion: (stations: [Station]?, error: NSError?) -> Void) {
@@ -215,27 +215,41 @@ class DataStoreClient {
     }
     
     func pfoToStation(obj: PFObject) -> Station {
+        var image: UIImage?
+        
+        /*if let imageData = obj[DataStoreClient.station_ImageFile] as? NSData {
+            image = UIImage(data: imageData)
+        }*/
+        
         let station = Station(
             ownerKey: obj[DataStoreClient.station_OwnerKey] as! String,
             playlistKey: obj[DataStoreClient.station_PlaylistKey] as! String,
             name: obj[DataStoreClient.station_Name] as! String,
             description: obj[DataStoreClient.station_Description] as! String,
-            imageUrl: obj[DataStoreClient.station_ImageUrl] as! String,
+            image: image,
             playlistMetaDict: obj[DataStoreClient.station_PlaylistMeta] as? [String: AnyObject]
         )
+        
         station.objectId = obj.objectId!
+        
+        if let imageFile = obj[DataStoreClient.station_ImageFile] as? PFFile {
+            station.imageUrl = imageFile.url!
+        }
         
         return station
     }
     
     func stationToPfo(station: Station) -> PFObject {
         var obj = PFObject(className: DataStoreClient.station_ClassName)
+        let imageData = UIImageJPEGRepresentation(station.image, 0.8)
+        
+        let imageFile = PFFile(name: "header.jpg", data: imageData)
         
         obj[DataStoreClient.station_OwnerKey] = station.ownerKey
         obj[DataStoreClient.station_PlaylistKey] = station.playlistKey
         obj[DataStoreClient.station_Name] = station.name
         obj[DataStoreClient.station_Description] = station.description
-        obj[DataStoreClient.station_ImageUrl] = station.imageUrl
+        obj[DataStoreClient.station_ImageFile] = imageFile
         obj[DataStoreClient.station_PlaylistMeta] = station.playlistMeta.getData()
         
         return obj
@@ -387,5 +401,14 @@ class DataStoreClient {
                 return
             }
         }
+    }
+    
+    // MARK: - Image
+    
+    func saveImage(image: UIImage, completion: (success: Bool, error: NSError?) -> Void) {
+        /*let imageData = UIImageJPEGRepresentation(image)
+        let imageFile = PFFile(data: imageData)
+        
+        imageFile.saveInBackgroundWithBlock(completion)*/
     }
 }

@@ -5,6 +5,7 @@ target 'StationToStation' do
    pod "Parse"
    pod "AFNetworking", "~> 2.5"
    pod "AFOAuth2Manager", "~> 2.2"
+   pod "MBProgressHUD"
 end
 
 target 'StationToStationTests' do

@@ -15,18 +15,19 @@ class Station: PlaylistMetaDelegate {
     let playlistKey: String!
     let name: String!
     let description: String!
-    let imageUrl: String!
+    var imageUrl = "http://rdiodynimages3-a.akamaihd.net/?l=album/browse/rectangle/Top_Stations.jpg"
+    var image: UIImage?
     let playlistMeta: PlaylistMeta!
 
     var collaborators: [User]?
     var playlist: Playlist?
     
-    init(ownerKey: String, playlistKey: String, name: String, description: String, imageUrl: String, playlistMetaDict: [String: AnyObject]?) {
+    init(ownerKey: String, playlistKey: String, name: String, description: String, image: UIImage?, playlistMetaDict: [String: AnyObject]?) {
         self.ownerKey = ownerKey
         self.playlistKey = playlistKey
         self.name = name
         self.description = description
-        self.imageUrl = imageUrl
+        self.image = image
         self.playlistMeta = PlaylistMeta(data: playlistMetaDict ?? [String: AnyObject]())
 
         playlistMeta.delegate = self

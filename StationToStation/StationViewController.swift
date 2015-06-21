@@ -129,6 +129,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     @IBAction func didTapAddTracks(sender: AnyObject) {
         var storyboard = UIStoryboard(name: "AddTracks", bundle: nil)
         var addTrackVC = storyboard.instantiateViewControllerWithIdentifier("AddTracksViewController") as! AddTracksViewController
+        
         addTrackVC.delegate = self
         self.navigationController!.pushViewController(addTrackVC, animated: true)
     }
@@ -136,6 +137,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     @IBAction func didTapAddCollaborators(sender: AnyObject) {
         var storyboard = UIStoryboard(name: "Collaborators", bundle: nil)
         var addCollaboratorsVC = storyboard.instantiateViewControllerWithIdentifier("AddCollaboratorsViewController") as! AddCollaboratorsViewController
+        
         addCollaboratorsVC.station = station
         self.navigationController!.pushViewController(addCollaboratorsVC, animated: true)
     }
