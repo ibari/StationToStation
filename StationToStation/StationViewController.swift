@@ -58,13 +58,12 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     func configureHeader() {
         headerView.contentView.imageView.setImageWithURL(NSURL(string: station!.imageUrl))
         headerView.contentView.name = station!.name
+
+        headerView.contentView.trackCount = station!.playlist!.tracks.count
+        headerView.contentView.collaboratorCount = station!.collaborators!.count
+        headerView.contentView.commentCount = station!.comments!.count
         
-        headerView.contentView.trackCountLabel.text = String(station!.playlist!.tracks.count)
-        
-        headerView.contentView.collaboratorCountLabel.text = String(station!.collaborators!.count)
         headerView.contentView.collaboratorsButton.addTarget(self, action: "didTapCollaborators", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        headerView.contentView.commentCountLabel.text = String(station!.comments!.count)
         headerView.contentView.commentsButton.addTarget(self, action: "didTapComments", forControlEvents: UIControlEvents.TouchUpInside)
     }
     

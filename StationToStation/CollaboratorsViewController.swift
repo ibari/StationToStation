@@ -39,11 +39,22 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
         headerView.contentView.imageView.setImageWithURL(NSURL(string: station!.imageUrl))
         headerView.contentView.name = station!.name
         
-        headerView.contentView.trackCountLabel.text = String(station!.playlist!.tracks.count)
-        headerView.contentView.collaboratorCountLabel.text = String(station!.collaborators!.count)
-        headerView.contentView.commentCountLabel.text = String(station!.comments!.count)
-        
+        headerView.contentView.trackCount = station!.playlist!.tracks.count
+        headerView.contentView.collaboratorCount = station!.collaborators!.count
+        headerView.contentView.commentCount = station!.comments!.count
+
+        headerView.contentView.commentsButton.addTarget(self, action: "didTapComments", forControlEvents: UIControlEvents.TouchUpInside)
         headerView.contentView.collaboratorsButton.enabled = false
+    }
+    
+    // MARK: - Actions
+    
+    func didTapComments() {
+        var storyboard = UIStoryboard(name: "Comments", bundle: nil)
+        var stationCommentsVC = storyboard.instantiateViewControllerWithIdentifier("StationCommentsViewController") as! StationCommentsViewController
+        
+        stationCommentsVC.station = self.station!
+        self.navigationController!.pushViewController(stationCommentsVC, animated: true)
     }
     
     // MARK: - UITableViewDataSource

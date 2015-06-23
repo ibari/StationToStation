@@ -57,6 +57,16 @@ class StationCommentsViewController: UIViewController {
         self.containerView.addSubview(commentsViewController.view)
         commentsViewController.didMoveToParentViewController(self)
     }
+    
+    // MARK: - Actions
+    
+    func didTapCollaborators() {
+        var storyboard = UIStoryboard(name: "Collaborators", bundle: nil)
+        var collaboratorsVC = storyboard.instantiateViewControllerWithIdentifier("CollaboratorsViewController") as! CollaboratorsViewController
+        
+        collaboratorsVC.station = self.station!
+        self.navigationController!.pushViewController(collaboratorsVC, animated: true)
+    }
 
     // MARK: - Configuration
     
@@ -64,10 +74,11 @@ class StationCommentsViewController: UIViewController {
         headerView.contentView.imageView.setImageWithURL(NSURL(string: station!.imageUrl))
         headerView.contentView.name = station!.name
         
-        headerView.contentView.trackCountLabel.text = String(station!.playlist!.tracks.count)
-        headerView.contentView.collaboratorCountLabel.text = String(station!.collaborators!.count)
-        headerView.contentView.commentCountLabel.text = String(station!.comments!.count)
+        headerView.contentView.trackCount = station!.playlist!.tracks.count
+        headerView.contentView.collaboratorCount = station!.collaborators!.count
+        headerView.contentView.commentCount = station!.comments!.count
 
+        headerView.contentView.collaboratorsButton.addTarget(self, action: "didTapCollaborators", forControlEvents: UIControlEvents.TouchUpInside)
         headerView.contentView.commentsButton.enabled = false
     }
 }
