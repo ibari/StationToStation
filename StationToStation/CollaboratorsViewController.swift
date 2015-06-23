@@ -14,17 +14,11 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var tableView: UITableView!
     
     var station: Station!
-    var collaborators: [User]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "People"
         
-        loadCollaborators()
-    }
-    
-    func loadCollaborators() {
-        self.collaborators = station.collaborators!
         self.configureHeader()
         
         self.tableView.delegate = self
@@ -44,7 +38,9 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
     func configureHeader() {
         headerView.contentView.imageView.setImageWithURL(NSURL(string: station!.imageUrl))
         headerView.contentView.name = station!.name
-        headerView.contentView.collaboratorCountLabel.text = String(collaborators!.count)
+        
+        headerView.contentView.trackCountLabel.text = String(station!.playlist!.tracks.count)
+        headerView.contentView.collaboratorCountLabel.text = String(station!.collaborators!.count)
         headerView.contentView.collaboratorsButton.enabled = false
     }
     
@@ -55,13 +51,13 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return collaborators!.count
+        return station!.collaborators!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
         
-        cell.user = collaborators![indexPath.row]
+        cell.user = station!.collaborators![indexPath.row]
 
         return cell
     }
@@ -71,7 +67,7 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
         
         var storyboard = UIStoryboard(name: "Profile", bundle: nil)
         var profileVC = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController") as! ProfileViewController
-        profileVC.user = collaborators![indexPath.item]
+        profileVC.user = station!.collaborators![indexPath.item]
         self.navigationController!.pushViewController(profileVC, animated: true)
     }
 }

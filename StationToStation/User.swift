@@ -19,7 +19,7 @@ class User: NSObject {
     var lastName: String!
     var profileImageUrl: NSURL!
     var dictionary: NSDictionary!
-    var isCollaborator: Bool?
+    var collaborating: Bool?
     
     init(dictionary: NSDictionary) {
         self.key = dictionary["key"] as! String
@@ -66,16 +66,8 @@ class User: NSObject {
         RdioClient.sharedInstance.searchUser(phrase, completion: completion)
     }
     
-    func isCollaborator(station: Station, completion: (collaborator: Bool?, error: NSError?) -> Void) {
+    func collaborating(station: Station, completion: (collaborator: Bool?, error: NSError?) -> Void) {
         DataStoreClient.sharedInstance.isCollaborator(self, station: station, completion: completion)
-    }
-    
-    func collaborate(station: Station, completion: (success: Bool, error: NSError?) -> Void) {
-        DataStoreClient.sharedInstance.saveCollaborator(self, station: station, completion: completion)
-    }
-    
-    func uncollaborate(station: Station, completion: (success: Bool, error: NSError?) -> Void) {
-        DataStoreClient.sharedInstance.deleteCollaborator(self, station: station, completion: completion)
     }
 }
 

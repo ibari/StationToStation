@@ -24,6 +24,6 @@ class TrackViewController: UIViewController {
         albumImageUrl.setImageWithURL(NSURL(string: track!.albumImageUrl))
         trackTitle.text = track.trackTitle
         artistName.text = track.artistName
-        durationLabel.text = "\(track.duration)"
+        durationLabel.text = Utils.sharedInstance.secondsToMinutes(Double(track.duration))
     }
 }

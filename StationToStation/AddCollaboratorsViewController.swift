@@ -25,10 +25,13 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
         
         tableView.delegate = self
         tableView.dataSource = self
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.backgroundColor = UIColor.clearColor()
+        
         tableView.reloadData()
     }
     

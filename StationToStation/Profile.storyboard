@@ -7,7 +7,6 @@
         <!--Profile-->
         <scene sceneID="6K1-Qr-2pq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SHp-jH-sxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ProfileViewController" title="Profile" id="6En-hZ-pDB" customClass="ProfileViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pOx-hb-F9M"/>
@@ -62,11 +61,13 @@
                             <constraint firstItem="byD-nA-AW3" firstAttribute="leading" secondItem="lkC-ZY-bn9" secondAttribute="leading" id="ujp-vq-BqC"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="nameLabel" destination="wyr-gL-vbU" id="t90-Em-zks"/>
                         <outlet property="profileImageView" destination="heW-rI-lXX" id="fMq-T6-OYH"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SHp-jH-sxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136" y="246"/>
         </scene>

@@ -24,7 +24,7 @@ class Utils {
         let minutes = floor(interval / 60.0)
         let seconds = round(interval - minutes * 60.0)
         
-        return "\(Int(minutes)):\(Int(seconds))"
+        return  NSString(format: "%d:%02d", Int(minutes), Int(seconds)) as String
     }
     
     func foo() {

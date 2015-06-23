@@ -16,9 +16,11 @@ class StationCell: UICollectionViewCell {
     
     var station: Station! {
         didSet {
-            banerImageView.setImageWithURL(NSURL(string: station.imageUrl!))
+            banerImageView.setImageWithURL(NSURL(string: station.imageUrl))
             nameLabel.text = station!.name
-            //trackCountLabel.text = station.
+            
+            let tracks = station.playlist!.tracks.count
+            trackCountLabel.text = (tracks == 1) ? "\(station.playlist!.tracks.count) Track" : "\(station.playlist!.tracks.count) Tracks"
         }
     }
     
