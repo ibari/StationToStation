@@ -24,6 +24,8 @@ class InvitesViewController: StationsViewController {
     }
     
     override func loadStations() {
+        //MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
         DataStoreClient.sharedInstance.getInvitedStations { (stations, error) -> Void in
             if let error = error {
                 NSLog("Error while fetching invited stations: \(error)")
@@ -37,6 +39,8 @@ class InvitesViewController: StationsViewController {
                 NSLog("Unexpected nil returned for invited stations")
                 return
             }
+            
+            //MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
     }
 }

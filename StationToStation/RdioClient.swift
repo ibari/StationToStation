@@ -60,7 +60,7 @@ class RdioClient {
             withParameters: [
                 "keys": key
             ], success: { (response) in
-                let user = self.rdioToUser(response as! [String : AnyObject])
+                let user = self.rdioToUser(response[key] as! [String : AnyObject])
                 completion(user: user, error: nil)
             }, failure: { (error) in
                 completion(user: nil, error: error)
@@ -206,7 +206,8 @@ class RdioClient {
             }
         )
     }
-        func rdioToUser(dict: [String : AnyObject]) -> User {
+    
+    func rdioToUser(dict: [String : AnyObject]) -> User {
         return User(dictionary: dict as NSDictionary)
     }
     
@@ -230,6 +231,7 @@ class RdioClient {
         let artistName = dict["artist"] as! String
         let albumImageUrl = dict["icon"] as! String
         let duration = dict["duration"] as! Int
+        
         return Track(key: trackKey, trackTitle: trackTitle, artistName: artistName, albumImageUrl: albumImageUrl, duration: duration)
     }
 }

@@ -18,7 +18,6 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Track"
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -64,6 +63,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         if segue.identifier == trackSegueIdentifier {
             if let indexPath = tableView.indexPathForSelectedRow() {
                 let trackViewController = segue.destinationViewController as! TrackViewController
+                
+                trackViewController.station = station
                 trackViewController.track = playlist.tracks[indexPath.row]
             }
         }

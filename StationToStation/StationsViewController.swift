@@ -34,11 +34,12 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
         collectionView.backgroundColor = UIColor.whiteColor()
         self.view = collectionView
         
-         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loadStations()
     }
 
     func loadStations() {
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
         DataStoreClient.sharedInstance.getAllStations { (stations, error) -> Void in
             if let error = error {
                 NSLog("Error while fetching stations: \(error)")

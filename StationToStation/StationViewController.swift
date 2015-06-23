@@ -32,7 +32,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             self.configureNavigation()
         })
         
-        self.configureHeader()
+        configureHeader()
         addPlaylistView()
         setButtonAppearance()
     }
@@ -60,8 +60,11 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
         headerView.contentView.name = station!.name
         
         headerView.contentView.trackCountLabel.text = String(station!.playlist!.tracks.count)
+        
         headerView.contentView.collaboratorCountLabel.text = String(station!.collaborators!.count)
         headerView.contentView.collaboratorsButton.addTarget(self, action: "didTapCollaborators", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        headerView.contentView.commentsButton.addTarget(self, action: "didTapComments", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     func configureNavigation() {
@@ -124,6 +127,14 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
         
         collaboratorsVC.station = self.station!
         self.navigationController!.pushViewController(collaboratorsVC, animated: true)
+    }
+    
+    func didTapComments() {
+        var storyboard = UIStoryboard(name: "Comments", bundle: nil)
+        var stationCommentsVC = storyboard.instantiateViewControllerWithIdentifier("StationCommentsViewController") as! StationCommentsViewController
+        
+          stationCommentsVC.station = self.station!
+        self.navigationController!.pushViewController(stationCommentsVC, animated: true)
     }
     
     @IBAction func didTapAddTracks(sender: AnyObject) {

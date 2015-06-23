@@ -41,6 +41,7 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
         
         headerView.contentView.trackCountLabel.text = String(station!.playlist!.tracks.count)
         headerView.contentView.collaboratorCountLabel.text = String(station!.collaborators!.count)
+        
         headerView.contentView.collaboratorsButton.enabled = false
     }
     
@@ -58,6 +59,10 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
         
         cell.user = station!.collaborators![indexPath.row]
+        
+        if indexPath.row == station!.collaborators!.count - 1 {
+            cell.separatorInset = UIEdgeInsetsMake(0, 10000, 0, 0)
+        }
 
         return cell
     }

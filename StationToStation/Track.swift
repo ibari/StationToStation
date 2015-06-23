@@ -15,6 +15,7 @@ class Track {
     let duration: Int
 
     var voteState: VoteState?
+    var comments: [Comment]?
     
     init(key: String, trackTitle: String, artistName: String, albumImageUrl: String, duration: Int) {
         self.key = key

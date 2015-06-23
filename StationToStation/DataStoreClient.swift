@@ -60,6 +60,10 @@ class DataStoreClient {
         }
     }
     
+    class func loadAll(completion: (stations: [Station]?, error: NSError?) -> Void) {
+        DataStoreClient.sharedInstance.getAllStations(completion)
+    }
+    
     func getStations(completion: (stations: [Station]?, error: NSError?) -> Void) {
         var query: PFQuery = PFQuery(className: DataStoreClient.station_ClassName)
         query.whereKey(DataStoreClient.station_OwnerKey, equalTo: User.currentUser!.key)
@@ -75,7 +79,7 @@ class DataStoreClient {
                 for obj in objects {
                     stations.append(self.pfoToStation(obj))
                 }
-                self.fillStations(stations, completion: completion)
+                self.loadStationProperties(stations, completion: completion)
             } else {
                 completion(stations: [], error: nil)
                 return
@@ -97,7 +101,7 @@ class DataStoreClient {
             for obj in objs! {
                 stations.append(self.pfoToStation(obj as! PFObject))
             }
-            self.fillStations(stations, completion: completion)
+            self.loadStationProperties(stations, completion: completion)
         }
     }
     
@@ -149,17 +153,13 @@ class DataStoreClient {
         }
     }
     
-    class func loadAll(completion: (stations: [Station]?, error: NSError?) -> Void) {
-        DataStoreClient.sharedInstance.getStations(completion)
-    }
-    
     func getStation(objectId: String, completion: (station: Station?, error: NSError?) -> Void) {
         var query: PFQuery = PFQuery(className: DataStoreClient.station_ClassName)
     
         query.getObjectInBackgroundWithId(objectId) { (obj: PFObject?, error: NSError?) -> Void in
             if error == nil && obj != nil {
                 let stationObj = self.pfoToStation(obj!)
-                self.fillStations([stationObj]) { (stations, error) in
+                self.loadStationProperties([stationObj]) { (stations, error) in
                     var station = stations?.first
                     completion(station: station, error: error)
                 }
@@ -169,14 +169,14 @@ class DataStoreClient {
         }
     }
     
-    func fillStations(stations: [Station], completion: (stations: [Station]?, error: NSError?) -> Void) {
+    func loadStationProperties(stations: [Station], completion: (stations: [Station]?, error: NSError?) -> Void) {
         var loadedStationCollaboratorCount = 0
         var loadedStationPlaylistCount = 0
         
         for station in stations {
             getCollaborators(station, completion: { (users, error) -> Void in
                 if let error = error {
-                    NSLog("Error while loading collaborators in fillStations \(error)")
+                    NSLog("Error while loading collaborators in loadStationProperties: \(error)")
                     return
                 }
                 station.collaborators = users
@@ -189,7 +189,7 @@ class DataStoreClient {
             
             RdioClient.sharedInstance.getPlaylist(station.playlistKey, withMeta: station.playlistMeta, completion: { (playlist: Playlist?, error: NSError?) in
                 if let error = error {
-                    NSLog("Error while loading playlist in fillStations \(error)")
+                    NSLog("Error while loading playlist in loadStationProperties: \(error)")
                     return
                 }
                 station.playlist = playlist
@@ -402,12 +402,103 @@ class DataStoreClient {
         }
     }
     
-    // MARK: - Image
+    // MARK: - Comment
     
-    func saveImage(image: UIImage, completion: (success: Bool, error: NSError?) -> Void) {
-        /*let imageData = UIImageJPEGRepresentation(image)
-        let imageFile = PFFile(data: imageData)
+    private static let comment_ClassName = "Comment"
+    private static let comment_stationObjectId = "stationObjectId"
+    private static let comment_trackKey = "trackKey"
+    private static let comment_userKey = "userKey"
+    private static let comment_text = "text"
+    
+    func getTrackComments(trackKey: String, completion: (comments: [Comment]?, error: NSError?) -> Void) {
+        var query: PFQuery = PFQuery(className: DataStoreClient.comment_ClassName)
         
-        imageFile.saveInBackgroundWithBlock(completion)*/
+        query.whereKey(DataStoreClient.comment_trackKey, equalTo: trackKey)
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                completion(comments: nil, error: error)
+                return
+            }
+            
+            if let objects = objects as? [PFObject] {
+                var comments = [Comment]()
+                for obj in objects {
+                    comments.append(self.pfoToComment(obj))
+                }
+                
+                self.loadCommentProperties(comments, completion: completion)
+            } else {
+                completion(comments: [], error: nil)
+                return
+            }
+        }
+    }
+    
+    func getStationComments(objectId: String, completion: (comments: [Comment]?, error: NSError?) -> Void) {
+        var query: PFQuery = PFQuery(className: DataStoreClient.comment_ClassName)
+        
+        query.whereKey(DataStoreClient.comment_stationObjectId, equalTo: objectId)
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let error = error {
+                completion(comments: nil, error: error)
+                return
+            }
+            
+            if let objects = objects as? [PFObject] {
+                var comments = [Comment]()
+                for obj in objects {
+                    comments.append(self.pfoToComment(obj))
+                }
+                
+                self.loadCommentProperties(comments, completion: completion)
+            } else {
+                completion(comments: [], error: nil)
+                return
+            }
+        }
+    }
+    
+    func loadCommentProperties(comments: [Comment], completion: (comments: [Comment]?, error: NSError?) -> Void) {
+        var loadedCommentUserCount = 0
+        
+        for comment in comments {
+            RdioClient.sharedInstance.getUser(comment.userKey!, completion: { (user, error) -> Void in
+                if let error = error {
+                    NSLog("Error while loading user in loadCommentProperties: \(error)")
+                    return
+                }
+            
+                comment.user = user!
+                loadedCommentUserCount += 1
+            
+                if comments.count == loadedCommentUserCount {
+                    completion(comments: comments, error: nil)
+                }
+            })
+        }
+    }
+    
+    func saveComment(comment: Comment, completion: (success: Bool, error: NSError?) -> Void) {
+        commentToPfo(comment).saveInBackgroundWithBlock(completion)
+    }
+    
+    func pfoToComment(obj: PFObject) -> Comment {
+        return Comment(
+            stationObjectId: obj[DataStoreClient.comment_stationObjectId] as! String,
+            trackKey: obj[DataStoreClient.comment_trackKey] as! String,
+            userKey: obj[DataStoreClient.comment_userKey] as! String,
+            text: obj[DataStoreClient.comment_text] as! String
+        )
+    }
+    
+    func commentToPfo(comment: Comment) -> PFObject {
+        var obj = PFObject(className: DataStoreClient.comment_ClassName)
+        
+        obj[DataStoreClient.comment_stationObjectId] = comment.stationObjectId
+        obj[DataStoreClient.comment_trackKey] = comment.trackKey
+        obj[DataStoreClient.comment_userKey] = comment.userKey
+        obj[DataStoreClient.comment_text] = comment.text
+        
+        return obj
     }
 }
