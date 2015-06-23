@@ -105,6 +105,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
         station!.collaborate(User.currentUser!, collaborating: true) { (success, error) -> Void in
             if let error = error {
                 NSLog("Error joining station: \(error)")
+                return
             }
             
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Leave", style: .Plain, target: self, action: "didTapLeave")
@@ -115,6 +116,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
         station!.collaborate(User.currentUser!, collaborating: false) { (success, error) -> Void in
             if let error = error {
                 NSLog("Error leaving station: \(error)")
+                return
             }
             
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Join", style: .Plain, target: self, action: "didTapJoin")

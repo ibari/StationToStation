@@ -172,7 +172,8 @@ class RdioClient {
         rdio.callAPIMethod("setPlaylistCollaborating",
             withParameters: [
                 "playlist": station.playlist!.key,
-                "collaborating": collaborating
+                "collaborating": collaborating,
+                "extras": "tracks"
             ], success: { (response) in
                 println("Rdio collaborating success")
                 

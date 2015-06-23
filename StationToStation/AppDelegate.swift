@@ -66,4 +66,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = rootController
     }
 }
-

@@ -65,6 +65,9 @@
 		ABEB416B1B25277D0088C812 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEB416A1B25277D0088C812 /* Station.swift */; };
 		ABEB416D1B252B250088C812 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEB416C1B252B250088C812 /* Playlist.swift */; };
 		ABEB416F1B252BD40088C812 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEB416E1B252BD40088C812 /* Track.swift */; };
+		ABF2222E1B391B7000C87A96 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF2222D1B391B7000C87A96 /* CoreFoundation.framework */; };
+		ABF222311B391D2D00C87A96 /* NSObject+StationToStation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF222301B391D2D00C87A96 /* NSObject+StationToStation.m */; };
+		ABF222341B391EAA00C87A96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF222331B391EAA00C87A96 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +143,10 @@
 		ABEB416A1B25277D0088C812 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		ABEB416C1B252B250088C812 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		ABEB416E1B252BD40088C812 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		ABF2222D1B391B7000C87A96 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		ABF222301B391D2D00C87A96 /* NSObject+StationToStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+StationToStation.m"; sourceTree = "<group>"; };
+		ABF222321B391D4700C87A96 /* NSObject+StationToStation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+StationToStation.h"; sourceTree = "<group>"; };
+		ABF222331B391EAA00C87A96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ECC08714F9B3C6A5BE6446DD /* Pods-StationToStation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StationToStation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StationToStation/Pods-StationToStation.debug.xcconfig"; sourceTree = "<group>"; };
 		EE15B70B16D103D74AC34388 /* Pods-StationToStation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StationToStation.release.xcconfig"; path = "Pods/Target Support Files/Pods-StationToStation/Pods-StationToStation.release.xcconfig"; sourceTree = "<group>"; };
 		F8F9A742435132C8C84A1AA3 /* libPods-StationToStation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StationToStation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +157,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF222341B391EAA00C87A96 /* Foundation.framework in Frameworks */,
+				ABF2222E1B391B7000C87A96 /* CoreFoundation.framework in Frameworks */,
 				AB700E6B1B250660008FE3CB /* SystemConfiguration.framework in Frameworks */,
 				AB700E691B25065B008FE3CB /* Security.framework in Frameworks */,
 				AB700E671B250655008FE3CB /* CoreMedia.framework in Frameworks */,
@@ -289,6 +298,8 @@
 				9C40DA4C1B21563A001AEBBF /* Info.plist */,
 				9CC026BA1B2DF53E000F6038 /* secrets.plist */,
 				AB34F2621B23A83800E14AB1 /* StationToStation-Bridging-Header.h */,
+				ABF222301B391D2D00C87A96 /* NSObject+StationToStation.m */,
+				ABF222321B391D4700C87A96 /* NSObject+StationToStation.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -389,6 +400,8 @@
 		DB82D6CE073313544B0BF872 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABF222331B391EAA00C87A96 /* Foundation.framework */,
+				ABF2222D1B391B7000C87A96 /* CoreFoundation.framework */,
 				AB700E6A1B250660008FE3CB /* SystemConfiguration.framework */,
 				AB700E681B25065B008FE3CB /* Security.framework */,
 				AB700E661B250655008FE3CB /* CoreMedia.framework */,
@@ -582,6 +595,7 @@
 				AB164E351B281E8E00FCB441 /* AddTracksViewController.swift in Sources */,
 				9C2B57141B2AB8FE001AE7AE /* StationHeaderView.swift in Sources */,
 				9C2B57041B28B664001AE7AE /* UserCell.swift in Sources */,
+				ABF222311B391D2D00C87A96 /* NSObject+StationToStation.m in Sources */,
 				ABEB416F1B252BD40088C812 /* Track.swift in Sources */,
 				9C1067F41B26A3E7006F9492 /* PlaylistViewController.swift in Sources */,
 				9C2B571E1B2BF6B5001AE7AE /* CreateStationViewController.swift in Sources */,
