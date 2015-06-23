@@ -64,6 +64,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
         headerView.contentView.collaboratorCountLabel.text = String(station!.collaborators!.count)
         headerView.contentView.collaboratorsButton.addTarget(self, action: "didTapCollaborators", forControlEvents: UIControlEvents.TouchUpInside)
         
+        headerView.contentView.commentCountLabel.text = String(station!.comments!.count)
         headerView.contentView.commentsButton.addTarget(self, action: "didTapComments", forControlEvents: UIControlEvents.TouchUpInside)
     }
     

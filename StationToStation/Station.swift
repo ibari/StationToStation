@@ -21,6 +21,7 @@ class Station: PlaylistMetaDelegate {
 
     var collaborators: [User]?
     var playlist: Playlist?
+    var comments: [Comment]?
     
     init(ownerKey: String, playlistKey: String, name: String, description: String, image: UIImage?, playlistMetaDict: [String: AnyObject]?) {
         self.ownerKey = ownerKey

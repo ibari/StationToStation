@@ -66,6 +66,7 @@ class StationCommentsViewController: UIViewController {
         
         headerView.contentView.trackCountLabel.text = String(station!.playlist!.tracks.count)
         headerView.contentView.collaboratorCountLabel.text = String(station!.collaborators!.count)
+        headerView.contentView.commentCountLabel.text = String(station!.comments!.count)
 
         headerView.contentView.commentsButton.enabled = false
     }

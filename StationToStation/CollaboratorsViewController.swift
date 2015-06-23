@@ -41,6 +41,7 @@ class CollaboratorsViewController: UIViewController, UITableViewDataSource, UITa
         
         headerView.contentView.trackCountLabel.text = String(station!.playlist!.tracks.count)
         headerView.contentView.collaboratorCountLabel.text = String(station!.collaborators!.count)
+        headerView.contentView.commentCountLabel.text = String(station!.comments!.count)
         
         headerView.contentView.collaboratorsButton.enabled = false
     }

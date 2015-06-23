@@ -169,9 +169,16 @@ class DataStoreClient {
         }
     }
     
+    func handleOnComplete(stations: [Station], collabCount: Int, playlistCount: Int, commentsCount: Int, completion: (stations: [Station]?, error: NSError?) -> Void) {
+        if stations.count == collabCount && stations.count == playlistCount && stations.count == commentsCount {
+            completion(stations: stations, error: nil)
+        }
+    }
+    
     func loadStationProperties(stations: [Station], completion: (stations: [Station]?, error: NSError?) -> Void) {
         var loadedStationCollaboratorCount = 0
         var loadedStationPlaylistCount = 0
+        var loadedStationCommentsCount = 0
         
         for station in stations {
             getCollaborators(station, completion: { (users, error) -> Void in
@@ -182,9 +189,20 @@ class DataStoreClient {
                 station.collaborators = users
                 loadedStationCollaboratorCount += 1
                 
-                if stations.count == loadedStationCollaboratorCount && stations.count == loadedStationPlaylistCount {
-                    completion(stations: stations, error: nil)
+                self.handleOnComplete(stations, collabCount: loadedStationCollaboratorCount, playlistCount: loadedStationPlaylistCount, commentsCount: loadedStationCommentsCount, completion: completion)
+                
+            })
+            
+            getStationComments(station.objectId!, completion: { (comments, error) -> Void in
+                if let error = error {
+                    NSLog("Error while loading comments for station in loadStationProperties: \(error)")
+                    return
                 }
+
+                station.comments = comments
+                loadedStationCommentsCount += 1
+                
+                self.handleOnComplete(stations, collabCount: loadedStationCollaboratorCount, playlistCount: loadedStationPlaylistCount, commentsCount: loadedStationCommentsCount, completion: completion)
             })
             
             RdioClient.sharedInstance.getPlaylist(station.playlistKey, withMeta: station.playlistMeta, completion: { (playlist: Playlist?, error: NSError?) in
@@ -195,9 +213,7 @@ class DataStoreClient {
                 station.playlist = playlist
                 loadedStationPlaylistCount += 1
             
-                if stations.count == loadedStationCollaboratorCount && stations.count == loadedStationPlaylistCount {
-                    completion(stations: stations, error: nil)
-                }
+                self.handleOnComplete(stations, collabCount: loadedStationCollaboratorCount, playlistCount: loadedStationPlaylistCount, commentsCount: loadedStationCommentsCount, completion: completion)
             })
         }
     }
@@ -460,6 +476,11 @@ class DataStoreClient {
     
     func loadCommentProperties(comments: [Comment], completion: (comments: [Comment]?, error: NSError?) -> Void) {
         var loadedCommentUserCount = 0
+        
+        if comments.count == 0 {
+            completion(comments: comments, error: nil)
+            return
+        }
         
         for comment in comments {
             RdioClient.sharedInstance.getUser(comment.userKey!, completion: { (user, error) -> Void in

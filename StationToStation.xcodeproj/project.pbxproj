@@ -193,10 +193,10 @@
 		9C1067F01B26A3A9006F9492 /* Playlist */ = {
 			isa = PBXGroup;
 			children = (
-				9C1067F11B26A3D4006F9492 /* Playlist.storyboard */,
-				9C1067F31B26A3E7006F9492 /* PlaylistViewController.swift */,
 				AB164E321B281E7E00FCB441 /* AddTracks.storyboard */,
 				AB164E341B281E8E00FCB441 /* AddTracksViewController.swift */,
+				9C1067F11B26A3D4006F9492 /* Playlist.storyboard */,
+				9C1067F31B26A3E7006F9492 /* PlaylistViewController.swift */,
 				9CC026BC1B2DFD92000F6038 /* TrackViewController.swift */,
 			);
 			name = Playlist;
