@@ -257,8 +257,8 @@ class DataStoreClient {
     
     func stationToPfo(station: Station) -> PFObject {
         var obj = PFObject(className: DataStoreClient.station_ClassName)
-        let imageData = UIImagePNGRepresentation(station.image)
-        let imageFile = PFFile(name: "header.png", data: imageData)
+        let imageData = UIImageJPEGRepresentation(station.image, 0.7)
+        let imageFile = PFFile(name: "header-image.jpg", data: imageData)
         
         obj[DataStoreClient.station_OwnerKey] = station.ownerKey
         obj[DataStoreClient.station_PlaylistKey] = station.playlistKey
