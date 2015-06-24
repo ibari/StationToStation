@@ -52,7 +52,10 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             self.configureNavigation()
             self.addPlaylistView()
             
-            if collaborating == false {
+            if collaborating == true {
+                self.addTracksButton.enabled = true
+                self.addPeopleButton.enabled =  true
+            } else {
                 self.addTracksButton.enabled = false
                 self.addPeopleButton.enabled =  false
             }
@@ -142,6 +145,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
                     return
                 }
                 self.station = station
+                User.currentUser!.collaborating! = true
                 self.setUpView()
             })
         }
@@ -163,6 +167,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
                     return
                 }
                 self.station = station
+                User.currentUser!.collaborating! = false
                 self.setUpView()
             })
         }

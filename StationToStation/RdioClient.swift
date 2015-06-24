@@ -171,8 +171,6 @@ class RdioClient {
     
     func stationCollaborate(station: Station, user: User, collaborating: Bool, completion: (success: Bool, error: NSError?) -> Void) {
         
-        println("playlist key: \(station.playlist!.key) collaborating: \(collaborating)")
-        
         rdio.callAPIMethod("setPlaylistCollaborating",
             withParameters: [
                 "playlist": station.playlist!.key,
