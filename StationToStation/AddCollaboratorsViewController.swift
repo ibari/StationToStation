@@ -48,7 +48,7 @@ class AddCollaboratorsViewController: UIViewController, UISearchBarDelegate, UIT
                 self.collaborators.append(user)
                 self.tableView.reloadData()
             } else {
-                NSLog("Unexpected nil returned for user")
+                NSLog("No user found")
                 return
             }
         }

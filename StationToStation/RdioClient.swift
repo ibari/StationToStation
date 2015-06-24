@@ -47,7 +47,11 @@ class RdioClient {
             withParameters: [
                 "email": query
             ], success: { (response) in
-                var user = User(dictionary: response as NSDictionary)
+                if response.count == 0 {
+                    completion(user: nil, error: nil)
+                    return
+                }
+                var user = User(dictionary: response)
                 completion(user: user, error: nil)
             }, failure: { (error) in
                 completion(user: nil, error: error)
