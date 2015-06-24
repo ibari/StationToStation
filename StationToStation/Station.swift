@@ -74,20 +74,47 @@ class PlaylistMeta: PlaylistDelegate {
     func apply(playlist: Playlist) {
         playlist.delegate = self
         
-        let votes = getVotesForUser(User.currentUser!.key)
+        let myVotes = getVotesForUser(User.currentUser!.key)
+        let allVotesByTrack = getVotesByTrack()
+        
         for track in playlist.tracks {
-            if let state = votes[track.key] {
+            if let state = myVotes[track.key] {
                 track.voteState = state
+            }
+            
+            if allVotesByTrack[track.key] == nil {
+                track.bumps = 0
+                track.drops = 0
+            } else {
+                let trackVotes = allVotesByTrack[track.key]!
+                var bumpCount = 0
+                var dropCount = 0
+                for vote in trackVotes {
+                    if vote == .Bump {
+                        bumpCount += 1
+                    } else if vote == .Drop {
+                        dropCount += 1
+                    }
+                }
+                track.bumps = bumpCount
+                track.drops = dropCount
             }
         }
     }
     
-    func setVoteForUser(key: String, forTrack trackKey: String, withState state: VoteState) {
+    // User : Track : Vote
+    func getVotes() -> [String: [String: String]] {
         if data["votes"] == nil {
             data["votes"] = [String: [String: String]]()
         }
         
         var votes = data["votes"] as! [String: [String: String]]
+        return votes
+    }
+    
+    func setVoteForUser(key: String, forTrack trackKey: String, withState state: VoteState) {
+        var votes = getVotes()
+        
         if votes[key] == nil {
             votes[key] = [String: String]()
         }
@@ -105,7 +132,7 @@ class PlaylistMeta: PlaylistDelegate {
     }
     
     func getVotesForUser(key: String) -> [String: VoteState] {
-        let allVotes = (data["votes"] ?? [String: [String: String]]()) as! [String: [String: String]]
+        let allVotes = getVotes()
         let userVotes = allVotes[key] ?? [String: String]()
         
         var rtn = [String: VoteState]()
@@ -118,6 +145,35 @@ class PlaylistMeta: PlaylistDelegate {
             }
         }
         return rtn
+    }
+    
+    func getVotesByTrack() -> [String : [VoteState]] {
+        let votes = getVotes()
+        
+        var votesByTrack = [String : [VoteState]]()
+        
+        for userKey in votes.keys {
+            let userVotes = votes[userKey]!
+            for trackKey in userVotes.keys {
+                let stateStr = userVotes[trackKey]!
+                
+                let state: VoteState
+                if stateStr == "bump" {
+                    state = .Bump
+                } else if stateStr == "drop" {
+                    state = .Drop
+                } else {
+                    state = .Neutral
+                }
+                
+                if votesByTrack[trackKey] == nil {
+                    votesByTrack[trackKey] = [VoteState]()
+                }
+                votesByTrack[trackKey]!.append(state)
+            }
+        }
+        
+        return votesByTrack
     }
     
     func getData() -> [String: AnyObject] {
@@ -139,8 +195,4 @@ class Vote {
         self.trackKey = trackKey
         self.state = state
     }
-}
-
-class TrackMeta {
-
 }

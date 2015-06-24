@@ -33,6 +33,8 @@ class TrackCell: UITableViewCell {
             iconImageView.setImageWithURL(NSURL(string: track.albumImageUrl))
             titleLabel.text = track.trackTitle
             artistLabel.text = track.artistName
+            bumpCountLabel.text = "\(track.bumps ?? 0) Bumps"
+            dropCountLabel.text = "\(track.drops ?? 0) Drops"
             
             if let voteState = track.voteState {
                 switch voteState {

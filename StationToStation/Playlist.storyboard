@@ -238,8 +238,10 @@
                         <outlet property="albumImageUrl" destination="REX-2K-qN8" id="DcZ-5J-cLf"/>
                         <outlet property="artistName" destination="hBZ-SM-RMi" id="0W2-xP-S2J"/>
                         <outlet property="bottomConstraint" destination="wTm-mI-epu" id="1fa-5f-rpa"/>
+                        <outlet property="bumpCountLabel" destination="fZM-fQ-I8f" id="aEk-l8-2ED"/>
                         <outlet property="commentTextField" destination="ful-3O-I57" id="PbM-46-j2g"/>
                         <outlet property="containerView" destination="0F4-qU-0KM" id="nGF-lB-gGw"/>
+                        <outlet property="dropCountLabel" destination="hj3-bS-a8C" id="luc-ux-K2J"/>
                         <outlet property="durationLabel" destination="Ass-gd-WIa" id="yHX-xL-nvp"/>
                         <outlet property="trackTitle" destination="Lcf-dn-AAN" id="5b0-cp-gjt"/>
                     </connections>

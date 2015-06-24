@@ -18,6 +18,8 @@ class TrackViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var bumpCountLabel: UILabel!
+    @IBOutlet weak var dropCountLabel: UILabel!
     
     var station: Station!
     var track: Track!
@@ -32,6 +34,9 @@ class TrackViewController: UIViewController, UITextFieldDelegate {
         trackTitle.text = track.trackTitle
         artistName.text = track.artistName
         durationLabel.text = Utils.sharedInstance.secondsToMinutes(Double(track.duration))
+        
+        bumpCountLabel.text = "\(track.bumps ?? 0) Bumps"
+        dropCountLabel.text = "\(track.drops ?? 0) Drops"
         
         commentTextField.delegate = self
         
