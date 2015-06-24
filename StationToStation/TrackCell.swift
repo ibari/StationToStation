@@ -57,6 +57,9 @@ class TrackCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        //titleLabel.preferredMaxLayoutWidth = titleLabel.frame.size.width
+        //artistLabel.preferredMaxLayoutWidth = artistLabel.frame.size.width
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

@@ -32,14 +32,14 @@
                                                         <constraint firstAttribute="height" constant="50" id="LEC-fm-A9V"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Star Wars Theme Song" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yho-jy-8Cm">
-                                                    <rect key="frame" x="73" y="10" width="140.5" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Star Wars Theme Song" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yho-jy-8Cm">
+                                                    <rect key="frame" x="73" y="10" width="164" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Williams" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ejc-bH-oBw">
-                                                    <rect key="frame" x="73" y="26" width="77.5" height="14.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Williams" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ejc-bH-oBw">
+                                                    <rect key="frame" x="73" y="26" width="164" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -88,6 +88,7 @@
                                                 <constraint firstItem="rA4-vI-fuu" firstAttribute="leading" secondItem="Ahz-r8-trg" secondAttribute="trailing" constant="8" id="6K0-rU-aTx"/>
                                                 <constraint firstItem="Yho-jy-8Cm" firstAttribute="leading" secondItem="Ahz-r8-trg" secondAttribute="trailing" constant="8" id="Bwy-NC-WLA"/>
                                                 <constraint firstItem="u4D-4A-guy" firstAttribute="centerY" secondItem="s1L-O7-wBo" secondAttribute="centerY" id="CtN-f4-RRI"/>
+                                                <constraint firstItem="s1L-O7-wBo" firstAttribute="leading" secondItem="Ejc-bH-oBw" secondAttribute="trailing" constant="15" id="D9Z-86-BrL"/>
                                                 <constraint firstItem="Ahz-r8-trg" firstAttribute="top" secondItem="wkd-Wk-HN0" secondAttribute="top" constant="8" id="QA0-KA-Zow"/>
                                                 <constraint firstItem="s1L-O7-wBo" firstAttribute="centerY" secondItem="Ejc-bH-oBw" secondAttribute="centerY" id="Qbg-wU-Uao"/>
                                                 <constraint firstItem="Ejc-bH-oBw" firstAttribute="leading" secondItem="Ahz-r8-trg" secondAttribute="trailing" constant="8" id="UIe-Mb-RCF"/>
@@ -99,6 +100,7 @@
                                                 <constraint firstItem="Ejc-bH-oBw" firstAttribute="top" secondItem="Yho-jy-8Cm" secondAttribute="bottom" id="lkm-vP-Ndj"/>
                                                 <constraint firstItem="Ahz-r8-trg" firstAttribute="leading" secondItem="wkd-Wk-HN0" secondAttribute="leading" constant="15" id="m3a-fp-u9N"/>
                                                 <constraint firstItem="rA4-vI-fuu" firstAttribute="top" secondItem="Yho-jy-8Cm" secondAttribute="bottom" constant="16" id="nmd-oL-sHl"/>
+                                                <constraint firstItem="s1L-O7-wBo" firstAttribute="leading" secondItem="Yho-jy-8Cm" secondAttribute="trailing" constant="15" id="ykQ-AY-KJf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -163,8 +165,8 @@
                                             <constraint firstAttribute="width" constant="75" id="aO5-tK-97b"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="David Bowie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBZ-SM-RMi">
-                                        <rect key="frame" x="103" y="34" width="81" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="David Bowie" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBZ-SM-RMi">
+                                        <rect key="frame" x="103" y="34" width="202" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -187,8 +189,8 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Five Years" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcf-dn-AAN">
-                                        <rect key="frame" x="103" y="15" width="76" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Five Years" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcf-dn-AAN">
+                                        <rect key="frame" x="103" y="15" width="202" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -199,10 +201,12 @@
                                     <constraint firstItem="Lcf-dn-AAN" firstAttribute="top" secondItem="REX-2K-qN8" secondAttribute="top" id="3Ra-8K-11p"/>
                                     <constraint firstItem="REX-2K-qN8" firstAttribute="top" secondItem="N79-Pg-IdG" secondAttribute="top" constant="15" id="4SY-uT-9GS"/>
                                     <constraint firstAttribute="width" constant="320" id="4bk-Bx-zrb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lcf-dn-AAN" secondAttribute="trailing" constant="15" id="C85-tu-oBn"/>
                                     <constraint firstItem="hBZ-SM-RMi" firstAttribute="leading" secondItem="REX-2K-qN8" secondAttribute="trailing" constant="10" id="CCz-H4-tig"/>
                                     <constraint firstAttribute="height" constant="118" id="GxM-iG-AhE"/>
                                     <constraint firstItem="Lcf-dn-AAN" firstAttribute="leading" secondItem="REX-2K-qN8" secondAttribute="trailing" constant="10" id="IPE-gY-O1g"/>
                                     <constraint firstItem="Ass-gd-WIa" firstAttribute="leading" secondItem="REX-2K-qN8" secondAttribute="trailing" constant="10" id="LeU-Fx-Sfi"/>
+                                    <constraint firstAttribute="trailing" secondItem="hBZ-SM-RMi" secondAttribute="trailing" constant="15" id="Yfz-Rr-gi2"/>
                                     <constraint firstItem="REX-2K-qN8" firstAttribute="leading" secondItem="N79-Pg-IdG" secondAttribute="leading" constant="18" id="aio-Lp-aai"/>
                                     <constraint firstItem="hj3-bS-a8C" firstAttribute="centerY" secondItem="fZM-fQ-I8f" secondAttribute="centerY" id="c0b-EX-vk5"/>
                                     <constraint firstItem="fZM-fQ-I8f" firstAttribute="leading" secondItem="REX-2K-qN8" secondAttribute="trailing" constant="10" id="mlR-tp-9Dt"/>
