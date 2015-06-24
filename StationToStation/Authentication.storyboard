@@ -1,33 +1,88 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dcp-iP-3A2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="wTf-SD-Kf7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Login-->
-        <scene sceneID="h4v-2t-2TC">
+        <scene sceneID="DAv-sd-piT">
             <objects>
-                <viewController storyboardIdentifier="AuthenticationViewController" title="Login" id="dcp-iP-3A2" customClass="AuthenticationViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
-                    <button key="view" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sjg-Qb-NQ2">
+                <viewController storyboardIdentifier="AuthenticationViewController" title="Login" id="wTf-SD-Kf7" customClass="AuthenticationViewController" customModule="StationToStation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M0p-Oy-ney"/>
+                        <viewControllerLayoutGuide type="bottom" id="csZ-r1-T3P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZdP-CM-DW0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jK0-Z5-296">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Station" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feL-g4-HhY">
+                                        <rect key="frame" x="33" y="52" width="92.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Station" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHD-ty-fJu">
+                                        <rect key="frame" x="195" y="52" width="92.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyb-kB-vpz">
+                                        <rect key="frame" x="145" y="52" width="30.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.55686274509803924" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="Lyb-kB-vpz" secondAttribute="centerX" id="2nl-aI-8rl"/>
+                                    <constraint firstItem="DHD-ty-fJu" firstAttribute="leading" secondItem="Lyb-kB-vpz" secondAttribute="trailing" constant="20" id="CET-Hq-MUd"/>
+                                    <constraint firstAttribute="height" constant="140" id="HCu-H0-8CU"/>
+                                    <constraint firstItem="Lyb-kB-vpz" firstAttribute="leading" secondItem="feL-g4-HhY" secondAttribute="trailing" constant="20" id="YyO-gM-Pkj"/>
+                                    <constraint firstItem="DHD-ty-fJu" firstAttribute="centerY" secondItem="Lyb-kB-vpz" secondAttribute="centerY" id="YyS-Pj-UkN"/>
+                                    <constraint firstAttribute="centerY" secondItem="Lyb-kB-vpz" secondAttribute="centerY" id="gZh-aN-txd"/>
+                                    <constraint firstAttribute="width" constant="320" id="hPb-tz-xE6"/>
+                                    <constraint firstItem="DHD-ty-fJu" firstAttribute="centerY" secondItem="feL-g4-HhY" secondAttribute="centerY" id="w8F-y2-Mbl"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffH-gI-ZJx">
+                                <rect key="frame" x="85" y="300" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3gp-Vf-dXJ"/>
+                                    <constraint firstAttribute="width" constant="150" id="65i-zt-EWY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Login with Rdio">
+                                    <color key="titleColor" red="0.0" green="0.5607843137254902" blue="0.83137254901960789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapSignIn:" destination="wTf-SD-Kf7" eventType="touchUpInside" id="k4a-Qy-6my"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal" title="Login with Rdio">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="didTapSignIn:" destination="dcp-iP-3A2" eventType="touchUpInside" id="XYX-e0-mAG"/>
-                        </connections>
-                    </button>
-                    <navigationItem key="navigationItem" id="bon-WH-5g6"/>
+                        <constraints>
+                            <constraint firstItem="jK0-Z5-296" firstAttribute="leading" secondItem="ZdP-CM-DW0" secondAttribute="leading" id="NPh-xJ-oWb"/>
+                            <constraint firstItem="jK0-Z5-296" firstAttribute="top" secondItem="ZdP-CM-DW0" secondAttribute="top" id="Sw8-SD-bwt"/>
+                            <constraint firstItem="csZ-r1-T3P" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ffH-gI-ZJx" secondAttribute="bottom" constant="100" id="Wnz-9m-onT"/>
+                            <constraint firstAttribute="trailing" secondItem="jK0-Z5-296" secondAttribute="trailing" id="ZMe-gR-2Il"/>
+                            <constraint firstItem="ffH-gI-ZJx" firstAttribute="top" secondItem="jK0-Z5-296" secondAttribute="bottom" constant="160" id="wqH-1J-sik"/>
+                            <constraint firstAttribute="centerX" secondItem="ffH-gI-ZJx" secondAttribute="centerX" id="zKX-qN-yhz"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <outlet property="loginButton" destination="Sjg-Qb-NQ2" id="dPd-u2-H3l"/>
+                        <outlet property="loginButton" destination="ffH-gI-ZJx" id="lxI-GT-5cQ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ejd-cI-iTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hf5-v9-jgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2774" y="272"/>
+            <point key="canvasLocation" x="2709" y="154"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
