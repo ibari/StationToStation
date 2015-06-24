@@ -130,6 +130,15 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             
             NSNotificationCenter.defaultCenter().postNotificationName(didUpdateCollaboration, object: nil)
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Leave", style: .Plain, target: self, action: "didTapLeave")
+            
+            DataStoreClient.sharedInstance.getStation(self.station!.objectId!, completion: { (station, error) -> Void in
+                if let error = error {
+                    NSLog("Error refreshing station on join collaboration \(error)")
+                    return
+                }
+                self.station = station
+                self.setUpView()
+            })
         }
     }
     
@@ -142,6 +151,15 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             
             NSNotificationCenter.defaultCenter().postNotificationName(didUpdateCollaboration, object: nil)
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Join", style: .Plain, target: self, action: "didTapJoin")
+            
+            DataStoreClient.sharedInstance.getStation(self.station!.objectId!, completion: { (station, error) -> Void in
+                if let error = error {
+                    NSLog("Error refreshing station on leave collaboration \(error)")
+                    return
+                }
+                self.station = station
+                self.setUpView()
+            })
         }
     }
     
