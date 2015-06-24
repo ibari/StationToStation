@@ -42,6 +42,13 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.delegate = self
         cell.track = playlist.tracks[indexPath.item]
         
+        if let collaborating = User.currentUser!.collaborating {
+            if collaborating == false {
+                cell.bumpButton.hidden = true
+                cell.dropButton.hidden = true
+            }
+        }
+        
         if indexPath.row == playlist.tracks.count - 1 {
             cell.separatorInset = UIEdgeInsetsMake(0, 10000, 0, 0)
         }
@@ -77,14 +84,12 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         
         playlist.setVoteForTrack(track.key, withState: state)
         
-        
         RdioClient.sharedInstance.reorderPlaylist(playlist.key, tracks: playlist.tracks, withMeta: station.playlistMeta) { (playlist, error) -> Void in
             if let error = error {
                 NSLog("Error while reordering playlist")
                 return
             }
         }
-
         
         tableView.reloadData()
     }
