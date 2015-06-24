@@ -155,6 +155,12 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
         self.navigationController!.pushViewController(addCollaboratorsVC, animated: true)
     }
     
+    // MARK: - Play
+    
+    @IBAction func onPlay(sender: AnyObject) {
+        NSLog("on play")
+    }
+    
     // MARK: - AddTracksViewControllerDelegate
     
     func addTracksViewController(sender: AddTracksViewController, didAddTrack track: Track) {

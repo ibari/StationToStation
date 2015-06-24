@@ -62,8 +62,4 @@ class StationHeaderSubview: UIView {
             }
         }
     }
-    
-    @IBAction func onPlay(sender: AnyObject) {
-        NSLog("onPlay")
-    }
 }

@@ -147,20 +147,9 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkO-Hd-iQM">
-                    <rect key="frame" x="145" y="102" width="30" height="30"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Play">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onPlay:" destination="iN0-l3-epB" eventType="touchUpInside" id="fUd-nU-Kng"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="hkO-Hd-iQM" secondAttribute="centerX" id="3fZ-zb-XFq"/>
                 <constraint firstItem="mj5-aO-hEH" firstAttribute="top" secondItem="4ru-79-G14" secondAttribute="bottom" id="6FJ-Us-T2B"/>
                 <constraint firstItem="dWq-vX-xrn" firstAttribute="top" secondItem="4ru-79-G14" secondAttribute="bottom" constant="32" id="EPI-u6-qJT"/>
                 <constraint firstItem="ahw-6f-ZcY" firstAttribute="leading" secondItem="OWb-eU-hlK" secondAttribute="trailing" id="Gns-UD-Udn"/>
@@ -172,7 +161,6 @@
                 <constraint firstItem="19X-fd-Kbp" firstAttribute="leading" secondItem="LLR-HY-WOV" secondAttribute="trailing" id="Uj7-ju-qlf"/>
                 <constraint firstItem="LLR-HY-WOV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="140" id="blB-FN-WpN"/>
                 <constraint firstItem="ahw-6f-ZcY" firstAttribute="width" secondItem="19X-fd-Kbp" secondAttribute="width" id="cgz-EZ-lax"/>
-                <constraint firstItem="ahw-6f-ZcY" firstAttribute="top" secondItem="hkO-Hd-iQM" secondAttribute="bottom" constant="8" id="ind-N4-cF3"/>
                 <constraint firstItem="LLR-HY-WOV" firstAttribute="leading" secondItem="ahw-6f-ZcY" secondAttribute="trailing" id="kb9-gK-FHm"/>
                 <constraint firstItem="4ru-79-G14" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mYh-6c-25V"/>
                 <constraint firstAttribute="trailing" secondItem="19X-fd-Kbp" secondAttribute="trailing" id="npy-C1-5Gl"/>

@@ -57,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnC-vv-T5n">
-                                        <rect key="frame" x="215" y="8.5" width="90" height="30"/>
+                                        <rect key="frame" x="215" y="8" width="90" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="91G-Yz-YSV"/>
                                             <constraint firstAttribute="height" constant="30" id="9km-e6-lgm"/>
@@ -71,6 +71,15 @@
                                             <action selector="didTapAddCollaborators:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="s86-v3-aEF"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GP-Kd-t76">
+                                        <rect key="frame" x="145" y="9" width="30" height="30"/>
+                                        <state key="normal" title="Play">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onPlay:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="cVW-81-pk2"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="xJY-Z6-8cR" firstAttribute="leading" secondItem="Qof-7n-tsF" secondAttribute="leading" constant="15" id="69S-0O-P7s"/>
@@ -78,6 +87,8 @@
                                     <constraint firstAttribute="centerY" secondItem="DnC-vv-T5n" secondAttribute="centerY" id="GI4-34-mfT"/>
                                     <constraint firstAttribute="trailing" secondItem="DnC-vv-T5n" secondAttribute="trailing" constant="15" id="GkH-M7-D7A"/>
                                     <constraint firstAttribute="centerY" secondItem="xJY-Z6-8cR" secondAttribute="centerY" id="Kh8-y4-taF"/>
+                                    <constraint firstItem="4GP-Kd-t76" firstAttribute="bottom" secondItem="xJY-Z6-8cR" secondAttribute="bottom" id="SlL-nG-oHN"/>
+                                    <constraint firstAttribute="centerX" secondItem="4GP-Kd-t76" secondAttribute="centerX" id="sFY-ki-h2r"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="431-wn-INk" customClass="StationHeaderView" customModule="StationToStation" customModuleProvider="target">
