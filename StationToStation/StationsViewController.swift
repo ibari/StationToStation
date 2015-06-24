@@ -11,7 +11,7 @@ import UIKit
 private let reuseIdentifier = "StationCell"
 private let sectionInsets = UIEdgeInsets(top: 12.0, left: 10.0, bottom: 10.0, right: 12.0)
 
-class StationsViewController: UIViewController, CreateStationViewControllerDelegate {
+class StationsViewController: UIViewController, CreateStationViewControllerDelegate, StationViewControllerDelegate {
 
     var collectionView: UICollectionView!
     var stations: [Station]?
@@ -19,6 +19,7 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
     
     override func viewWillAppear(animated: Bool) {
         self.tabBarController?.navigationItem.title = "Stations"
+        self.collectionView.reloadData()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadStations", name: didUpdateCollaboration, object: nil)
     }
@@ -95,6 +96,20 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
         self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "logout")
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .Plain, target: self, action: "create")
     }
+
+    // MARK: - StationViewControllerDelegate
+    
+    func stationViewController(sender: StationViewController, didUpdateStation updatedStation: Station) {
+        if var stations = stations {
+            for i in 0..<stations.count {
+                let currentStation = stations[i]
+                if currentStation.objectId == updatedStation.objectId {
+                    stations[i] = updatedStation
+                }
+            }
+            self.stations = stations
+        }
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -124,6 +139,7 @@ extension StationsViewController: UICollectionViewDataSource {
         var storyboard = UIStoryboard(name: "Stations", bundle: nil)
         var stationVC = storyboard.instantiateViewControllerWithIdentifier("StationViewController") as! StationViewController
         stationVC.station = stations![indexPath.item]
+        stationVC.delegate = self
         self.navigationController!.pushViewController(stationVC, animated: true)
     }
 }

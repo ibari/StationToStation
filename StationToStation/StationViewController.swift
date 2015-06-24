@@ -10,6 +10,10 @@ import UIKit
 
 let didUpdateCollaboration = "didUpdateCollaboration"
 
+protocol StationViewControllerDelegate {
+    func stationViewController(sender: StationViewController, didUpdateStation: Station)
+}
+
 class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     
     @IBOutlet weak var headerView: StationHeaderView!
@@ -19,6 +23,8 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     
     var station: Station?
     var playlistViewController: PlaylistViewController!
+    
+    var delegate: StationViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +43,8 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             }
             
             self.station = station
+            self.delegate?.stationViewController(self, didUpdateStation: station!)
+
             self.setUpView()
         })
     }
@@ -137,6 +145,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
                     return
                 }
                 self.station = station
+                self.delegate?.stationViewController(self, didUpdateStation: station!)
                 self.setUpView()
             })
         }
@@ -158,6 +167,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
                     return
                 }
                 self.station = station
+                self.delegate?.stationViewController(self, didUpdateStation: station!)
                 self.setUpView()
             })
         }
@@ -214,6 +224,8 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
             }
             self.playlistViewController.playlist = playlist!
             self.playlistViewController.reloadData()
+            
+            self.delegate?.stationViewController(self, didUpdateStation: self.station!)
         }
     }
 }

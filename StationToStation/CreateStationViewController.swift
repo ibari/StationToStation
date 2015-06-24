@@ -70,9 +70,16 @@ class CreateStationViewController: UIViewController, UIImagePickerControllerDele
                     NSLog("Error while creating station \(error)")
                     return
                 }
-                
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
-                self.delegate?.createStationViewController(self, didCreateStation: station)
+
+                DataStoreClient.sharedInstance.saveCollaborator(User.currentUser!, station: station, completion: { (success, error) -> Void in
+                    if let error = error {
+                        NSLog("Error while saving owner as initial collaborator on the station \(error)")
+                        return
+                    }
+                    
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    self.delegate?.createStationViewController(self, didCreateStation: station)
+                })
             }
         }
     }

@@ -36,28 +36,7 @@ class DataStoreClient {
     private static let station_PlaylistMeta = "playlist_meta"
     
     func getAllStations(completion: (stations: [Station]?, error: NSError?) -> Void) {
-        var ownedStations: [Station] = []
-        var collaboratingStations: [Station] = []
-        
-        getStations() { (stations, error) in
-            if let error = error {
-                completion(stations: nil, error: error)
-                return
-            }
-            
-            ownedStations = stations!
-            completion(stations: ownedStations + collaboratingStations, error: nil)
-        }
-        
-        getCollaboratingStations() { (stations, error) in
-            if let error = error {
-                completion(stations: nil, error: error)
-                return
-            }
-            
-            collaboratingStations = stations!
-            completion(stations: ownedStations + collaboratingStations, error: nil)
-        }
+        getCollaboratingStations(completion)
     }
     
     class func loadAll(completion: (stations: [Station]?, error: NSError?) -> Void) {
@@ -88,6 +67,7 @@ class DataStoreClient {
     }
     
     func getStations(ids: [String], completion: (stations: [Station]?, error: NSError?) -> Void) {
+        NSLog("getStations \(ids)")
         var query: PFQuery = PFQuery(className: DataStoreClient.station_ClassName)
         query.whereKey("objectId", containedIn: ids)
         
@@ -226,7 +206,11 @@ class DataStoreClient {
             pfo.saveInBackgroundWithBlock(completion)
         } else {
             // Create
-            stationToPfo(station).saveInBackgroundWithBlock(completion)
+            let pfo = stationToPfo(station)
+            pfo.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) in
+                station.objectId = pfo.objectId
+                completion(success: success, error: error)
+            })
         }
     }
     
