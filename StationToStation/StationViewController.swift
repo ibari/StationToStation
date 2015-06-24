@@ -44,16 +44,21 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     func setUpView() {
         User.currentUser!.collaborating(station!, completion: { (collaborating, error) -> Void in
             if let error = error {
-                NSLog("Error calling isCollaborator: \(error)")
+                NSLog("Error calling collaborating: \(error)")
                 return
             }
             
             User.currentUser!.collaborating = collaborating!
             self.configureNavigation()
+            self.addPlaylistView()
+            
+            if collaborating == false {
+                self.addTracksButton.enabled = false
+                self.addPeopleButton.enabled =  false
+            }
         })
         
         configureHeader()
-        addPlaylistView()
         setButtonAppearance()
     }
     
