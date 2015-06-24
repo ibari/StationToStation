@@ -57,7 +57,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1L-O7-wBo">
-                                                    <rect key="frame" x="246" y="19" width="30" height="30"/>
+                                                    <rect key="frame" x="252" y="21" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="LzJ-Qz-gTy"/>
+                                                        <constraint firstAttribute="height" constant="24" id="rqG-d4-7g0"/>
+                                                    </constraints>
                                                     <state key="normal" image="up_arrow">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -66,7 +70,11 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4D-4A-guy">
-                                                    <rect key="frame" x="278" y="19" width="30" height="30"/>
+                                                    <rect key="frame" x="284" y="21" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="Kfu-RM-sSE"/>
+                                                        <constraint firstAttribute="height" constant="24" id="SLd-BS-K27"/>
+                                                    </constraints>
                                                     <state key="normal" image="down_arrow">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -86,7 +94,7 @@
                                                 <constraint firstItem="rA4-vI-fuu" firstAttribute="centerY" secondItem="5gG-cr-PPC" secondAttribute="centerY" id="VWW-ps-ULh"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ahz-r8-trg" secondAttribute="bottom" constant="10" id="a8F-C3-2Vt"/>
                                                 <constraint firstAttribute="trailing" secondItem="u4D-4A-guy" secondAttribute="trailing" constant="12" id="aDo-h5-Zbx"/>
-                                                <constraint firstItem="u4D-4A-guy" firstAttribute="leading" secondItem="s1L-O7-wBo" secondAttribute="trailing" constant="2" id="b91-N7-av2"/>
+                                                <constraint firstItem="u4D-4A-guy" firstAttribute="leading" secondItem="s1L-O7-wBo" secondAttribute="trailing" constant="8" id="b91-N7-av2"/>
                                                 <constraint firstItem="Yho-jy-8Cm" firstAttribute="top" secondItem="wkd-Wk-HN0" secondAttribute="top" constant="10" id="dqd-zL-Qeb"/>
                                                 <constraint firstItem="Ejc-bH-oBw" firstAttribute="top" secondItem="Yho-jy-8Cm" secondAttribute="bottom" id="lkm-vP-Ndj"/>
                                                 <constraint firstItem="Ahz-r8-trg" firstAttribute="leading" secondItem="wkd-Wk-HN0" secondAttribute="leading" constant="15" id="m3a-fp-u9N"/>
