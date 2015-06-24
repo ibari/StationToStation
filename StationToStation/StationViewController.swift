@@ -153,6 +153,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
                     return
                 }
                 self.station = station
+                User.currentUser!.collaborating! = true
                 self.delegate?.stationViewController(self, didUpdateStation: station!)
                 self.setUpView()
             })
@@ -175,6 +176,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
                     return
                 }
                 self.station = station
+                User.currentUser!.collaborating! = false
                 self.delegate?.stationViewController(self, didUpdateStation: station!)
                 self.setUpView()
             })
