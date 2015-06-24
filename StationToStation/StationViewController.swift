@@ -138,6 +138,8 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     }
     
     func didTapJoin() {
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
         station!.collaborate(User.currentUser!, collaborating: true) { (success, error) -> Void in
             if let error = error {
                 NSLog("Error joining station: \(error)")
@@ -157,10 +159,14 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
                 self.delegate?.stationViewController(self, didUpdateStation: station!)
                 self.setUpView()
             })
+            
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
     }
     
     func didTapLeave() {
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
         station!.collaborate(User.currentUser!, collaborating: false) { (success, error) -> Void in
             if let error = error {
                 NSLog("Error leaving station: \(error)")
@@ -180,6 +186,8 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
                 self.delegate?.stationViewController(self, didUpdateStation: station!)
                 self.setUpView()
             })
+            
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
     }
     
