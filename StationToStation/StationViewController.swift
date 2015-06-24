@@ -24,6 +24,24 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
         super.viewDidLoad()
         self.title = "Station"
         
+        setUpView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DataStoreClient.sharedInstance.getStation(station!.objectId!, completion: { (station, error) -> Void in
+            if let error = error {
+                NSLog("Error loading station in viewWillAppear \(error)")
+                return
+            }
+            
+            self.station = station
+            self.setUpView()
+        })
+    }
+    
+    func setUpView() {
         User.currentUser!.collaborating(station!, completion: { (collaborating, error) -> Void in
             if let error = error {
                 NSLog("Error calling isCollaborator: \(error)")
@@ -37,7 +55,6 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
         configureHeader()
         addPlaylistView()
         setButtonAppearance()
-        
     }
     
     func addPlaylistView() {

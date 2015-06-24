@@ -49,6 +49,8 @@ class Station: PlaylistMetaDelegate {
     // MARK: - PlaylistMetaDelegate
     
     func playlistMetaOnUpdate(sender: PlaylistMeta) {
+        sender.apply(playlist!)
+        
         save { (success, error) -> Void in
             if let error = error {
                 NSLog("Error while saving vote for station \(error)")
