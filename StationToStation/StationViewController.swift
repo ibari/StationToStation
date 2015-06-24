@@ -8,6 +8,8 @@
 
 import UIKit
 
+let didUpdateCollaboration = "didUpdateCollaboration"
+
 class StationViewController: UIViewController, AddTracksViewControllerDelegate {
     
     @IBOutlet weak var headerView: StationHeaderView!
@@ -35,6 +37,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
         configureHeader()
         addPlaylistView()
         setButtonAppearance()
+        
     }
     
     func addPlaylistView() {
@@ -108,6 +111,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
                 return
             }
             
+            NSNotificationCenter.defaultCenter().postNotificationName(didUpdateCollaboration, object: nil)
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Leave", style: .Plain, target: self, action: "didTapLeave")
         }
     }
@@ -119,6 +123,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
                 return
             }
             
+            NSNotificationCenter.defaultCenter().postNotificationName(didUpdateCollaboration, object: nil)
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Join", style: .Plain, target: self, action: "didTapJoin")
         }
     }

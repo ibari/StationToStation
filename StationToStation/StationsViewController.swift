@@ -19,6 +19,8 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
     
     override func viewWillAppear(animated: Bool) {
         self.tabBarController?.navigationItem.title = "Stations"
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadStations", name: didUpdateCollaboration, object: nil)
     }
 
     override func viewDidLoad() {
