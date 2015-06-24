@@ -16,7 +16,7 @@ class TabBarViewController: UITabBarController {
         
         var stationsController = StationsViewController()
         var invitesController = InvitesViewController()
-        var profileController = ProfileViewController()
+        var profileController = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
 
         self.viewControllers = [stationsController, invitesController, profileController]
         self.selectedIndex = 0
