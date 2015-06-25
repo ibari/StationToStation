@@ -41,7 +41,7 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
     }
 
     func loadStations() {
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        //MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
         DataStoreClient.sharedInstance.getAllStations { (stations, error) -> Void in
             if let error = error {
@@ -57,7 +57,7 @@ class StationsViewController: UIViewController, CreateStationViewControllerDeleg
                 return
             }
             
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            //MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
     }
     
