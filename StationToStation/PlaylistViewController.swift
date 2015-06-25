@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PlaylistViewControllerDelegate {
+    func playlistViewControllerOnRefresh(sender: PlaylistViewController)
+}
+
 class PlaylistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TrackCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
@@ -15,6 +19,10 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     var station: Station!
     var playlist: Playlist!
     let trackSegueIdentifier = "trackSegue"
+    
+    var delegate: PlaylistViewControllerDelegate?
+    
+    private var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +34,15 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.backgroundColor = UIColor.clearColor()
         tableView.reloadData()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.blackColor()
+        refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    func onRefresh() {
+        delegate?.playlistViewControllerOnRefresh(self)
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

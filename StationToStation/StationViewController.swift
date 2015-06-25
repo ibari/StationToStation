@@ -14,7 +14,7 @@ protocol StationViewControllerDelegate {
     func stationViewController(sender: StationViewController, didUpdateStation: Station)
 }
 
-class StationViewController: UIViewController, AddTracksViewControllerDelegate {
+class StationViewController: UIViewController, AddTracksViewControllerDelegate, PlaylistViewControllerDelegate {
     
     @IBOutlet weak var headerView: StationHeaderView!
     @IBOutlet weak var containerView: UIView!
@@ -77,6 +77,7 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
         var storyboard = UIStoryboard(name: "Playlist", bundle: nil)
         
         playlistViewController = storyboard.instantiateViewControllerWithIdentifier("PlaylistViewController") as! PlaylistViewController
+        playlistViewController.delegate = self
         playlistViewController.station = station!
         playlistViewController.playlist = station!.playlist
         
@@ -87,6 +88,21 @@ class StationViewController: UIViewController, AddTracksViewControllerDelegate {
         playlistViewController.view.center = playlistViewController.view.convertPoint(containerView.center, fromView: containerView)
         
         playlistViewController.didMoveToParentViewController(self)
+    }
+    
+    func playlistViewControllerOnRefresh(sender: PlaylistViewController) {
+        NSLog("refresh")
+        DataStoreClient.sharedInstance.getStation(station!.objectId!, completion: { (station, error) -> Void in
+            if let error = error {
+                NSLog("Error loading station in viewWillAppear \(error)")
+                return
+            }
+            
+            self.station = station
+            self.delegate?.stationViewController(self, didUpdateStation: station!)
+            
+            self.setUpView()
+        })
     }
     
     // MARK: - Configuration
