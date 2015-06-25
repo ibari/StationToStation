@@ -71,9 +71,9 @@
                                             <action selector="didTapAddCollaborators:" destination="DfL-PK-BWJ" eventType="touchUpInside" id="s86-v3-aEF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GP-Kd-t76">
-                                        <rect key="frame" x="145" y="9" width="30" height="30"/>
-                                        <state key="normal" title="Play">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GP-Kd-t76">
+                                        <rect key="frame" x="144" y="7" width="32" height="32"/>
+                                        <state key="normal" image="play_btn">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -128,6 +128,9 @@
             <point key="canvasLocation" x="46" y="-3144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play_btn" width="32" height="32"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
