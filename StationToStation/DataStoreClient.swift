@@ -470,17 +470,29 @@ class DataStoreClient {
             return
         }
         
+        var userToComments = [String: [Comment]]()
         for comment in comments {
-            RdioClient.sharedInstance.getUser(comment.userKey!, completion: { (user, error) -> Void in
+            if userToComments[comment.userKey!] == nil {
+                userToComments[comment.userKey!] = [Comment]()
+            }
+            userToComments[comment.userKey!]!.append(comment)
+        }
+        
+        var loadedUserCount = 0
+        for userKey in userToComments.keys {
+            RdioClient.sharedInstance.getUser(userKey, completion: { (user, error) -> Void in
                 if let error = error {
-                    NSLog("Error while loading user in loadCommentProperties: \(error)")
+                    NSLog("Error while loading user \(userKey) in loadCommentProperties: \(error)")
                     return
                 }
-            
-                comment.user = user!
-                loadedCommentUserCount += 1
-            
-                if comments.count == loadedCommentUserCount {
+                NSLog("Loaded user \(userKey) for comments \(userToComments[userKey])")
+                
+                loadedUserCount += 1
+                for comment in userToComments[userKey]! {
+                    comment.user = user!
+                }
+                
+                if userToComments.count == loadedUserCount {
                     completion(comments: comments, error: nil)
                 }
             })
